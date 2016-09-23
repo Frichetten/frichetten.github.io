@@ -14,6 +14,7 @@ body {
 
 li a {
   color: black;
+  border: 1px solid #111;
 }
 
 .main {
