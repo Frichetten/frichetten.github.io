@@ -12,10 +12,12 @@ body {
   overflow: auto;
 }
 
+ul {
+  list-style-type: none;
+}
+
 li a {
   color: black;
-  border: 1px solid #111;
-  padding: 8px 18px;
 }
 
 .main {
