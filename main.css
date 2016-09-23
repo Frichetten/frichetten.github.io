@@ -6,6 +6,10 @@ body {
   background-color: #f1f1f1;
   color: #FFF;
   list-style-type: none;
+  width: 15%;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
 }
 
 .main {
