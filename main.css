@@ -10,7 +10,10 @@ body {
   height: 100%;
   position: fixed;
   overflow: auto;
-  a:visited { text-decoration: none; color:black;
+}
+
+li a {
+  color: black;
 }
 
 .main {
