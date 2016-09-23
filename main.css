@@ -8,8 +8,7 @@ body {
   list-style-type: none;
   width: 10%;
   height: 100%;
-  position: absolute;
-  overflow: auto;
+  align-items: left;
 }
 
 ul {
@@ -24,4 +23,5 @@ li a {
 .main {
   display: inline;
   float: relative;
+  align-items: right;
 }
