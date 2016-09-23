@@ -6,7 +6,7 @@ body {
   background-color: #f1f1f1;
   color: #FFF;
   list-style-type: none;
-  width: 10%;
+  max-width: 20%;
   height: 100%;
   align-items: left;
 }
