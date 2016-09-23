@@ -8,7 +8,7 @@ body {
   list-style-type: none;
   width: 10%;
   height: 100%;
-  position: fixed;
+  position: absolute;
   overflow: auto;
   float: left;
 }
@@ -23,5 +23,5 @@ li a {
 
 .main {
   display: inline;
-  float: left;
+  float: relative;
 }
