@@ -2,8 +2,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    min-width: 12%;
-    max-width: 35%;
+    width: 15%;
     background-color: #F1F1F1;
     border: 1px solid #555;
     font-family: "Helvetica";
