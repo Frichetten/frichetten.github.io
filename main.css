@@ -7,7 +7,7 @@ body {
   color: #FFF;
   list-style-type: none;
   max-width: 60%;
-  min-width: 50%;
+  width: 50%;
   height: 100%;
   align-items: left;
 }
