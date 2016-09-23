@@ -10,6 +10,7 @@ body {
   height: 100%;
   position: fixed;
   overflow: auto;
+  float: left;
 }
 
 ul {
@@ -22,6 +23,5 @@ li a {
 
 .main {
   display: inline;
-  margin-left: auto;
-  margin-right: auto;
+  float: left;
 }
