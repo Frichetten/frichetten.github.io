@@ -1,0 +1,46 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 12%;
+    background-color: #F1F1F1;
+	border: 1px solid #555;
+	font-family: "Helvetica";
+    height: 100%;
+    float: left;
+}
+
+li {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+.content {
+	float: center;
+	padding-left: 13%;
+	color: #111;
+	font-family: "Helvetica";
+}
+
+html {
+	background-image: url("sayagata-400px.png");
+	background-repeat: repeat;
+}
