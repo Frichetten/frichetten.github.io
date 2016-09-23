@@ -18,4 +18,5 @@ li a {
 
 .main {
   display: inline;
+  float: right;
 }
