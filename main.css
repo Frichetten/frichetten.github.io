@@ -10,7 +10,6 @@ body {
   height: 100%;
   position: absolute;
   overflow: auto;
-  float: left;
 }
 
 ul {
