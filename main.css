@@ -14,10 +14,12 @@ body {
 ul {
   list-style-type: none;
   text-decoration: none;
+  max-width: 100%;
 }
 
 li a {
   color: black;
+  max-width: 100%;
 }
 
 .main {
