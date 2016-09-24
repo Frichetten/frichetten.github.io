@@ -8,7 +8,6 @@ ul {
     font-family: "Helvetica";
     height: 100%;
     float: left;
-	
 }
 
 li {
@@ -40,6 +39,20 @@ li a:hover {
 	color: #111;
 	font-family: "Helvetica";
 	font-size: 175%;
+}
+
+.item {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	border: 2px solid #111;
+	padding: 8px 18px;
+	margin: 30px;
+}
+
+.item a{
+	color: #111;
+	padding: 8px 18px;
 }
 
 html {
