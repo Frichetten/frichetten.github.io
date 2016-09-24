@@ -8,6 +8,7 @@ ul {
     font-family: "Helvetica";
     height: 100%;
     float: left;
+	
 }
 
 li {
@@ -38,6 +39,7 @@ li a:hover {
 	padding-left: 17%;
 	color: #111;
 	font-family: "Helvetica";
+	font-size: 200%;
 }
 
 html {
