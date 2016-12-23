@@ -10,12 +10,7 @@ p {
 p a {
   text-decoration: underline;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
@@ -49,7 +44,9 @@ hr.small {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .navbar-custom .navbar-brand {
+  color: white;
   font-weight: 800;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .navbar-custom .navbar-header .navbar-toggle {
   color: #777777;
@@ -71,10 +68,12 @@ hr.small {
   .navbar-custom .navbar-brand {
     color: white;
     padding: 20px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
     color: rgba(255, 255, 255, 0.8);
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
   .navbar-custom .nav li a {
     color: white;
@@ -111,10 +110,12 @@ hr.small {
   }
   .navbar-custom.is-fixed .navbar-brand {
     color: #333333;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
     color: #0085A1;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
   .navbar-custom.is-fixed .nav li a {
     color: #333333;
@@ -147,12 +148,14 @@ hr.small {
 .intro-header .page-heading {
   padding: 100px 0 50px;
   color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
     padding: 150px 0;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 }
 .intro-header .site-heading,
@@ -177,6 +180,7 @@ hr.small {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
     font-size: 80px;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 }
 .intro-header .post-heading h1 {
@@ -218,62 +222,13 @@ hr.small {
   text-decoration: none;
   color: #0085A1;
 }
-.post-preview > a > .post-title {
-  font-size: 30px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-.post-preview > a > .post-subtitle {
-  margin: 0;
-  font-weight: 300;
-  margin-bottom: 10px;
-}
-.post-preview > .post-meta {
-  color: #777777;
-  font-size: 18px;
-  font-style: italic;
-  margin-top: 0;
-}
-.post-preview > .post-meta > a {
-  text-decoration: none;
-  color: #333333;
-}
-.post-preview > .post-meta > a:hover,
-.post-preview > .post-meta > a:focus {
-  color: #0085A1;
-  text-decoration: underline;
-}
-@media only screen and (min-width: 768px) {
-  .post-preview > a > .post-title {
-    font-size: 36px;
-  }
-}
-.section-heading {
-  font-size: 36px;
-  margin-top: 60px;
-  font-weight: 700;
-}
-.caption {
-  text-align: center;
-  font-size: 14px;
-  padding: 10px;
-  font-style: italic;
-  margin: 0;
-  display: block;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
+
 footer {
   padding: 50px 0 65px;
 }
 footer .list-inline {
   margin: 0;
   padding: 0;
-}
-footer .copyright {
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 0;
 }
 .floating-label-form-group {
   font-size: 14px;

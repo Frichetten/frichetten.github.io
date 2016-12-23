@@ -29,7 +29,7 @@
 
     <!-- CSS and Fonts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/site-style.css" rel="stylesheet">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -77,7 +77,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
+                    <div class="site-heading">
                         <h1>Projects</h1>
                         <hr class="small">
                         <span class="subheading">I Like To Work</span>
@@ -95,6 +95,58 @@
 					<p>Want to know what I've done? Well here you go! This is where I post 
 					about my side projects.</p>
 				</div>
+				<table style="border-bottom: 1px solid black">
+					<tr style="border-bottom: 1px solid black;padding-bottom: 50px;">
+					<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+						<img src="img/EngineTest.gif" style="float:left;width:310px;height:310px;" hspace="10" alt="BURST Game Engine"/>
+						<a href="https://github.com/Frichetten/BURST-Game-Engine"><h3>BURST Game Engine</h3></a>
+						<p>This is a custom 2D game engine that I am developing in my free 
+						time. It is written in C/C++ and uses the SFML Graphical Libraries. 
+						I've really enjoyed this project because it lets me work with the 
+						low level components of the language, focussing on performance using 
+						threads and more.
+						<p>
+					</div>
+					</tr>
+					<tr style="border-bottom: 1px solid black;padding-bottom: 50px;">
+					<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+						<img src="img/easyPoll1.png" style="float:left;width:310px;height:310px;border:1px solid black;" hspace="10" alt="BURST Game Engine"/>
+						<a href="https://github.com/Frichetten/easyPoll"><h3>easyPoll</h3></a>
+						<p>easyPoll was a semester long project for IT326: Principles of Software 
+						Engineering. It was a massive endeavor, and took many long hours of work. 
+						The front end is Bootstrap, while the back end is Java Spring MVC. In addition 
+						there is a MySQL database.
+						<p>
+					</div>
+					</tr>
+					<tr style="border-bottom: 1px solid black">
+					<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+						<img src="img/crash.png" style="float:left;width:310px;height:310px;border:1px solid black;" hspace="10" alt="easyPoll"/>
+						<a href="crashanalysis.html"><h3>RedBird Hacks Big Data Project</h3></a>
+						<p>This was for the 2016 RedBird Hacks Hackathon at Illinois State 
+						University. The purpose of the hackathon was a full weekend of working 
+						on whatever you wanted to. I chose to use Python to perform an analysis 
+						on crash data. Working with more than 19 Million points of data, I learned 
+						a lot about the challenges of big data, and how to improve performance 
+						while writing Python. For a detailed look at my analyis please follow this 
+						<a href="crashanalysis.html">link</a>.
+						<p>
+					</div>
+					</tr>
+					<tr style="border-bottom: 1px solid black">
+					<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+						<img src="img/imgdiff.jpg" style="float:left;width:310px;height:310px;border:1px solid black;" hspace="10" alt="Image-Difference-Finder"/>
+						<a href="https://github.com/Frichetten/Image-Difference-Finder"><h3>Image Difference Finder</h3></a>
+						<p>This project is a personal favorite of mine. I got the idea while doing one 
+						of those "spot the difference" puzzles. I thought, why not develop a program that 
+						could find those differences between two panels? Thus, the Image-Difference-Finder 
+						was born. Simply insert an image, set the panel-divider, and it will hi-light the 
+						differences between the images. This is done primarily by reading pixel colors and 
+						checking for differences between a certain threshold.
+						<p>
+					</div>
+					</tr>
+				</table>
             </div>
         </div>
     </article>
@@ -146,5 +198,4 @@
 	<script type="text/javascript" src="js/fun.js"></script>
 
 </body>
-
 </html>
