@@ -96,6 +96,9 @@
 		<div class="center-block">
 			<p style="text-align:center"><img src="img/loadbar.gif"></p>
 			<p>
+			<b>NOTE:</b> This article is primarily focused on Python 3.X, however it shouldn't take too long to  
+			convert to Python 2.7. All it would take would be to change some symbols. When I get some free time 
+			I will post that code here as well.<br><br>
 			Loading bars (also known as progress bars) are a succinct and efficient means of communicating 
 			to the user, how much longer your program will run. They have very specific uses (<a href="
 			https://en.wikipedia.org/wiki/Halting_problem">Halting Problem</a> 
@@ -164,7 +167,7 @@
 			don't have to alter our loop at all. We just need to create the loading bar object first, and pass in the length 
 			of the list. After that, you can use that object in your for loop like you normally would. Below is the complete 
 			code for the entire application.<br>
-			<h3>Final Code</h3>
+			<h3>Final Code (Python 3.X)</h3>
 			<pre>import sys<br>from time import sleep<br><br>class loadingBar:<br>    def __init__(self, total):<br>        self.index = 0
         self.total = total<br><br>    def __iter__(self):<br>        return self<br><br>    def __next__(self):<br>        if self.index < self.total:<br>            self.index += 1
             index = self.index<br><br>            length = 26<br>            negSpace = int(index /(self.total/length))
