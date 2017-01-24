@@ -219,7 +219,7 @@ hr.small {
 }
 .post-preview > a:hover,
 .post-preview > a:focus {
-  text-decoration: none;
+  text-decoration; underline;
   color: #0085A1;
 }
 

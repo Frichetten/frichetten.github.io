@@ -101,7 +101,7 @@
 			walk. I have attached the Python 2.7 implementation at the bottom of this page for convenience. 
 			<b>If you find a bug, mistake, or edge case, please let me know! I'd like to correct it.</b><br><br>
 			Loading bars (also known as progress bars) are a succinct and efficient means of communicating 
-			to the user how much longer your program will run. They have very specific uses (<a href="
+			to the user how much longer your program will run. They have very specific uses (<a style="text-decoration:underline" 				href="
 			https://en.wikipedia.org/wiki/Halting_problem">Halting Problem</a> 
 			anyone?), and they look really cool in the command line.<br><br>
 			There's a problem though, they're not the most intuitive thing to make. To a beginner or even an 
@@ -122,10 +122,10 @@
 			in the loop. Only problem is that we will write to a new line each time, and it would not be very 
 			elegant to put the loading bar code in the loop itself.<br><br>
 			The answer to our problem lies in the "list" object itself. Under the hood, Python queries that "list" 
-			object looking for something called an <a href="https://en.wikipedia.org/wiki/Iterator">Iterator Object</a>. 
+			object looking for something called an <a style="text-decoration:underline" href="https://en.wikipedia.org/wiki/Iterator">Iterator Object</a>. 
 			Using that Iterator object, the language will repeatedly call the __next__() function until a 
 			StopIteration exception is raised (in Python 2.7 this function is instead called "next()").<br><br>
-			The beauty of this is that we can <a href=" https://en.wikipedia.org/wiki/Method_overriding">override the function</a>  
+			The beauty of this is that we can <a style="text-decoration:underline" href=" https://en.wikipedia.org/wiki/Method_overriding">override the function</a>  
 			and write our own code for it. An example of this can be seen below.<br><br>
 			<pre>class loadingBar:<br>    def __init__(self, total):<br>        self.index = 0
         self.total = total<br><br>    def __iter__(self):<br>        return self<br><br>    def __next__(self):
