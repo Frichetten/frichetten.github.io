@@ -95,8 +95,57 @@
         <div class="row">
 		<div class="center-block" style="margin-left: 15px;margin-right: 15px;">
 			<p>
-			<b>NOTE: The following information is intended for educational purposes only. Please do not use this information 
-			for anything illegal or malicious.</b><br><br>
+			<b>NOTE: The following information is intended for educational purposes only. I take no responsibility for 
+			anyone's actions.<br><br>I tested this on a Linux (Ubuntu) system using Python 2.7.12, I'd suggest you do 
+			the same. Conversions can be made very easily if you'd like to use another version of Python. If you use a 
+			different OS you may get some errors with the socket creation, however that can be fixed with a quick Google 
+			search (plug in the error number you get and go).</b><br><br>
+			Data exfiltration can be a tricky art. With so many big name data breaches happening every month, many organizations 
+			have invested in DLP (Data Loss Prevention) and SIEM (Security Information and Event Management) systems to prevent 
+			data exfiltration events. Unfortunately, there are still ways to tunnel out of a network and I will be discussing 
+			the basics of one such method today, 
+			<a style="text-decoration:underline" href="https://en.wikipedia.org/wiki/ICMP_tunnel">ICMP Tunneling</a>.<br><br>
+			The basics of ICMP (Internet Control Message Protocol) tunneling revolves around using ICMP echo and reply packets 
+			to create a channel of communication between two systems. What makes this so efffective is that it can be difficult to 
+			block (most organizations can't block ICMP traffic without a lot of hassle) and it can also be difficult to detect 
+			if you're careful.<br><br>
+			For the purposes of this article, our goal is to write a small bit of code to send and recieve a text file using 
+			ICMP tunneling. There are many pre-built solutions you can use such a Loki, or 
+			<a style="text-decoration:underline" href="https://github.com/DhavalKapil/icmptunnel">icmptunnel</a>. However 
+			i'd like to show how can this can be done from scratch with relatively little effort. In addition, writing your own 
+			code should help prevent being noticed by signature based detection. Alright, let's begin!<br>
+			<h3>What does an ICMP packet look like?</h3>
+			The first goal of any project is to know what you're trying to build. In this instance we are trying to impersonate 
+			ICMP requests. The easiest way to know what these look like is to fire up Wireshark and ping your localhost.
+			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
+			There it is! A more astute reader may notice that there is no TCP or UDP header in the packet. This is because ICMP 
+			uses a lower level protocol. As a result, this means that when we build our socket we will have to use something called 
+			a "raw socket". Let's get right to it shall we? First open up your text editor of choice (Vim). And lets type in a 
+			bit of code.<br><br>
+			<pre><code>import socket<br>import binascii as b<br><br>try:<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_RAW)
+except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to sudo'<br>    exit()<br><br>packet = b.unhexlify('')<br><br>source = '127.0.0.1'<br>dest = '127.0.0.1'<br><br>print packet<br>sock.sendto(packet,(dest,1010))<br><br>sock.close()</code></pre><br>
+			Before continuting, lets take a moment to understand what this code is doing, first we import the socket and binascii 
+			packages (more on this in a moment). Both of these packages should be shipped standard with any installation of Python. 
+			Next we attempt to create a socket object called "sock" for us to interact with. Notice the try catch there? That is 
+			because this program will need to be run with root priviledges. Becuase ICMP packets use a lower level networking system, 
+			they need access to the lower bits of the system (requiring root). That try catch block will trigger if the socket 
+			creation fails (due to priviledges) and will exit the application.<br><br>
+			Next, we are creating the actual packet that we intend to send off. There are many different ways to craft a packet in 
+			Python. Most developers would recommend the 
+			<a style="text-decoration:underline" href="https://docs.python.org/2/library/struct.html">Struct</a> module. However 
+			for the purposes of this article we are going to take a much more quick and dirty approach, literally dumping hex 
+			strings into packet. This is done using a helpful module called 
+			<a style="text-decoration:underline" href="https://docs.python.org/2/library/binascii.html">"binascii"</a>.<br><br>
+			What makes this module so useful is that using the "unhexlify" method, we can convert a hex string to binary and send that 
+			across the network. The reason I like this method (aside from the fact that it's really cute) is that we can literally 
+			copy and paste that hex value we got with Wireshark into our code and run it (The hex string is that middle block 
+			of text in the picture above).<br><br>
+			Let's try this now, simply copy that long hex string you got from Wireshark into the empty packet variable. Then run the 
+			program (be sure to run it as root), and see what you get with Wireshark.
+			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/2.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
+			Ta-da! We have successfully sent a ICMP request with no effort at all (which is why I prefer the manual hex packet 
+			crafting over Struct in this case). In addition, you can see that our localhost has replied to our request with 
+			an ICMP reply packet.
 		</div>					
         </div>
     </div>
