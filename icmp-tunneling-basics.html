@@ -186,12 +186,19 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			"08" (which identifies an echo ping request) in the hex string. I would recommend using Wireshark to find this as it 
 			is very useful for learning the layout of a packet.<br><br>
 			I'm sure there are packages out there to help you do this (couldn't find any but I only looked for a second), however I 
-			have some code below that does the work and suites our needs because we take in a hex string.<br><br>
+			have some code below that does the work and suites our needs because we take in a hex string. (You may want to look at this in landscape).<br><br>
 			<pre><code>def checksum(line):<br>    hold = 0<br>    for i in range(0, len(line), 2):<br>        word = ord(line[i]) + (ord(line[i+1]) << 8)<br>        carry = hold + word<br>        hold = (carry & 0xffff) + (carry >> 16)<br>    toReturn = bin(~hold & 0xffff)[2:].zfill(16)<br>    part1 = hex(int(toReturn[:8],2))[2:].zfill(2)<br>    part2 = hex(int(toReturn[8:],2))[2:].zfill(2)<br>    return part2+part1</code></pre><br>
 			As for what part of the hex string we send to the checksum function, lets look at an example. I have provided some 
-			comments to help distinguish some parts of the string.<br><br>
-			<pre><code>packed = b.unhexlify("0800000055d70001" + data)<br>checkSum = checksum(packed)#        This is local IP--V            V--This is server IP<br>packet = b.unhexlify("450000548d9440004001af12" + "0a8773f8" + "8ac54bc5" + "0800" + checkSum + "55d70001" + data)<br>                                   This is where the checksum string starts--^                       ^--packet identifier</code></pre>
-
+			comments to help distinguish some parts of the string. (You may want to look at this in landscape).<br><br>
+			<pre><code>packed = b.unhexlify("0800000055d70001" + data)<br>checkSum = checksum(packed)#        This is local IP--V            V--This is server IP<br>packet = b.unhexlify("450000548d9440004001af12" + "0a8773f8" + "8ac54bc5" + "0800" + checkSum + "55d70001" + data)<br>                                   This is where the checksum string starts--^                       ^--packet identifier</code></pre><br>
+			Now for the explanation of the checksum string. This is identified by the "packed" variable. As mentioned earlier 
+			the first two characters, "08" is the echo ping request. Following that is "00" which is the "code" part of the packet. 
+			Following that is four 0's, "0000". This is the checksum itself (Yes, you need to calculate the checksum using a 
+			placeholder checksum). This placeholder is just "0000". Then we have "55d70001". This is just an identifier and a 
+			sequence number. The final part of the hex string is the actual data that we want to send to our server outside the 
+			network. This should be in hex format before it is run through our checksum function.<br><br>
+			The next part of the explanation is the packet that we plan to send. I've added some annotations through comments so that 
+			you can see how the packet is built.
 			
 			
 		</div>					
