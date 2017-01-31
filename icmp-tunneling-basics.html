@@ -175,7 +175,6 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			<ul>
 				<li>Checksum</li>
 				<li>Source Address</li>
-				<li>Destination Address</li>
 			</ul>
 			<h3>Checksum</h3>
 			This is likely the most difficult part of the entire program. I hope you remember bitwise operators and some conversion 
@@ -197,8 +196,26 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			placeholder checksum). This placeholder is just "0000". Then we have "55d70001". This is just an identifier and a 
 			sequence number. The final part of the hex string is the actual data that we want to send to our server outside the 
 			network. This should be in hex format before it is run through our checksum function.<br><br>
-			The next part of the explanation is the packet that we plan to send. I've added some annotations through comments so that 
-			you can see how the packet is built.
+			After that, you have to actually build the packet. I've added some annotations through comments so that 
+			you can see how the packet is built. It would likly be best for you to plug in your own values from your Wireshark 
+			testing.<br><br>
+			<h3>Source Address</h3>
+			Depending on your setup you can change the "source address" field of the packet. I've tested this and it works on my 
+			home network, while still delivering the packets to my controlled server. Why would you do this? In theory you could 
+			spoof an IP, or attempt to pin the exfiltration on another device on the network (although I don't know how well this 
+			could fool someone. I was getting a ton of arp requests when I claimed to be a device that doesn't exist). Because you 
+			are just testing this for fun and education, put your actual IP (not your internet 
+			facing IP, your devices actual network IP. It probably starts with 192 or 10).<br><br>
+			<h3>Server: Digital Ocean</h3>
+			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/do.jpg" style="max-width:50%;border-width:1px;border-style:solid;border-color:black;"></p>
+			I am completely aware that this tutorial could have been done entirely on my home network (it also could have been about 
+			one tenth as long, but I wanted to be as thorough as possible). However, I wanted to show what this would look like in a 
+			real world scenario, as well as prove that it works. To accomplish this goal, I have a Digital Ocean Droplet set up on 
+			a fixed IP address. If you're not familiar with Digital Ocean, its an IaaS provider, similar to AWS. I like it because 
+			it's cheap ($0.007/hour I'm not joking) and it's easy to get up and running (click a button and go). This setup I have 
+			for testing is a Ubuntu 16.04, 64bit system. It's internet facing and I can connect to it over the internet. 
+			
+			
 			
 			
 		</div>					
