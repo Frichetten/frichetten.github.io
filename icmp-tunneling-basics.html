@@ -270,7 +270,7 @@ for cut in [lines[x:x+16] for x in range(0, len(lines), 16)]:
 			We now have everything in place. Let's start tunneling some data. A minor change to our server code, we don't want 
 			to print to a new line every time we recieve something, and we don't want to print out the full packet, just the 
 			data we've placed at the end. To compensate for this, I've sliced off the beginning 26 characters (this stays the same 
-			no matter what), as well as changed the "print" statements to use "sys.stdout.write()".<br><br>
+			no matter what), as well as changed the "print" statements to use "sys.stdout.write()".<br>
 			<h3>ICMPServer.py</h3>
 			<pre><code>import socket
 import binascii as b
@@ -283,7 +283,7 @@ a = ''
 while 1:
     data, addr = s.recvfrom(1024)
     sys.stdout.write(data[26:])
-    sys.stdout.flush()</code></pre><br>
+    sys.stdout.flush()</code></pre>
 			<h3>ICMPClient.py</h3>
 			<pre><code>import socket
 import binascii as b
@@ -327,11 +327,13 @@ for cut in [lines[x:x+16] for x in range(0, len(lines), 16)]:
 
 sock.close()</code></pre><br>
 			With all the code out of the way, it's now time to see the fruits of our labor. Below you can see our tunneling in 
-			action from the server-side perspective.
-
-			
-			
-			
+			action from the server-side perspective.<br>
+			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/view.gif" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>	
+			And that's all it took. We are now transmitting information using only the ICMP network protocol. There are a number 
+			of ways this can be optimized or improved. We could change how frequently we send data, encrypt that 
+			data, change our source IP, etc (however that goes beyond the scope of this article).<br><br>
+			Got any comments, questions, or concerns? I'd be happy to hear about it! Reach me with the contact 
+			information on the home page of this site.			
 		</div>					
         </div>
     </div>
