@@ -99,7 +99,7 @@
 			the same. Conversions can be made very easily if you'd like to use another version of Python. If you use a 
 			different OS you may get some errors with the socket creation, however that can be fixed with a quick Google 
 			search (plug in the error number you get and go). In addition, I used a Digital Ocean Droplet as my server. If you 
-			perfer another service (such as AWS), ensure that you can successfully ping that server as well as read the ICMP 
+			prefer another service (such as AWS), ensure that you can successfully ping that server as well as read the ICMP 
 			traffic on the server side.</b><br><br>
 			Ever been in a situation where your outbound network traffic has been blocked? For example at a hotel or coffee shop 
 			wifi access point where they require you to log in to use the internet? These systems can be annoying or intrusive. 
@@ -123,7 +123,7 @@
 			<h3>ICMP 101: Ping, Request, and Reply</h3>
 			If you have ever made use of ICMP before, it was likely through the "ping" tool on Windows or Linux. Ping allows you 
 			to send some packets to a target (request) and recieve some packets back (reply). Typically when we ping a target, 
-			we will send them some junk data, and they will send that junk back. Instead, what we will do is send crafted data 
+			we will send them some junk data, and they will send that junk data back. Instead, what we will do is send crafted data 
 			that we plan to exfiltrate out of the network. I'd encourage you to open a terminal (or Command Prompt) and ping your 
 			localhost.
 			<h3>What does an ICMP packet look like?</h3>
@@ -134,11 +134,13 @@
 			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
 			There it is! A more astute reader may notice that there is no TCP or UDP header in the packet. This is because ICMP 
 			uses a lower level protocol. As a result, this means that when we build our socket we will have to use something called 
-			a "raw socket". The significance of this is that a raw socket, requires root or administrative priviledges to use. 
+			a "raw socket". The significance of this is that a raw socket requires root or administrative priviledges to use. 
 			Keep this in mind when running this code. You will have to run this as root (or admin). Notice on the right side of the 
 			bottom panel that we can see some of the junk data that the ping tool naturally generates. Now that we know what the 
-			packet looks like, lets open up our text editor of choice (Vim) and get to work. We will first build a socket with 
-			some parameters with the following code.<br><br>
+			packet looks like, lets open up our text editor of choice (Vim) and get to work. For this article I have chosen to 
+			write the tool in Python because Python is easy, clean, and more than efficient enough for our pruposes. It's my 
+			go-to language for small projects that need to get done quickly. We will first build a socket with some parameters with 
+			the following code.<br><br>
 			<pre><code>import socket<br>import binascii as b<br><br>try:<br>    sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_RAW)
 except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to sudo'<br>    exit()<br><br>packet = b.unhexlify('')<br><br>dest = '127.0.0.1'<br><br>print packet<br>sock.sendto(packet,(dest,0))<br><br>sock.close()</code></pre><br>
 			Before continuting, lets take a moment to understand what this code is doing, first we import the socket and binascii 
@@ -169,11 +171,11 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			crafting over Struct in this case). In addition, you can see that our localhost has replied to our request with 
 			an ICMP reply packet.<br><br>
 			Our next step will be to modify this packet so that we can use it how we want to. There are some things we need to be 
-			aware of. Now, it may be possible for this to work without changing any of the following depending on your setup. I 
+			aware of. It may be possible for this to work without changing any of the following depending on your setup. I 
 			can't claim to be aware of how every system will react, or how it could be rigged to work this way. All I can say is that 
-			by changing the following aspects of these packets I was able to communicate with an internet facing server under my control 
-			(more on this in a bit). I would highly encourage you to research and change the following things so that the system will 
-			work. The following is a list of things you will need to modify.<br><br>
+			by changing the following aspects of these packets I was able to communicate with an internet facing server under my 
+			control (more on this in a bit). I would highly encourage you to research and change the following things so that the 
+			system will work. The following is a list of things you will need to modify.<br><br>
 			<ul>
 				<li>Checksum</li>
 				<li>Source Address</li>
@@ -214,7 +216,7 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			could fool someone. I was getting a ton of arp requests when I claimed to be a device that doesn't exist. When I 
 			claimed to be an existing device, I assume the router sent the traffic to that device, I didn't test that.). Because you 
 			are just testing this for fun and education, put your actual IP (not your internet 
-			facing IP, your devices actual network IP. It probably starts with 192 or 10).<br><br>
+			facing IP, use your device's actual network IP. It probably starts with 192 or 10).<br><br>
 			<h3>Server: Digital Ocean</h3>
 			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/do.jpg" style="max-width:50%;border-width:1px;border-style:solid;border-color:black;"></p>
 			I am completely aware that this tutorial could have been done entirely on my home network (it also could have been about 
@@ -222,7 +224,7 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			real world scenario, as well as prove that it works. To accomplish this goal, I have a Digital Ocean Droplet set up on 
 			a fixed IP address. If you're not familiar with Digital Ocean, its an IaaS provider, similar to AWS. I like it because 
 			it's cheap ($0.007/hour I'm not joking) and it's easy to get up and running (click a button and go). This setup I have 
-			for testing is a Ubuntu 16.04, 64bit system. It is internet facing and I can connect to it over the internet.<br><br>
+			for testing is a Ubuntu 16.04, 64-bit system. It is internet facing and I can connect to it over the internet.<br><br>
 			First, lets test to make sure that our server can recieve ICMP packets over the internet. To do this, we need some code 
 			to listen for ICMP. This code is below.<br><br>
 			<pre><code>import socket<br>import binascii as b<br>import sys<br><br>s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP)<br>s.bind(('*IP.ADDRESS*',0))<br><br>a = ''<br>while 1:<br>    data, addr = s.recvfrom(1024)<br>    print data</code></pre><br>
