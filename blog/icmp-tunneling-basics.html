@@ -56,19 +56,19 @@
                         <a href="/">Home</a>
                     </li>
 		    <li>
-                        <a href="blog">Blog</a>
+                        <a href="/blog">Blog</a>
                     </li>
                     <li>
-                        <a href="about">About Me</a>
+                        <a href="/about">About Me</a>
                     </li>
                     <li>
-                        <a href="Resume.pdf">Resume</a>
+                        <a href="/Resume.pdf">Resume</a>
                     </li>
                     <li>
                         <a href="https://github.com/Frichetten">Github</a>
                     </li>
 		    <li>
-                        <a href="projects">Projects</a>
+                        <a href="/projects">Projects</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +76,7 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="intro-header" style="background-image: url('img/tunnel.jpg')">
+    <header class="intro-header" style="background-image: url('/img/tunnel.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -131,7 +131,7 @@
 			ICMP requests. The easiest way to know what these packets look like is to set up Wireshark to listen to your 
 			network traffic, and then use the "ping" command to ping your machine (localhost). Below I have a screenshot of 
 			what an ICMP packet looks like.
-			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
+			<p style="text-align:center;"><img src="/img/icmp-tunneling-basics/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
 			There it is! A more astute reader may notice that there is no TCP or UDP header in the packet. This is because ICMP 
 			uses a lower level protocol. As a result, this means that when we build our socket we will have to use something called 
 			a "raw socket". The significance of this is that a raw socket requires root or administrative privileges to use. 
@@ -166,7 +166,7 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			I close the socket at the end of the program.<br><br>
 			Let's try this now. Open up Wireshark and listen to your local traffic. Then, run the code above as root and see what 
 			you get. My output is pictured below.
-			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/2.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
+			<p style="text-align:center;"><img src="/img/icmp-tunneling-basics/2.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
 			Ta-da! We have successfully sent a ICMP request with no effort at all (which is why I prefer the manual hex packet 
 			crafting over Struct in this case). In addition, you can see that our localhost has replied to our request with 
 			an ICMP reply packet.<br><br>
@@ -218,7 +218,7 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			are just testing this for fun and education, put your actual IP (not your internet 
 			facing IP, use your device's actual network IP. It probably starts with 192 or 10).<br><br>
 			<h3>Server: Digital Ocean</h3>
-			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/do.jpg" style="max-width:50%;border-width:1px;border-style:solid;border-color:black;"></p>
+			<p style="text-align:center;"><img src="/img/icmp-tunneling-basics/do.jpg" style="max-width:50%;border-width:1px;border-style:solid;border-color:black;"></p>
 			I am completely aware that this tutorial could have been done entirely on my home network (it also could have been about 
 			one tenth as long, but I wanted to be as thorough as possible). However, I wanted to show what this would look like in a 
 			real world scenario, as well as prove that it works. To accomplish this goal, I have a Digital Ocean Droplet set up on 
@@ -231,7 +231,7 @@ except socket.error, msg:<br>    print 'Error: ' + str(msg[0]) + 'Dont forget to
 			The only tweak you need to make is to put the correct IP in the bind function. This needs to be the same as the IP of 
 			your server. Now, run this code on your server, you will see a blank prompt. Next, go to your favorite terminal of 
 			choice and ping the IP address of your server. You should see something similar to the following picture.
-			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/3.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>	
+			<p style="text-align:center;"><img src="/img/icmp-tunneling-basics/3.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>	
 			Notice that sequence of numbers at the end of each line? That's the same sequence of numbers in the junk data 
 			coming from our ping packets! Great, we now know that we are able to communicate with the server. Now that we 
 			have our receiver up and running, let's build our client.
@@ -330,7 +330,7 @@ for cut in [lines[x:x+16] for x in range(0, len(lines), 16)]:
 sock.close()</code></pre><br>
 			With all the code out of the way, it's now time to see the fruits of our labor. Below you can see our tunneling in 
 			action from the server-side perspective.<br>
-			<p style="text-align:center;"><img src="img/icmp-tunneling-basics/view.gif" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>	
+			<p style="text-align:center;"><img src="/img/icmp-tunneling-basics/view.gif" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>	
 			And that's all it took. We are now transmitting information using only the ICMP network protocol. There are a number 
 			of ways this can be optimized or improved. We could change how frequently we send data, encrypt that 
 			data, change our source IP, etc. (however that goes beyond the scope of this article).<br><br>
@@ -368,22 +368,18 @@ sock.close()</code></pre><br>
         </div>
     </footer>
 
-	<!-- JavaScript -->
-	<!-- jQuery -->
+    <!-- JavaScript -->
+    <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 	
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
     <!-- Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
 	
-	<!-- Fun Stuff -->
-	<script type="text/javascript" src="js/fun.js"></script>
+    <!-- Fun Stuff -->
+    <script type="text/javascript" src="js/fun.js"></script>
 
 </body>
 </html>
