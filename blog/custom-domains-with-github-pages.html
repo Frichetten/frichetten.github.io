@@ -106,13 +106,13 @@
 		<p>
 		    As I’m approaching the end of my college term I’ve been looking more and more into career development. One gulp of that Kool-Aid is personal branding (<a style="text-decoration:underline" href="https://www.entrepreneur.com/article/250924">link</a>). A core idea of which is developing a greater online presence. I already had a website, and I liked it. I use GitHub Pages, which is a free web hosting service that everyone has access to if you have a GitHub account. It’s a sweat deal overall, the only downside of which is that the website URL ends in ‘github.io’. While the ‘.io’ is kind of tech hipster (therefore I like it), it’s an eye-sore. I thought to myself, how about I get a custom domain? That is what I will be explaining in this article, how to set a custom domain on GitHub Pages.<br>
 
-<h3>Step 1 Setup a GitHub Pages account</h3>
-To do this, simply sign up to GitHub (or user your existing account) and create a repository with the name {accoutname}.github.io. And BAM, you have a GitHub page. I believe you only get one per account though, so be aware of that.<br>
+<h3>Step 1: Setup a GitHub Pages account</h3>
+To do this, simply sign up to GitHub (or use your existing account) and create a repository with the name {accoutname}.github.io. And BAM, you have a GitHub page. I believe you only get one per account though, so be aware of that.<br>
 
-<h3>Step 2 Get a domain</h3>
+<h3>Step 2: Get a domain</h3>
 You should be able to go about this any way that you want. I personally got my domain from godaddy.com (<a style="text-decoration:underline" href="https://www.godaddy.com">GoDaddy</a>) because they’ve been around forever and you can find a million coupons for them (I got my domain for a dollar). Note: I would assume this would work with any other domain provider, but just in case, If you’re unsure just go with GoDaddy.<br>
 
-<h3>Step 3 Add two A records</h3>
+<h3>Step 3: Add two A records</h3>
 Go into your GoDaddy account > Domains > All Domains > and find the domain you are going to setup. Once you find it, click the settings icon on the top right and select “Manage DNS”. Now, we are going to create two ‘A’ records (an A record is the backbone of DNS). We need to make two, and they need to be very specific IP addresses. I got them from the GitHub Pages documentation at this (<a style="text-decoration:underline" href="https://help.github.com/articles/setting-up-an-apex-domain/">GitHub Documentation</a>) link. The layout is as follows.<br><br>
 <pre>
 	1) Type: A, name: @, Value: 192.30.252.153, TTL: 600
@@ -120,10 +120,10 @@ Go into your GoDaddy account > Domains > All Domains > and find the domain you a
 </pre>
 <p style="text-align:center;"><img src="/img/custom-domains-with-github-pages/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
 
-<h3>Step 4 Create a CNAME record for WWW</h3>
+<h3>Step 4: Create a CNAME record for WWW</h3>
 This will simply redirect anybody going to www.website.com to website.com. <b>I already had this in my settings I just had to configure it, but you may have to create the record yourself.</b> Simply set the ‘www’ record to point to the name of your GitHub Pages site (in my case it was frichetten.github.io). And BAM! That’s all it should take.<br>
 
-<h3>Step 5 Create a CNAME record on GitHub Pages</h3>
+<h3>Step 5: Create a CNAME record on GitHub Pages</h3>
 The very last step you have to perform is adding a CNAME record in your GitHub Pages repo. This is super easy, just create a file named ‘CNAME’, and add a single line which is the name of your website. For example, mine was ‘frichetten.com’.<br><br>
 
 Ta-da! You now have a custom domain on your GitHub Pages website! Now you’ll look even more professional. Don’t worry about your old links not working! If you try to go to your GitHub Pages website, it will redirect to the custom domain. So if you sent a link before, it should still work so long as the path is active.<br><br>
