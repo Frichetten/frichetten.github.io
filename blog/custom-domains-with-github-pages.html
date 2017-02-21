@@ -2,25 +2,34 @@
 <html>
 <meta charset="UTF-8">
 <!--
-   ##########################################
-   #░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░#
-   #░░░░░░░▄▄▀▀▀▀▀▀▀▀▀▀▄▄█▄░░░░▄░░░░█░░░░░░░#
-   #░░░░░░█▀░░░░░░░░░░░░░▀▀█▄░░░▀░░░░░░░░░▄░#
-   #░░░░▄▀░░░░░░░░░░░░░░░░░▀██░░░▄▀▀▀▄▄░░▀░░#   Checking out my code? I like you.
-   #░░▄█▀▄█▀▀▀▀▄░░░░░░▄▀▀█▄░▀█▄░░█▄░░░▀█░░░░#
-   #░▄█░▄▀░░▄▄▄░█░░░▄▀▄█▄░▀█░░█▄░░▀█░░░░█░░░# 
-   #▄█░░█░░░▀▀▀░█░░▄█░▀▀▀░░█░░░█▄░░█░░░░█░░░# 
-   #██░░░▀▄░░░▄█▀░░░▀▄▄▄▄▄█▀░░░▀█░░█▄░░░█░░░#
-   #██░░░░░▀▀▀░░░░░░░░░░░░░░░░░░█░▄█░░░░█░░░#
-   #██░░░░░░░░░░░░░░░░░░░░░█░░░░██▀░░░░█▄░░░#
-   #██░░░░░░░░░░░░░░░░░░░░░█░░░░█░░░░░░░▀▀█▄#
-   #██░░░░░░░░░░░░░░░░░░░░█░░░░░█░░░░░░░▄▄██#
-   #░██░░░░░░░░░░░░░░░░░░▄▀░░░░░█░░░░░░░▀▀█▄#
-   #░▀█░░░░░░█░░░░░░░░░▄█▀░░░░░░█░░░░░░░▄▄██#
-   #░▄██▄░░░░░▀▀▀▄▄▄▄▀▀░░░░░░░░░█░░░░░░░▀▀█▄#
-   #░░▀▀▀▀░░░░░░░░░░░░░░░░░░░░░░█▄▄▄▄▄▄▄▄▄██#
-   #░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░#
-   ##########################################
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |  C:\> _                                     |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |            Checking out my code?            |    |
+           |   |                 I like you.                 |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
 -->
 	  
 <head>
@@ -104,7 +113,7 @@ To do this, simply sign up to GitHub (or user your existing account) and create 
 You should be able to go about this any way that you want. I personally got my domain from godaddy.com (<a style="text-decoration:underline" href="https://www.godaddy.com">GoDaddy</a>) because they’ve been around forever and you can find a million coupons for them (I got my domain for a dollar). Note: I would assume this would work with any other domain provider, but just in case, If you’re unsure just go with GoDaddy.<br>
 
 <h3>Step 3 Add two A records</h3>
-Go into your GoDaddy account > Domains > All Domains > and find the domain you are going to setup. Once you find it, click the settings icon on the top right and select “Manage DNS”. Now, we are going to create two ‘A’ records (an A record is the backbone of DNS). We need to make two, and they need to be very specific IP addresses. I got them from the GitHub Pages documentation at this (<a style="text-decoration:underline" href="https://help.github.com/articles/setting-up-an-apex-domain/">GitHub Documentation</a>) link. The layout is as follows.<br>
+Go into your GoDaddy account > Domains > All Domains > and find the domain you are going to setup. Once you find it, click the settings icon on the top right and select “Manage DNS”. Now, we are going to create two ‘A’ records (an A record is the backbone of DNS). We need to make two, and they need to be very specific IP addresses. I got them from the GitHub Pages documentation at this (<a style="text-decoration:underline" href="https://help.github.com/articles/setting-up-an-apex-domain/">GitHub Documentation</a>) link. The layout is as follows.<br><br>
 <pre>
 	1) Type: A, name: @, Value: 192.30.252.153, TTL: 600
 	2) Type: A, name: @, Value: 192.30.252.154, TTL: 600
@@ -117,7 +126,7 @@ This will simply redirect anybody going to www.website.com to website.com. <b>I 
 <h3>Step 5 Create a CNAME record on GitHub Pages</h3>
 The very last step you have to perform is adding a CNAME record in your GitHub Pages repo. This is super easy, just create a file named ‘CNAME’, and add a single line which is the name of your website. For example, mine was ‘frichetten.com’.<br>
 
-Ta-da! You now have a custom domain on your GitHub Pages website! Now you’ll look even more professional. Don’t worry about your old links not working! If you try to go to your GitHub Pages website, it will redirect to the custom domain. So if you sent a link before, it should still work so long as the path is active.<br>
+Ta-da! You now have a custom domain on your GitHub Pages website! Now you’ll look even more professional. Don’t worry about your old links not working! If you try to go to your GitHub Pages website, it will redirect to the custom domain. So if you sent a link before, it should still work so long as the path is active.<br><br>
 
 See anything I missed? Feel free to contact me using the information on the home page of this website.
 		</p>
