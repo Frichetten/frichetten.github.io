@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<!--
+             ____________________________________________________
+            /                                                    \
+           |    _____________________________________________     |
+           |   |                                             |    |
+           |   |  C:\> _                                     |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |            Checking out my code?            |    |
+           |   |                 I like you.                 |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |                                             |    |
+           |   |_____________________________________________|    |
+           |                                                      |
+            \_____________________________________________________/
+                   \_______________________________________/
+                _______________________________________________
+             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
+          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
+       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
+    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
+ _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
+:-----------------------------------------------------------------------------:
+`---._.-----------------------------------------------------------------._.---'
+-->
+	  
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="How to set a custom domain with a GitHub Pages website.">
+    <title>Custom Domains with GitHub Pages</title>
+
+    <!-- CSS and Fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/site-style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+</head>
+
+<body style="width:100%;height:100%;margin: 0px;padding:0px;overflow-x:hidden;">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">Nicholas Frichette</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/">Home</a>
+                    </li>
+		    <li>
+                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/blog">Blog</a>
+                    </li>
+                    <li>
+                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/about">About Me</a>
+                    </li>
+                    <li>
+                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/Resume.pdf">Resume</a>
+                    </li>
+                    <li>
+                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="https://github.com/Frichetten">GitHub</a>
+                    </li>
+		    <li>
+                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/projects">Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="intro-header" style="background-image: url('/img/xxe-attacks/banner-image.png')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>XXE Attack Basics</h1>
+                        <hr class="small">
+                        <span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container" style="margin-top:-50px">
+        <div class="row">
+	    <div class="center-block" style="margin-left: 15px;margin-right: 15px;">
+		<p>The XML External Entity attack (also known as XXE) is a fairly common issue with XML parsers in web applications. Many languages, such as Java, are unprotected from this attack by default. For this article I’d like to explain the basics of how this attack works and how it can be exploited on a system.</p>
+
+<h3>How it works</h3>
+
+<p>XXE attacks rely on the “external general parsed entity” (or in short, external entity). Essentially, there is a feature in the XML standard that allows you to point to another location and say, “there is more XML information over there”. As <a style="text-decoration:underline" href="http://xmlwriter.net/xml_guide/entity_declaration.shtml">this</a> article says, external entities are useful for “creating a common reference that can be shared between multiple documents”.</p>
+
+<p>The problem is that this nifty feature can serve as an attack vector under the right circumstances.</p>
+
+<h3>How to exploit</h3>
+
+<p>XXE vulnerabilities come in many different flavors. For some you can exploit by uploading an XML file to a website (Microsoft Word .docx files are XML...could you use that as an attack vector? Yes!). For others you can do it in a POST command. For the purposes of this article I will create a simple XML parser using Java and then create a custom XML file that will exploit the vulnerability.</p>
+
+<p>To begin, we need an XML parser. I chose Java for the language because it is a common language used for web applications (and because I haven’t played with the language in a little while).</p>
+
+<p><pre><code>import java.io.File;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		try{
+			File file = new File("test.xml");
+			DocumentBuilderFactory dBFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dBFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(file);
+			System.out.println(doc.getElementsByTagName("rootNode").item(0).getTextContent());
+		}
+		catch(Exception e){
+			System.out.println(e);
+		}
+	}
+}
+</code></pre></p>
+<p>This is a standard XML parser (more specifically it’s a DOM parser). We are using the standard Java libraries to build the factory, instantiate an instance, then parse the file. After that we are printing out a value for something called the “rootNode” (name is arbitrary).</p>
+
+<p>Our next goal will be to craft the XML file to perform the exploit. As you can see in the Java code, we are calling this file “test.xml”, although this name is arbitrary.</p>
+
+<pre><code><xmp><?xml version="1.0"?>
+<!DOCTYPE vulnerableDocType [
+	<!ENTITY vuln SYSTEM "file:///home/nick/workspace/XXE/disclose.txt">
+]>
+<rootNode>&vuln;</rootNode></xmp></code></pre>
+
+<p>What looks like a normal XML file is so much more. We declare the file type on line 1. In line 2 we are declaring a document type called “vulnerableDocType” (again, the name is arbitrary). This is the section where we will make use of the external entity. In line 3 we create an entity called “vuln” which calls to the system and asks for a file. This file is arbitrary, you can ask for any file that the system has access to. After that, in line 5, we place the value (literally the contents of the earlier file) into a variable that the parser will read. If the developers aren’t careful and didn’t sanitize their outputs, then their application will display this information to you.</p>
+
+<p>Now for a test run, lets see what the output is!</p>
+
+<div style="text-align:center"><img src="/img/xxe-attacks/first.png"/></div>
+
+<p>As we can see, this file appears to be a list of passwords for various services. Pretty cool right? Now, you may be wondering, “Nick, this doesn’t help me. How am I supposed to know what files are on the system?”. Well, my little peppermint, I have good news for you! You can do directory and file enumeration!</p>
+
+<p>To do this, instead of looking for a particular file, leave it on a directory. If I were to change my previous example, it would instead be “file:///home/nick/workspace/XXE/”. Now lets see what happens.</p>
+
+<div style="text-align:center"><img src="/img/xxe-attacks/second.png"/></div>
+
+<p>Through this method you can search around for files you may want to look at, think etc/passwd or, if running as root, etc/shadow.</p>
+
+<h3>Continuing the attack</h3>
+
+<p>From here you have more options depending on the configuration (or misconfiguration) of the parser. There are ways to have the parser query over http, meaning if they don’t show the information to the user, you could have it query a web server you control! The problem you will run into is the new line character which typically ends an http packet, however there are some ways around this such as using a protocol like netdoc, gopher, or jar if the parser supports it.</p>
+
+<p>If the application is written in PHP and has the Expect module loaded, you can even perform remote code execution! With the prevalence of XML parsers in modern web application the possibilities are endless.</p>
+
+<p>For more information on how to harden your web app to this attack check out the OWASP page on it at <a style="text-decoration:underline" href="https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Processing">this</a> link.</p>
+	    </div>					
+        </div>
+    </div>
+
+    <!-- Contact Info -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://github.com/Frichetten">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+			<li>
+                            <a href="https://www.linkedin.com/in/nick-frichette-633297126">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- jQuery -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+	
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/js/clean-blog.min.js"></script>
+	
+    <!-- Fun Stuff -->
+    <script type="text/javascript" src="/js/fun.js"></script>
+
+</body>
+</html>
