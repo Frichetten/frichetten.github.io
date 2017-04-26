@@ -133,17 +133,17 @@
 
     <p> This is the least dangerous of the two, that being said, it can still be used to do bad things. The important thing to remember is that the injected script is not stored by the system. An example of this would be a search bar. After you have searched something, what you searched typically is forgotten (unless you’re Google in which it stays around forever). With this type of XSS attack, you can load the attack code directly into the link. For example, the following link will trigger XSS in our example web app.</p>
 
-    <pre>localhost:5000/?name=%3Cscript%3Ealert%28%22Bad Link%22%29%3B%3C%2Fscript%3E</pre>
+    <center><pre>localhost:5000/?name=%3Cscript%3Ealert%28%22Bad Link%22%29%3B%3C%2Fscript%3E</pre></center>
 
 <div style="text-align:center"><img src="/img/xss-attacks/xss5.png" max-width="100%"/></div>
 
     <p>How is it dangerous? Because you can still get a victim to fall for it, but it requires some social engineering. This is one of the reasons people tell you not to click suspicious links (don’t click suspicious links). Examples of attack vectors for this type of XSS would be through emails or websites that allow for links.</p>
 
-    <p>It is important to remember that this does not lift all of the blame off the owner of the vulnerability. If you could send someone a legitimate link to YouTube with this vulnerability, it is partially (And some would say entirely) YouTube’s fault. These links would have the legitimate domain name. The victim would actually travel to that website, which is why its a great attack for social engineering. The victim will see the real domain name and it increases the likelihood they will visit that site.</p>
+    <p>It is important to remember that this does not lift all of the blame off the owner of the vulnerability. If you could send someone a legitimate link to YouTube with this vulnerability, it is partially (And some would say entirely) YouTube’s fault. These links would have the legitimate domain name. Remember, the victim would still be going to the real website. Due to the lack of training many people have experienced they may think that just because it really is YouTube, they're safe.</p>
 
 <h3>Persistent</h3>
 
-    <p>This is the more dangerous type of XSS. This type is stored by the vulnerable system. A great example of this would be a comment box or a username. The reason is more dangerous is because in some cases there is no need to social engineer a victim to click on a link. They may accidentally stumble across the attack code without even realizing it. And in some cases, the web app may broadcast your attack for you.</p>
+    <p>This is the more dangerous type of XSS. This type is stored by the vulnerable system. A great example of this would be a comment box or a username. The reason it is more dangerous is because in some cases there is no need to social engineer a victim to click on a link. They may accidentally stumble across the attack code without even realizing it. And in some cases, the web app may broadcast your attack for you.</p>
 
     <p>Let me give you an example. Let’s say you go to a social media site and insert some XSS attack code. From that point on, any user who (has JS running) goes to your site or views your post will fall victim to the attack.</p>
 
@@ -151,11 +151,11 @@
 
 <h3>How Can it Hurt?</h3>
 
-    <p>The damage caused by XSS depends entirely on the web application and how it is configured. Depending on these factors you could steal a users cookie. Simply make a get request to a server you control with the cookie found by calling “document.cookie”. Keep in mind there are flags that can protect the cookie.</p>
+    <p>The damage caused by XSS depends entirely on the web application and how it is configured. Depending on these factors you could steal a users cookie. Simply make a get request to a server you control with the cookie found by calling “document.cookie”. Keep in mind there are flags that can prevent this.</p>
 
-    <p>The biggest concern when it comes to XSS is that it is JavaScript running as the user, so in theory it has access to everything that the user has access to. Is there a special token in the users setting page? We could grab it. If it was a messaging application, could we see their private messages? In theory yes.</p>
+    <p>The biggest concern when it comes to XSS is that the JavaScript is running as the user, so in theory it has access to everything that the user has access to. Is there a special token in the users setting page? We could grab it. If it was a messaging application, could we see their private messages? In theory yes.</p>
 
-    <p>Hopefully you can see just how dangerous this attack can be. Of course, it can also be mitigated highly. The big difficulty is that it’s like playing wakamole. Every time you create a new way for your web app to show data, you are possibly opening a attack vector.</p>
+    <p>Hopefully you can see just how dangerous this attack can be. Of course, it can also be mitigated highly. The big difficulty is that it’s like playing wakamole. Every time you create a new way for your web app to show data, you are possibly opening an attack vector.</p>
 
 <h3>Mitigation</h3>
 
@@ -169,9 +169,9 @@
 
     <p>So unfortunately things aren’t that easy. We managed to bypass that my filter by using a different tag. The code I used was the following.</p>
 
-    <pre><BODY ONLOAD=alert('Whaddup!!')></pre>
+    <center><pre>&lt;BODY ONLOAD=alert('Whaddup!!')&gt;</pre></center>
 
-    <p>Are there more ways to bypass XSS filters? Yes! In fact there are a ton and ever increasing due to the prevalence of HTML5. A great resource for these bypass’s is the OWASP page on (<a style="text-decoration:underline" href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">XSS Filter Evasion</a></p>
+    <p>Are there more ways to bypass XSS filters? Yes! In fact there are a ton and ever increasing due to the prevalence of HTML5. A great resource for these bypass’s is the OWASP page on <a style="text-decoration:underline" href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">XSS Filter Evasion</a></p>
 
     <p>Now, sometimes it may not be as easy as copy and pasting. You will need to figure out if there is a filter and what the rules are. For example while working on this article I noticed that my example web app had trouble with XSS attack code that contained spaces (this is something I’ve run into multiple times now). A cute way to bypass this is to store a space from the screen itself. Notice the space between “Name” and “Taker”.</p>
 
