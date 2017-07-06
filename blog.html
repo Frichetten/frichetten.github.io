@@ -1,198 +1,153 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<meta charset="UTF-8">
-<!--
-             ____________________________________________________
-            /                                                    \
-           |    _____________________________________________     |
-           |   |                                             |    |
-           |   |  C:\> _                                     |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |            Checking out my code?            |    |
-           |   |                 I like you.                 |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |_____________________________________________|    |
-           |                                                      |
-            \_____________________________________________________/
-                   \_______________________________________/
-                _______________________________________________
-             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
-          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
-       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
-    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
- _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
-:-----------------------------------------------------------------------------:
-`---._.-----------------------------------------------------------------._.---'
--->
-	  
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="My personal blog where I discuss various aspects of programming and security.">
-    <title>Nicholas Frichette - Blog Home</title>
+	<head>
+		<title>Nicholas Frichette - Blog Home</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="single">
 
-    <!-- CSS and Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/site-style.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-</head>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="/">Nicholas Frichette</a>
-            </div>
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="#">Nick Frichette</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="/blog">Blog</a></li>
+								<li><a href="/resume.pdf">Resume</a></li>
+								<li><a href="https://github.com/frichetten">GitHub</a></li>
+								<li><a href="/projects">Projects</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-		    <li>
-                        <a href="blog">Blog</a>
-                    </li>
-                    <li>
-                        <a href="about">About Me</a>
-                    </li>
-                    <li>
-                        <a href="Resume.pdf">Resume</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Frichetten">Github</a>
-                    </li>
-					<li>
-                        <a href="projects">Projects</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+				<!-- Menu -->
+					<section id="menu">
 
-    <!-- Page Header -->
-    <header class="intro-header" style="background-image: url('img/code.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Blog</h1>
-                        <hr class="small">
-                        <span class="subheading">Me Talking About Tech</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="/">
+											<h3>Home</h3>
+										</a>
+									</li>
+									<li>
+										<a href="/blog">
+											<h3>Blog</h3>
+										</a>
+									</li>
+									<li>
+										<a href="/resume.pdf">
+											<h3>Resume</h3>
+										</a>
+									</li>
+                                    <li>
+										<a href="https://github.com/frichetten">
+											<h3>GitHub</h3>
+										</a>
+									</li>
+                                    <li>
+										<a href="/projects">
+											<h3>Projects</h3>
+										</a>
+									</li>
+								</ul>
+							</section>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-		<div class="row" >
-			<a style="color:black;text-shadow:None;" href="/blog/xss-attacks">
-				<h4 class="col-md-4 col-sm-6 portfolio-item" style="text-align:center">
-				<img src="/img/xss-attacks/nBanner.jpeg" class="img-responsive" style="width:350px;height:175px;display:block;margin-left:auto;margin-right:auto;" alt="XSS Attacks">
-				XSS Attacks
-				</h4>
-			</a>
-			<a style="color:black;text-shadow:None;" href="/blog/streisand-vpn">
-				<h4 class="col-md-4 col-sm-6 portfolio-item" style="text-align:center">
-				<img src="/img/streisand/streisand-banner.jpg" class="img-responsive" style="width:350px;height:175px;display:block;margin-left:auto;margin-right:auto;" alt="Streisand">
-				Streisand
-				</h4>
-			</a>
-			<a style="color:black;text-shadow:None;" href="/blog/fcc-isps-and-you">
-				<h4 class="col-md-4 col-sm-6 portfolio-item" style="text-align:center">
-				<img src="/img/fcc-isps-and-you/fcc.png" class="img-responsive" style="width:350px;height:175px;display:block;margin-left:auto;margin-right:auto;" alt="FCC ISPs and You">
-				FCC, ISPs, and You
-				</h4>
-			</a>
-			<a style="color:black;text-shadow:None;" href="/blog/xxe-attack-basics">
-				<h4 class="col-md-4 col-sm-6 portfolio-item" style="text-align:center">
-				<img src="/img/xxe-attacks/banner-image.png" class="img-responsive" style="width:350px;height:175px;display:block;margin-left:auto;margin-right:auto;" alt="XXE Attack Basics">
-				XXE Attack Basics
-				</h4>
-			</a>
-			<a style="color:black;text-shadow:None;" href="/blog/custom-domains-with-github-pages">
-				<h4 class="col-md-4 col-sm-6 portfolio-item" style="text-align:center">
-				<img src="/img/gdaddy.png" class="img-responsive" style="width:350px;height:175px;display:block;margin-left:auto;margin-right:auto;" alt="Custom Domains with GitHub Pages">
-				Custom Domains with GitHub Pages
-				</h4>
-			</a>
-			<a style="color:black;text-shadow:None;" href="/blog/icmp-tunneling-basics">
-				<h4 class="col-md-4 col-sm-6 portfolio-item" style="text-align:center">
-				<img src="/img/tunnel.jpg" class="img-responsive" style="width:350px;height:175px;display:block;margin-left:auto;margin-right:auto;" alt="ICMP Tunneling">
-				ICMP Tunneling Basics
-				</h4>
-			</a>
-			<a style="color:black;text-shadow:None;" href="/blog/pretty-loading-bars-in-python">
-				<h4 class="col-md-4 col-sm-6 portfolio-item" style="text-align:center">
-				<img src="/img/loading.jpg" class="img-responsive" style="width:350px;height:175px;display:block;margin-left:auto;margin-right:auto;" alt="Pretty Python">
-				Pretty Loading Bars in Python
-				</h4>
-			</a>
-		</div>		
-        </div>
-    </div>
+					</section>
 
-    <!-- Contact Info -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="https://github.com/Frichetten">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-			<li>
-                            <a href="https://www.linkedin.com/in/nick-frichette-633297126">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+				<!-- Main -->
+					<div id="main">
 
-	<!-- JavaScript -->
-	<!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-	
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2>Blog</h2>
+										<p>My personal blog where I discuss various aspects of programming and security.</p>
+									</div>
+								</header>
+                                
+								<article class="blog-tile">
+											<header>
+												<h3><a href="/blog/xss-attacks">XSS Attacks</a></h3>
+												<time class="published" datetime="2017-5-2">May 2, 2017</time>
+											</header>
+											<a href="/blog/xss-attacks" class="image"><img src="images/xss-attacks/nBanner.jpeg" alt=""/></a>
+										</article>
+                                
+                                <article class="blog-tile">
+											<header>
+												<h3><a href="/blog/streisand-vpn">Streisand</a></h3>
+												<time class="published" datetime="2017-4-6">April 6, 2017</time>
+											</header>
+											<a href="/blog/streisand-vpn" class="image"><img src="images/streisand/streisand-banner.jpg" alt=""/></a>
+										</article>
+                                
+                                <article class="blog-tile">
+											<header>
+												<h3><a href="/blog/fcc-isps-and-you">FCC, ISPs, and You</a></h3>
+												<time class="published" datetime="2017-3-24">March 24, 2017</time>
+											</header>
+											<a href="/blog/fcc-isps-and-you" class="image"><img src="images/fcc-isps-and-you/fcc.png" alt=""/></a>
+										</article>
+                                
+                                <article class="blog-tile">
+											<header>
+												<h3><a href="/blog/xxe-attack-basics">XXE Attack Basics</a></h3>
+												<time class="published" datetime="2017-3-14">March 14, 2017</time>
+											</header>
+											<a href="/blog/xxe-attack-basics" class="image"><img src="images/xxe-attacks/banner-image.png" alt="" /></a>
+										</article>
+                                
+                                <article class="blog-tile">
+											<header>
+												<h3><a href="/blog/custom-domains-with-github-pages">Custom Domains with GitHub...</a></h3>
+												<time class="published" datetime="2017-2-21">February 21, 2017</time>
+											</header>
+											<a href="/blog/custom-domains-with-github-pages" class="image"><img src="images/gdaddy.png" alt="" /></a>
+										</article>
+                                
+                                <article class="blog-tile">
+											<header>
+												<h3><a href="/blog/icmp-tunneling-basics">ICMP Tunnelling Basics</a></h3>
+												<time class="published" datetime="2017-2-7">February 7, 2017</time>
+											</header>
+											<a href="/blog/icmp-tunneling-basics" class="image"><img src="images/tunnel.jpg" alt="" /></a>
+										</article>
+                                
+                                <article class="blog-tile">
+											<header>
+												<h3><a href="/blog/pretty-loading-bars-in-python">Pretty Loading Bars in Python</a></h3>
+												<time class="published" datetime="2015-10-20">January 17, 2017</time>
+											</header>
+											<a href="/blog/pretty-loading-bars-in-python" class="image"><img src="images/loading.jpg" alt="" /></a>
+										</article>
+                                
+							</article>
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+					</div>
 
-    <!-- Theme JavaScript -->
-    <script src="js/clean-blog.min.js"></script>
-	
-	<!-- Fun Stuff -->
-	<script type="text/javascript" src="js/fun.js"></script>
+			</div>
 
-</body>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
