@@ -1,5 +1,6 @@
 function writeUserData(ip, city, country, time) {
           path = String(window.location.pathname);
+          alert(path);
           firebase.database().ref('/'+path.substring(0,path.indexOf("."))+'/'+String(new Date())).set({
           ip: ip,
           city: city,
