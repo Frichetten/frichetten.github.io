@@ -98,19 +98,19 @@
                                 
                                 <p>Just because your framework will try to prevent it, it doesn’t mean it will always work. By using the Markup feature of Flask, I was able to execute XSS again. In addition due to the logical configuration of your app, you can still cause this attack to work. See below.</p>
                                 
-                                <div style="text-align: center"><img src="/images/xss-attacks/xss1.png"\ style="max-width: 70%"></div><br>
+                                <div style="text-align: center"><img src="/images/xss-attacks/xss1.png"\ style="max-width: 90%"></div><br>
                                 
                                 <p>With that out of the way, lets take a look at how XSS works. At it’s very core, XSS is about injecting code directly into a web page. This can occur anywhere that user input is taken. A search bar, comment box, etc. In our example, we have a web application called “Name Taker” which will give you your name if you tell it.</p>
                                 
-                                <div style="text-align: center"><img src="/images/xss-attacks/xss2.png"\ style="max-width: 70%"></div><br>
+                                <div style="text-align: center"><img src="/images/xss-attacks/xss2.png"\ style="max-width: 90%"></div><br>
                                 
                                 <p>So lets give it the name “Nick” and see what happens?</p>
                                 
-                                <div style="text-align: center"><img src="/images/xss-attacks/xss3.png"\ style="max-width: 70%"></div><br>
+                                <div style="text-align: center"><img src="/images/xss-attacks/xss3.png"\ style="max-width: 90%"></div><br>
                                 
                                 <p>Sick! That’s super neato! What happens if we put some JavaScript in there?</p>
                                 
-                                <div style="text-align: center"><img src="/images/xss-attacks/xss4.png"\ style="max-width: 70%"></div><br>
+                                <div style="text-align: center"><img src="/images/xss-attacks/xss4.png"\ style="max-width: 90%"></div><br>
                                 
                                 <p>Uh oh. That was unintended. This is the heart of what XSS is. Now lets focus on the two main types of XSS, Reflected vs. Persistent.</p>
                                 
@@ -120,7 +120,7 @@
                                 
                                 <center><p>localhost:5000/?name=%3Cscript%3Ealert%28%22Bad Link%22%29%3B%3C%2Fscript%3E</p></center>
                                 
-                                <div style="text-align: center"><img src="/images/xss-attacks/xss5.png"\ style="max-width: 70%"></div><br>
+                                <div style="text-align: center"><img src="/images/xss-attacks/xss5.png"\ style="max-width: 90%"></div><br>
                                 
                                 <p>How is it dangerous? Because you can still get a victim to fall for it, but it requires some social engineering. This is one of the reasons people tell you not to click suspicious links (don’t click suspicious links). Examples of attack vectors for this type of XSS would be through emails or websites that allow for links.</p>
                                 
@@ -146,11 +146,11 @@
                                 
                                 <p>“Well Nick”, you may be saying to yourself, “I know what I’m going to do. My web app isn’t catering to aspiring film authors! I’ll just put a regex on my input that will filter out the script tag!”. That’s brilliant!! Let’s try that with our name taker example. If it sees the word “script” it will present a pop-up that says “Buzz Off Hacker”.</p>
                                 
-                                <div style="text-align: center"><img src="/images/xss-attacks/xss6.png"\ style="max-width: 70%"></div><br>
+                                <div style="text-align: center"><img src="/images/xss-attacks/xss6.png"\ style="max-width: 90%"></div><br>
                                 
                                 <p>Well look at that! You did it! You saved the world from every Cross-Site Scripting attack! YAAAY!! Wait, what was that noise? Oh no!</p>
                                 
-                                <div style="text-align: center"><img src="/images/xss-attacks/xss7.png"\ style="max-width: 70%"></div><br>
+                                <div style="text-align: center"><img src="/images/xss-attacks/xss7.png"\ style="max-width: 90%"></div><br>
                                 
                                 <p>So unfortunately things aren’t that easy. We managed to bypass that my filter by using a different tag. The code I used was the following.</p>
                                 
