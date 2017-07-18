@@ -118,7 +118,7 @@
                                 
                                 <p>This is the least dangerous of the two, that being said, it can still be used to do bad things. The important thing to remember is that the injected script is not stored by the system. An example of this would be a search bar. After you have searched something, what you searched typically is forgotten (unless you’re Google in which it stays around forever). With this type of XSS attack, you can load the attack code directly into the link. For example, the following link will trigger XSS in our example web app.</p>
                                 
-                                <center><p>localhost:5000/?name=%3Cscript%3Ealert%28%22Bad Link%22%29%3B%3C%2Fscript%3E</p></center>
+                                <center><pre><code>localhost:5000/?name=%3Cscript%3Ealert%28%22Bad Link%22%29%3B%3C%2Fscript%3E</code></pre></center>
                                 
                                 <div style="text-align: center"><img src="/images/xss-attacks/xss5.png"\ style="max-width: 90%"></div><br>
                                 
@@ -154,7 +154,7 @@
                                 
                                 <p>So unfortunately things aren’t that easy. We managed to bypass that my filter by using a different tag. The code I used was the following.</p>
                                 
-                                <center><pre>&lt;BODY ONLOAD=alert('Whaddup!!')&gt;</pre></center>
+                                <center><pre><code>&lt;BODY ONLOAD=alert('Whaddup!!')&gt;</code></pre></center>
                                 
                                 <p>Are there more ways to bypass XSS filters? Yes! In fact there are a ton and ever increasing due to the prevalence of HTML5. A great resource for these bypass’s is the OWASP page on <a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet" >XSS Filter Evasion</a></p>
                                 
