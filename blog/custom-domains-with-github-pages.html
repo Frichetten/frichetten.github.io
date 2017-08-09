@@ -1,179 +1,137 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<meta charset="UTF-8">
-<!--
-             ____________________________________________________
-            /                                                    \
-           |    _____________________________________________     |
-           |   |                                             |    |
-           |   |  C:\> _                                     |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |            Checking out my code?            |    |
-           |   |                 I like you.                 |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |                                             |    |
-           |   |_____________________________________________|    |
-           |                                                      |
-            \_____________________________________________________/
-                   \_______________________________________/
-                _______________________________________________
-             _-'    .-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.  --- `-_
-          _-'.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.  .-.-.`-_
-       _-'.-.-.-. .---.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-`__`. .-.-.-.`-_
-    _-'.-.-.-.-. .-----.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-----. .-.-.-.-.`-_
- _-'.-.-.-.-.-. .---.-. .-----------------------------. .-.---. .---.-.-.-.`-_
-:-----------------------------------------------------------------------------:
-`---._.-----------------------------------------------------------------._.---'
--->
-	  
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="How to set a custom domain with a GitHub Pages website.">
-    <title>Custom Domains with GitHub Pages</title>
+	<head>
+		<title>Custom Domains with Github Pages</title>
+        <meta name="description" content="How to set a custom domain with a Github pages site.">
+        <meta property="og:image" content="/images/gdaddy.png">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+        <script src="/js/firebase.js"></script>
+        <script src="/js/FireTraffic-DB.js"></script>
+	</head>
+	<body class="single">
 
-    <!-- CSS and Fonts -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/site-style.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-</head>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-<body style="width:100%;height:100%;margin: 0px;padding:0px;overflow-x:hidden;">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="/">Nicholas Frichette</a>
-            </div>
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="#">Nick Frichette</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li><a href="/blog">Blog</a></li>
+								<li><a href="/Resume.pdf">Resume</a></li>
+								<li><a href="https://github.com/frichetten">GitHub</a></li>
+								<li><a href="/projects">Projects</a></li>
+                                <li><a href="/contact">Contact Me</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/">Home</a>
-                    </li>
-		    <li>
-                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/blog">Blog</a>
-                    </li>
-                    <li>
-                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/about">About Me</a>
-                    </li>
-                    <li>
-                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/Resume.pdf">Resume</a>
-                    </li>
-                    <li>
-                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="https://github.com/Frichetten">GitHub</a>
-                    </li>
-		    <li>
-                        <a style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;" href="/projects">Projects</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+				<!-- Menu -->
+					<section id="menu">
 
-    <!-- Page Header -->
-    <header class="intro-header" style="background-image: url('/img/gdaddy.png')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Custom Domains with GitHub Pages</h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="/">
+											<h3>Home</h3>
+										</a>
+									</li>
+									<li>
+										<a href="/blog">
+											<h3>Blog</h3>
+										</a>
+									</li>
+									<li>
+										<a href="/Resume.pdf">
+											<h3>Resume</h3>
+										</a>
+									</li>
+                                    <li>
+										<a href="https://github.com/frichetten">
+											<h3>GitHub</h3>
+										</a>
+									</li>
+                                    <li>
+										<a href="/projects">
+											<h3>Projects</h3>
+										</a>
+									</li>
+                                    <li>
+										<a href="/contact">
+											<h3>Contact Me</h3>
+										</a>
+									</li>
+								</ul>
+							</section>
 
-    <!-- Main Content -->
-    <div class="container" style="margin-top:-50px">
-        <div class="row">
-	    <div class="center-block" style="margin-left: 15px;margin-right: 15px;">
-		<p>
-		    As I’m approaching the end of my college term I’ve been looking more and more into career development. One gulp of that Kool-Aid is personal branding (<a style="text-decoration:underline" href="https://www.entrepreneur.com/article/250924">link</a>). A core idea of which is developing a greater online presence. I already had a website, and I liked it. I use GitHub Pages, which is a free web hosting service that everyone has access to if you have a GitHub account. It’s a sweat deal overall, the only downside of which is that the website URL ends in ‘github.io’. While the ‘.io’ is kind of tech hipster (therefore I like it), it’s an eye-sore. I thought to myself, how about I get a custom domain? That is what I will be explaining in this article, how to set a custom domain on GitHub Pages.<br>
+					</section>
 
-<h3>Step 1: Setup a GitHub Pages account</h3>
-To do this, simply sign up to GitHub (or use your existing account) and create a repository with the name {accoutname}.github.io. And BAM, you have a GitHub page. I believe you only get one per account though, so be aware of that.<br>
+				<!-- Main -->
+					<div id="main">
 
-<h3>Step 2: Get a domain</h3>
-You should be able to go about this any way that you want. I personally got my domain from godaddy.com (<a style="text-decoration:underline" href="https://www.godaddy.com">GoDaddy</a>) because they’ve been around forever and you can find a million coupons for them (I got my domain for a dollar). Note: I would assume this would work with any other domain provider, but just in case, If you’re unsure just go with GoDaddy.<br>
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2>Custom Domains with Github Pages</h2>
+										<p>How to set a custom domain with a Github pages site</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2017-3-24">March 24, 2017</time>
+									</div>
+								</header>
+                                
+                                <p>As I’m approaching the end of my college term I’ve been looking more and more into career development. One gulp of that Kool-Aid is personal branding (link). A core idea of which is developing a greater online presence. I already had a website, and I liked it. I use GitHub Pages, which is a free web hosting service that everyone has access to if you have a GitHub account. It’s a sweat deal overall, the only downside of which is that the website URL ends in ‘github.io’. While the ‘.io’ is kind of tech hipster (therefore I like it), it’s an eye-sore. I thought to myself, how about I get a custom domain? That is what I will be explaining in this article, how to set a custom domain on GitHub Pages.</p>
+                                
+                                <h3>Step 1: Setup a Github Pages Account</h3>
+                                <p>To do this, simply sign up to GitHub (or use your existing account) and create a repository with the name {accoutname}.github.io. And BAM, you have a GitHub page. I believe you only get one per account though, so be aware of that.</p>
+                                
+                                <h3>Step 2: Get a domain</h3>
+                                <p>You should be able to go about this any way that you want. I personally got my domain from godaddy.com (GoDaddy) because they’ve been around forever and you can find a million coupons for them (I got my domain for a dollar). Note: I would assume this would work with any other domain provider, but just in case, If you’re unsure just go with GoDaddy.</p>
+                                
+                                <h3>Step 3: Add two A records</h3>
+                                <p>Go into your GoDaddy account > Domains > All Domains > and find the domain you are going to setup. Once you find it, click the settings icon on the top right and select “Manage DNS”. Now, we are going to create two ‘A’ records (an A record is the backbone of DNS). We need to make two, and they need to be very specific IP addresses. I got them from the GitHub Pages documentation at this (<a href="https://help.github.com/articles/setting-up-an-apex-domain/">GitHub Documentation</a>) link. The layout is as follows.</p>
+                                
+                                <pre>        1) Type: A, name: @, Value: 192.30.252.153, TTL: 600
+        2) Type: A, name: @, Value: 192.30.252.154, TTL: 600</pre>
+                                
+                                <p style="text-align:center;"><img src="/img/custom-domains-with-github-pages/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
+                                
+                                <h3>Step 4: Create a CNAME record for WWW</h3>
+                                <p>This will simply redirect anybody going to www.website.com to website.com. I already had this in my settings I just had to configure it, but you may have to create the record yourself. Simply set the ‘www’ record to point to the name of your GitHub Pages site (in my case it was frichetten.github.io). And BAM! That’s all it should take.</p>
+                                
+                                <h3>Step 5: Create a CNAME record for Github Pages</h3>
+                                <p>The very last step you have to perform is adding a CNAME record in your GitHub Pages repo. This is super easy, just create a file named ‘CNAME’, and add a single line which is the name of your website. For example, mine was ‘frichetten.com’.</p>
+                                
+                                <p>Ta-da! You now have a custom domain on your GitHub Pages website! Now you’ll look even more professional. Don’t worry about your old links not working! If you try to go to your GitHub Pages website, it will redirect to the custom domain. So if you sent a link before, it should still work so long as the path is active.</p>
+                                
+                                <p>See anything I missed? Feel free to contact me using the information on the home page of this website.</p>
+                                
+							</article>
 
-<h3>Step 3: Add two A records</h3>
-Go into your GoDaddy account > Domains > All Domains > and find the domain you are going to setup. Once you find it, click the settings icon on the top right and select “Manage DNS”. Now, we are going to create two ‘A’ records (an A record is the backbone of DNS). We need to make two, and they need to be very specific IP addresses. I got them from the GitHub Pages documentation at this (<a style="text-decoration:underline" href="https://help.github.com/articles/setting-up-an-apex-domain/">GitHub Documentation</a>) link. The layout is as follows.<br><br>
-<pre>
-	1) Type: A, name: @, Value: 192.30.252.153, TTL: 600
-	2) Type: A, name: @, Value: 192.30.252.154, TTL: 600
-</pre>
-<p style="text-align:center;"><img src="/img/custom-domains-with-github-pages/1.png" style="max-width:100%;border-width:1px;border-style:solid;border-color:black;"></p>
+					</div>
 
-<h3>Step 4: Create a CNAME record for WWW</h3>
-This will simply redirect anybody going to www.website.com to website.com. <b>I already had this in my settings I just had to configure it, but you may have to create the record yourself.</b> Simply set the ‘www’ record to point to the name of your GitHub Pages site (in my case it was frichetten.github.io). And BAM! That’s all it should take.<br>
+			</div>
 
-<h3>Step 5: Create a CNAME record on GitHub Pages</h3>
-The very last step you have to perform is adding a CNAME record in your GitHub Pages repo. This is super easy, just create a file named ‘CNAME’, and add a single line which is the name of your website. For example, mine was ‘frichetten.com’.<br><br>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-Ta-da! You now have a custom domain on your GitHub Pages website! Now you’ll look even more professional. Don’t worry about your old links not working! If you try to go to your GitHub Pages website, it will redirect to the custom domain. So if you sent a link before, it should still work so long as the path is active.<br><br>
-
-See anything I missed? Feel free to contact me using the information on the home page of this website.
-		</p>
-	    </div>					
-        </div>
-    </div>
-
-    <!-- Contact Info -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="https://github.com/Frichetten">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-			<li>
-                            <a href="https://www.linkedin.com/in/nick-frichette-633297126">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <!-- jQuery -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-	
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="/js/clean-blog.min.js"></script>
-	
-    <!-- Fun Stuff -->
-    <script type="text/javascript" src="/js/fun.js"></script>
-
-</body>
+	</body>
 </html>
