@@ -2581,7 +2581,7 @@
 			}
             
             .blog-tile header {
-                padding: 0em 0em 0em 0em ;
+                padding: 0em 0em 0em 1.25em ;
                 min-height: 4em;
                 position: relative;
                 width: 100%;
@@ -2608,6 +2608,17 @@
 				display: block;
 				width: 100%;
 			}
+            
+            .blog-tile header {
+                padding: 1.25em 0em 0em 1.25em ;
+                min-height: 4em;
+                position: relative;
+                width: 100%;
+                -moz-flex-grow: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-grow: 1;
+                flex-grow: 1;
+            }
 
 				.blog-tile > * {
 					margin: 0 0 2em 0;
