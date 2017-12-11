@@ -1,0 +1,26 @@
+{
+  "name": "frichetten.com",
+  "version": "0.0.1",
+  "description": "A personal website developed by Nick Frichette",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frichetten/frichetten.github.io.git"
+  },
+  "keywords": [
+    "website",
+    "personal-website"
+  ],
+  "author": "Nick Frichette",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Frichetten/frichetten.github.io/issues"
+  },
+  "homepage": "https://github.com/Frichetten/frichetten.github.io#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
