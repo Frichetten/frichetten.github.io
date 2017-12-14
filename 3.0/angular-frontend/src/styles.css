@@ -3,3 +3,13 @@ img.circle-avatar {
   height: 20%;
   border-radius: 50%;
 }
+
+#world {
+  position: absolute;
+}
+
+#particles-js {
+  background:blue;
+  position: fixed;
+  z-index: -1;
+}
