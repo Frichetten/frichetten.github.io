@@ -1,13 +1,17 @@
 img.circle-avatar {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: 40%;
   height: auto;
   border-radius: 50%;
 }
 
 div.card {
   background-color: rgba(34,34,34,.7);
+}
+
+div.text-canvas {
+  margin: 1em;
 }
 
 #particles-js {
@@ -18,4 +22,14 @@ div.card {
   left:0;
   bottom:0;
   z-index:-1;
+}
+
+@media (max-width: 479px){
+  img.circle-avatar {
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    height: auto;
+    border-radius: 50%;
+  }
 }
