@@ -7,7 +7,7 @@ img.circle-avatar {
 }
 
 div.card {
-  background-color: rgba(34,34,34,.7);
+  background-color: rgba(30,30,30,.8);
 }
 
 div.text-canvas {
@@ -15,13 +15,23 @@ div.text-canvas {
 }
 
 #particles-js {
-  background:#590d0d;
+  /* background:#b71212; */
   position: fixed;
   top:0;
   right:0;
   left:0;
   bottom:0;
   z-index:-1;
+}
+
+@media (max-width: 995px){
+  img.circle-avatar {
+    display: block;
+    margin: 0 auto;
+    width: 55%;
+    height: auto;
+    border-radius: 50%;
+  }
 }
 
 @media (max-width: 479px){
