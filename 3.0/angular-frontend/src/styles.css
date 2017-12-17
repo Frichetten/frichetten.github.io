@@ -6,12 +6,26 @@ img.circle-avatar {
   border-radius: 50%;
 }
 
+div.col-md > p {
+  text-align: center;
+}
+
+div.col-md > div > img {
+  float: left;
+  margin-right: 2%;
+}
+
 div.card {
   background-color: rgba(30,30,30,.8);
 }
 
 div.text-canvas {
   margin: 1em;
+}
+
+a.fa {
+  padding: 6px;
+  font-size: 50px;
 }
 
 #particles-js {
@@ -41,5 +55,11 @@ div.text-canvas {
     width: 75%;
     height: auto;
     border-radius: 50%;
+  }
+
+  div.col-md > div > img {
+    float: left;
+    margin-right: 2%;
+    width: 30%;
   }
 }
