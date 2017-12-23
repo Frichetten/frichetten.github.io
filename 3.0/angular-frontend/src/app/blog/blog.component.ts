@@ -9,12 +9,14 @@ import { BlogService } from '../services/blog.service';
 })
 export class BlogComponent implements OnInit {
 
-  articles:any;
+  articles: any;
 
   constructor(private blogService:BlogService) { }
 
   ngOnInit() {
-    console.log(this.blogService);
+    this.articles = this.blogService.listArticles().subscribe(info => {
+      this.articles = info.item;
+    })
   }
 
 }

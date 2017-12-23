@@ -6,11 +6,7 @@ import 'rxjs/add/operator/map'
 export class BlogService {
   articles: any;
 
-  constructor(private http:Http) { console.log("please help"); }
-
-  list(){
-    console.log("Hi there");
-  }
+  constructor(private http:Http) { }
 
   listArticles(){
     let headers = new Headers();
