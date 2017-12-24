@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/database');
+const Article = require('./models/article');
 
 mongoose.connect(config.database, {useMongoClient:true});
 mongoose.connection.on('connected', () => {
@@ -23,7 +24,7 @@ app.get('/', (req, res) => {
 
 // The blog endpoints
 app.post('/blog', (req, res) => {
-  console.log(mongoose);
+  Article.saveData({title:"Nick"});
   res.send({item:"Welcome"});
 });
 
