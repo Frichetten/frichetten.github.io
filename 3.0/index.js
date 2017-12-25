@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 // The blog endpoints
 app.post('/blog', (req, res) => {
-  Article.saveData({title:"Nick"});
+  Article.getAllArticles();
   res.send({item:"Welcome"});
 });
 

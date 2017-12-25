@@ -7,12 +7,12 @@ const ArticleSchema = mongoose.Schema({
     type: String,
     required: false
   }
-});
+}, {collection: 'personal'});
 
 const Article = module.exports = mongoose.model('Article', ArticleSchema);
 
 module.exports.getAllArticles = function(callback) {
-  Article.find({title: "First blog post"}, function(err, data) {
+  Article.find({}, function(err, data) {
     console.log(data);
   });
 }
