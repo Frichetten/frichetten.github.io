@@ -24,8 +24,11 @@ app.get('/', (req, res) => {
 
 // The blog endpoints
 app.post('/blog', (req, res) => {
-  Article.getAllArticles();
-  res.send({item:"Welcome"});
+  Article.getAllArticleThumbs( (err, success) => {
+    if(success){
+      res.send(success);
+    }
+  });
 });
 
 app.listen(8080, () => {
