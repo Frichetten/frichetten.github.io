@@ -12,5 +12,5 @@ const ArticleSchema = mongoose.Schema({
 const Article = module.exports = mongoose.model('Article', ArticleSchema);
 
 module.exports.getAllArticleThumbs = function(callback) {
-  Article.find({}, {"title":1, "_id": false}, callback);
+  Article.find({}, {"title":1, "published":1, "synopsis":1, "_id": false}, callback);
 }

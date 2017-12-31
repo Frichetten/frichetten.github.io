@@ -1,2 +1,13 @@
-<p>
-</p>
+<div *ngFor="let article of articles;">
+  <div class="card">
+    <div class="cardblock">
+
+      <!-- This image is just for testing. Pull from Nginx for production -->
+      <img src="assets/images/specter_i.png"/>
+      <h4 class="card-title">{{ article.title }}</h4>
+      <p class="card-text">{{ article.published }}</p>
+      <p class="card-text">{{ article.synopsis }}</p>
+
+    </div>
+  </div>
+</div>
