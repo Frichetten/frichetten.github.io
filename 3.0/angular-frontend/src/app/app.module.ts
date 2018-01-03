@@ -13,7 +13,8 @@ import { ArticleComponent } from './article/article.component';
 
 const appRoutes: Routes = [
     { path:'', component: HomeComponent },
-    { path:'blog', component: BlogComponent }
+    { path:'blog', component: BlogComponent },
+    { path:'blog/', component: ArticleComponent }
 ]
 
 @NgModule({
@@ -29,7 +30,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  providers: [BlogService],
+  providers: [BlogService]
   bootstrap: [AppComponent]
 })
 export class AppModule { }
