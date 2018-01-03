@@ -1,13 +1,15 @@
-<div *ngFor="let article of articles;">
-  <div class="card">
-    <div class="cardblock">
-
-      <!-- This image is just for testing. Pull from Nginx for production -->
-      <img src="assets/images/specter_i.png"/>
-      <h4 class="card-title">{{ article.title }}</h4>
-      <p class="card-text">{{ article.published }}</p>
-      <p class="card-text">{{ article.synopsis }}</p>
-
+<div class="card">
+  <div class="card-block">
+    <div class="text-canvas">
+      <div class="row">
+        <div class="col-md" *ngFor="let article of articles;">
+            <p align="center"><img src="assets/images/bulldog.png" class="img-responsive"/></p>
+            <h4 style="text-align:center"><a href="https://github.com/Frichetten/Bulldog">
+              {{ article.title }}</a></h4>
+            <p align="center">{{ article.published }}</p>
+            <p align="center">{{ article.synopsis }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
