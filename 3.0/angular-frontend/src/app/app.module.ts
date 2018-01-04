@@ -13,8 +13,19 @@ import { ArticleComponent } from './article/article.component';
 
 const appRoutes: Routes = [
     { path:'', component: HomeComponent },
-    { path:'blog', component: BlogComponent },
-    { path:'blog/', component: ArticleComponent }
+    {
+      path:'blog',
+      children: [
+        {
+          path: '/',
+          component: BlogComponent
+        },
+        {
+          path: '/:name',
+          component: ArticleComponent
+        }
+      ]
+    }
 ]
 
 @NgModule({
