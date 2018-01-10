@@ -31,6 +31,10 @@ app.post('/blog', (req, res) => {
   });
 });
 
+app.post('/blog/*', (req, res) => {
+  console.log(req);
+});
+
 app.listen(8080, () => {
   console.log('Server started on port 8080');
 });
