@@ -17,11 +17,11 @@ const appRoutes: Routes = [
       path:'blog',
       children: [
         {
-          path: '/',
+          path: '',
           component: BlogComponent
         },
         {
-          path: '/:name',
+          path: ':name',
           component: ArticleComponent
         }
       ]
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
-  providers: [BlogService]
+  providers: [BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
