@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BlogService } from '../services/blog.service';
 
 @Component({
   selector: 'app-article',
@@ -8,10 +9,15 @@ import { Router } from '@angular/router';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private blogService:BlogService) { }
 
   ngOnInit() {
-    console.log(this.router.url);
+    var title = this.router.url;
+    title = title.substring(title.lastIndexOf("/")+1);
+    this.blogService.getArticle(title).subscribe(info => {
+      console.log(info);
+      console.log(info.title);
+    });
   }
 
 }

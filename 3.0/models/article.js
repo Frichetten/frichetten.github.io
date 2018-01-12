@@ -16,6 +16,6 @@ module.exports.getAllArticleThumbs = function(callback) {
 }
 
 module.exports.getArticle = function(title, callback){
-  const query = {title: title}
+  const query = {'title': title};
   Article.findOne(query, callback);
 }

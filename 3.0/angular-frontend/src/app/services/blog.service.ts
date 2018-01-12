@@ -15,4 +15,11 @@ export class BlogService {
       .map(res => res.json());
   }
 
+  getArticle(title){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('http://localhost:8080/blog/'+title, {headers: headers})
+      .map(res => res.json());
+  }
+
 }

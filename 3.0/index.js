@@ -31,8 +31,12 @@ app.post('/blog', (req, res) => {
   });
 });
 
-app.post('/blog/*', (req, res) => {
-  console.log(req);
+app.get('/blog/*', (req, res) => {
+  Article.getArticle( (err, success) => {
+    if(success){
+      res.send(success);
+    }
+  })
 });
 
 app.listen(8080, () => {
