@@ -11,6 +11,7 @@ mongoose.connection.on('connected', () => {
 
 mongoose.connection.on('error', (err) => {
   console.log('Database error: ' + err);
+  process.exit();
 });
 
 const app = express();
@@ -18,8 +19,8 @@ app.use(cors());
 
 const routes = require('./routes/routes');
 
-app.get('/', (req, res) => {
- res.send("How's it going");
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'angular-frontend/dist/index.html'));
 });
 
 // The blog endpoints
