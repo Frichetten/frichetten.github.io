@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const Article = require('./models/article');
+const path = require('path');
 
 mongoose.connect(config.database, {useMongoClient:true});
 mongoose.connection.on('connected', () => {
@@ -16,6 +17,7 @@ mongoose.connection.on('error', (err) => {
 
 const app = express();
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'angular-frontend/dist')));
 
 const routes = require('./routes/routes');
 
