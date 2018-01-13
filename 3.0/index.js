@@ -32,7 +32,9 @@ app.post('/blog', (req, res) => {
 });
 
 app.get('/blog/*', (req, res) => {
-  Article.getArticle( (err, success) => {
+  a = req.originalUrl;
+  a = a.substring(a.lastIndexOf("/")+1);
+  Article.getArticle(a, (err, success) => {
     if(success){
       res.send(success);
     }

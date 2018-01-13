@@ -9,14 +9,15 @@ import { BlogService } from '../services/blog.service';
 })
 export class ArticleComponent implements OnInit {
 
+  article : any;
+
   constructor(private router:Router, private blogService:BlogService) { }
 
   ngOnInit() {
     var title = this.router.url;
     title = title.substring(title.lastIndexOf("/")+1);
     this.blogService.getArticle(title).subscribe(info => {
-      console.log(info);
-      console.log(info.title);
+      this.article = info;
     });
   }
 
