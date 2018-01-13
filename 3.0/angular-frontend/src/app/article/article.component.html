@@ -1,3 +1,13 @@
+<br>
 <div *ngIf="article">
-  <p>{{ article.title }}</p>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <!-- This image is just for testing. Nginx will serve the real pic -->
+      <img src="assets/images/nBanner.jpeg" width="100%"/>
+      <br>
+      <h1 class="title">{{ article.title }}</h1>
+      <h6 class="published">{{ article.published }}</h6>
+      <p>{{ article.text.p }}</p>
+    </div>
+  </div>
 </div>
