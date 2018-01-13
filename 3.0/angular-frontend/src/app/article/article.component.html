@@ -7,7 +7,7 @@
       <br>
       <h1 class="title">{{ article.title }}</h1>
       <h6 class="published">{{ article.published }}</h6>
-      <p>{{ article.text.p }}</p>
+      <div [innerHTML]="article.text"></div>
     </div>
   </div>
 </div>
