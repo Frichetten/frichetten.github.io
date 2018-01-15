@@ -34,7 +34,7 @@ app.post('/blog', (req, res) => {
   });
 });
 
-app.get('/blog/*', (req, res) => {
+app.post('/blog/*', (req, res) => {
   a = req.originalUrl;
   a = a.substring(a.lastIndexOf("/")+1);
   Article.getArticle(a, (err, success) => {

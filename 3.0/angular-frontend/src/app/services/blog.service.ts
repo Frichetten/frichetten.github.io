@@ -19,7 +19,7 @@ export class BlogService {
   getArticle(title){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:8080/blog/'+title, {headers: headers})
+    return this.http.post('http://localhost:8080/blog/'+title, {headers: headers})
       .map(res => res.json());
   }
 
