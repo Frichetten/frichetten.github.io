@@ -10,6 +10,7 @@ import { BlogComponent } from './blog/blog.component';
 
 import { BlogService } from './services/blog.service';
 import { ArticleComponent } from './article/article.component';
+import { ContactmeComponent } from './contactme/contactme.component';
 
 const appRoutes: Routes = [
     { path:'', component: HomeComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
           component: ArticleComponent
         }
       ]
-    }
+    },
+    { path:'contact', component: ContactmeComponent }
 ]
 
 @NgModule({
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     HomeComponent,
     BlogComponent,
-    ArticleComponent
+    ArticleComponent,
+    ContactmeComponent
   ],
   imports: [
     BrowserModule,
