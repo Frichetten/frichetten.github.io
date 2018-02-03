@@ -1,9 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
-const config = require('./config/database');
-const Article = require('./models/article');
-const path = require('path');
+const express   = require('express');
+const cors      = require('cors');
+const mongoose  = require('mongoose');
+const config    = require('./config/database');
+const Article   = require('./models/article');
+const path      = require('path');
+const fs        = require('fs');
 
 mongoose.connect(config.database, {useMongoClient:true});
 mongoose.connection.on('connected', () => {
@@ -27,7 +28,9 @@ app.get('*', (req, res) => {
 
 app.post('/torbandwidth', (req, res) => {
   // Here we need to read the file
-  res.send({"data":"100 GB"});
+  fs.readFile('/home/nodejs/bandwidth','utf8', function(err, contents) {
+    res.send({"data" : contents});
+  });
 });
 
 // The blog endpoints
