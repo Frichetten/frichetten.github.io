@@ -25,6 +25,11 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'angular-frontend/dist/index.html'));
 });
 
+app.post('/torbandwidth', (req, res) => {
+  // Here we need to read the file
+  res.send({"data":"100 GB"});
+});
+
 // The blog endpoints
 app.post('/blog', (req, res) => {
   Article.getAllArticleThumbs( (err, success) => {

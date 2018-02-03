@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  bandwidth : any;
+
+  constructor(private http:Http) { }
 
   ngOnInit() {
+    this.checkBandwidth().subscribe(info => {
+      this.bandwidth = info.data;
+    });
+  }
+
+  checkBandwidth(){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:8080/torbandwidth', {headers: headers})
+      .map(res => res.json());
   }
 
 }
