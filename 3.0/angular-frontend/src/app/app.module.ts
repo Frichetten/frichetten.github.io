@@ -11,6 +11,7 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogService } from './services/blog.service';
 import { ArticleComponent } from './article/article.component';
 import { ContactmeComponent } from './contactme/contactme.component';
+import { SafeHtmlPipe } from './safe-html/safe-html.component';
 
 const appRoutes: Routes = [
     { path:'', component: HomeComponent },
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     HomeComponent,
     BlogComponent,
     ArticleComponent,
-    ContactmeComponent
+    ContactmeComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
