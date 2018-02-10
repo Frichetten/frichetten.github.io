@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   checkBandwidth(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8080/torbandwidth', {headers: headers})
+    return this.http.post('/torbandwidth', {headers: headers})
       .map(res => res.json());
   }
 
