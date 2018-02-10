@@ -25,13 +25,16 @@
       <a href="https://github.com/frichetten" class="fa fa-github"></a>
       <a href="https://www.linkedin.com/in/nick-frichette-gpen-633297126" class="fa fa-linkedin"></a>
     </div>
+    <br>
+    <div style="text-align:center">
+      <h2 style="color:#0ea31b" id="loading_note">Loading...</h2>
+    </div>
   </div>
 </body>
 </html>
 <script>
-  particlesJS.load('particles-js', '/assets/particles/particles.json', function() {
-    // console.log('particles.json loaded');
-  });
-  //var t = new Terminal({dom: 'terminal'});
-  //t.run(function(o){ o.output(""); });
+  particlesJS.load('particles-js', '/assets/particles/particles.json', function() {});
+  window.onload = function() {
+    document.getElementById("loading_note").innerText = "";
+  }
 </script>
