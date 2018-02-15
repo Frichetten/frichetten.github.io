@@ -13,7 +13,7 @@ export class ArticleComponent implements OnInit {
   article : any;
 
   constructor(private router:Router, private blogService:BlogService, private meta:Meta) {
-    this.meta.addTag({ name : 'description', content: article});
+    this.meta.addTag({ name : 'description', content: this.article});
   }
 
   ngOnInit() {
