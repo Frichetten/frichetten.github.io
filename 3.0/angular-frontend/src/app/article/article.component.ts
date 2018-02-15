@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogService } from '../services/blog.service';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-article',
@@ -11,7 +12,9 @@ export class ArticleComponent implements OnInit {
 
   article : any;
 
-  constructor(private router:Router, private blogService:BlogService) { }
+  constructor(private router:Router, private blogService:BlogService, private meta:Meta) {
+    this.meta.addTag({ name : 'description', content: article});
+  }
 
   ngOnInit() {
     var title = this.router.url;
