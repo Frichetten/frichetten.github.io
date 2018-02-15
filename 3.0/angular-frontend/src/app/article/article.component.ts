@@ -12,15 +12,14 @@ export class ArticleComponent implements OnInit {
 
   article : any;
 
-  constructor(private router:Router, private blogService:BlogService, private meta:Meta) {
-    this.meta.addTag({ name : 'description', content: this.article});
-  }
+  constructor(private router:Router, private blogService:BlogService, private meta:Meta) { }
 
   ngOnInit() {
     var title = this.router.url;
     title = title.substring(title.lastIndexOf("/")+1);
     this.blogService.getArticle(title).subscribe(info => {
       this.article = info;
+      this.meta.addTag({ name : 'description', content: this.article});
     });
   }
 
