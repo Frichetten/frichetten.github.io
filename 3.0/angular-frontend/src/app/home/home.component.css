@@ -31,8 +31,6 @@ div.text-canvas {
     height: auto;
     border-radius: 50%;
   }
-
-
 }
 
 @media (max-width: 479px){
@@ -48,9 +46,5 @@ div.text-canvas {
     float: left;
     margin-right: 2%;
     width: 30%;
-  }
-
-  .tor {
-    font-size: 4vw;
   }
 }
