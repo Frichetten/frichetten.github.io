@@ -13,7 +13,7 @@ export class BlogComponent implements OnInit {
   articles: any;
 
   constructor(private blogService:BlogService, private meta:Meta) {
-    this.meta.addTag({ name : 'description', content: 'My blog where I cover ' +
+    this.meta.updateTag({ name : 'description', content: 'My blog where I cover ' +
       'topics ranging from programming to security'});
   }
 

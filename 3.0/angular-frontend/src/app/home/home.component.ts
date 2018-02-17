@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   bandwidth : any;
 
   constructor(private http:Http, private meta:Meta) {
-    this.meta.addTag({ name : 'description', content: 'The personal website of ' +
+    this.meta.updateTag({ name : 'description', content: 'The personal website of ' +
       'Nick Frichette, Software Developer and Security Researcher'});
   }
 

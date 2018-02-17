@@ -19,7 +19,7 @@ export class ArticleComponent implements OnInit {
     title = title.substring(title.lastIndexOf("/")+1);
     this.blogService.getArticle(title).subscribe(info => {
       this.article = info;
-      this.meta.addTag({ name : 'description', content: info.synopsis});
+      this.meta.updateTag({ name : 'description', content: info.synopsis});
     });
   }
 
