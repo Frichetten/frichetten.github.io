@@ -20,7 +20,6 @@ export class ArticleComponent implements OnInit {
     this.blogService.getArticle(title).subscribe(info => {
       this.article = info;
       this.meta.updateTag({ name : 'description', content: info.synopsis});
-      this.meta.updateTag({ name : 'description', content: info.synopsis});
       this.meta.updateTag({ name : 'og:image', content: 'https://frichetten.com/images/thumbs/'+info.link});
       this.meta.updateTag({ name : 'og:description', content: info.synopsis});
       this.meta.updateTag({ name : 'og:title', content: info.title});
