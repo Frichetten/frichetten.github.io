@@ -5,7 +5,6 @@ const config    = require('./config/database');
 const Article   = require('./models/article');
 const path      = require('path');
 const fs        = require('fs');
-const prerender = require('prerender-node');
 
 mongoose.connect(config.database, {useMongoClient:true});
 mongoose.connection.on('connected', () => {
@@ -20,8 +19,6 @@ mongoose.connection.on('error', (err) => {
 const app = express();
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'angular-frontend/dist')));
-
-app.use(prerender).set('prerenderToken','SkUEHFxUNMHnTkLUlrvu');
 
 const routes = require('./routes/routes');
 
@@ -54,6 +51,8 @@ app.post('/blog/*', (req, res) => {
     }
   })
 });
+
+app.use(require('prerender-node').set('prerenderToken','SkUEHFxUNMHnTkLUlrvu'));
 
 app.listen(8080, () => {
   console.log('Server started on port 8080');
