@@ -20,6 +20,14 @@ export class ArticleComponent implements OnInit {
     this.blogService.getArticle(title).subscribe(info => {
       this.article = info;
       this.meta.updateTag({ name : 'description', content: info.synopsis});
+      this.meta.updateTag({ name : 'description', content: info.synopsis});
+      this.meta.updateTag({ name : 'og:image', content: 'https://frichetten.com/images/thumbs/'+info.link});
+      this.meta.updateTag({ name : 'og:description', content: info.synopsis});
+      this.meta.updateTag({ name : 'og:title', content: info.title});
+      this.meta.updateTag({ name : 'og:see_also', content: 'https://frichetten.com'});
+      this.meta.updateTag({ name : 'twitter:title', content: info.title});
+      this.meta.updateTag({ name : 'twitter:description', content: info.synopsis});
+      this.meta.updateTag({ name : 'twitter:image', content: 'https://frichetten.com/images/thumbs/'+info.link});
     });
   }
 

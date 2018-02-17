@@ -14,6 +14,17 @@ export class HomeComponent implements OnInit {
   constructor(private http:Http, private meta:Meta) {
     this.meta.updateTag({ name : 'description', content: 'The personal website of ' +
       'Nick Frichette, Software Developer and Security Researcher'});
+    this.meta.updateTag({ name : 'og:image', content: 'https://frichetten.com/images/home/profile.jpg'});
+    this.meta.updateTag({ name : 'og:description', content: 'The personal website of ' +
+      'Nick Frichette, Software Developer and Security Researcher'});
+    this.meta.updateTag({ name : 'og:title', content: 'Nick Frichette'});
+    this.meta.updateTag({ name : 'og:see_also', content: 'https://frichetten.com'});
+    this.meta.updateTag({ name : 'twitter:card', content: 'The personal website of ' +
+      'Nick Frichette, Software Developer and Security Researcher'});
+    this.meta.updateTag({ name : 'twitter:title', content: 'Nick Frichette'});
+    this.meta.updateTag({ name : 'twitter:description', content: 'The personal website of ' +
+      'Nick Frichette, Software Developer and Security Researcher'});
+    this.meta.updateTag({ name : 'twitter:image', content: 'https://frichetten.com/images/home/profile.jpg'});
   }
 
   ngOnInit() {
