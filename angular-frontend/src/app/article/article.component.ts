@@ -21,6 +21,8 @@ export class ArticleComponent implements OnInit {
       this.article = info;
       this.meta.updateTag({ name : 'description', content: info.synopsis});
       this.meta.updateTag({ property : 'og:image', content: 'https://frichetten.com/images/thumbs/'+info.link});
+      this.meta.updateTag({ property : 'og:image:width', content: '200'});
+      this.meta.updateTag({ property : 'og:image:height', content: '200'});
       this.meta.updateTag({ property : 'og:description', content: info.synopsis});
       this.meta.updateTag({ property : 'og:title', content: info.title});
       this.meta.updateTag({ property : 'og:see_also', content: 'https://frichetten.com'});
