@@ -1,8 +1,0 @@
-# Ignore Node Modules #
-#######################
-node_modules/
-angular-frontend/node_modules/
-
-# Ignore config files #
-#######################
-config/
