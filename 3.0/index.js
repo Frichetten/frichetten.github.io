@@ -52,8 +52,6 @@ app.post('/blog/*', (req, res) => {
   })
 });
 
-app.use(require('prerender-node').set('prerenderToken','SkUEHFxUNMHnTkLUlrvu'));
-
 app.listen(8080, () => {
   console.log('Server started on port 8080');
 });
