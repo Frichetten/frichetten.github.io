@@ -10,7 +10,4 @@ There is a downside though. Well, there are a few of them. Here is a small list:
   (Not GitHub's fault, but any developer would want more right?)
 * No access to web traffic information
 
-There are more that other developers have been quick to point out, but these are the key ones for me.
-
-I plan to re-imagine my website in a full MEAN stack and host it using Digital Ocean. I will opensource 
-it so that others can learn from what I make.
+To fix this I have rebuilt my website in full MEAN stack (MongoDB, Express.js, Angular, and Node.js). It is currently hosted on Digital Ocean and uses Nginx as the reverse proxy.
