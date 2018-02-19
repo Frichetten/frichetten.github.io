@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
     this.meta.updateTag({ name : 'description', content: 'The personal website of ' +
       'Nick Frichette, Software Developer and Security Researcher'});
     this.meta.updateTag({ property : 'og:image', content: 'https://frichetten.com/images/home/profile.jpg'});
-    this.meta.updateTag({ property : 'og:image:width', content: '200'});
-    this.meta.updateTag({ property : 'og:image:height', content: '200'});
+    this.meta.updateTag({ property : 'og:image:width', content: '200px'});
+    this.meta.updateTag({ property : 'og:image:height', content: '200px'});
     this.meta.updateTag({ property : 'og:description', content: 'The personal website of ' +
       'Nick Frichette, Software Developer and Security Researcher'});
     this.meta.updateTag({ property : 'og:title', content: 'Nick Frichette'});

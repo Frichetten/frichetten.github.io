@@ -16,8 +16,8 @@ export class BlogComponent implements OnInit {
     this.meta.updateTag({ name : 'description', content: 'My blog where I cover ' +
       'topics ranging from programming to security'});
     this.meta.updateTag({ property : 'og:image', content: 'https://frichetten.com/images/home/profile.jpg'});
-    this.meta.updateTag({ property : 'og:image:width', content: '200'});
-    this.meta.updateTag({ property : 'og:image:height', content: '200'});
+    this.meta.updateTag({ property : 'og:image:width', content: '200px'});
+    this.meta.updateTag({ property : 'og:image:height', content: '200px'});
     this.meta.updateTag({ property : 'og:description', content: 'My blog where I cover ' +
       'topics ranging from programming to security'});
     this.meta.updateTag({ property : 'og:title', content: 'Blog'});
