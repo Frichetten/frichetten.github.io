@@ -22,8 +22,9 @@
   "homepage": "https://github.com/Frichetten/frichetten.github.io#readme",
   "dependencies": {
     "cors": "^2.8.4",
-    "express": "^4.16.2",
-    "mongoose": "^4.13.7",
-    "prerender-node": "^2.7.4"
+    "express": "^4.16.3",
+    "hawk": "^7.0.7",
+    "mongoose": "^4.13.12",
+    "prerender-node": "^3.1.1"
   }
 }
