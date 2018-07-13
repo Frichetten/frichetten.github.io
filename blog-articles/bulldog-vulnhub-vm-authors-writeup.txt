@@ -1,5 +1,6 @@
 It's been a pretty busy few months for me, I graduated college, released a VM on VulnHub, got a certification (GPEN), and have been redoing my website for the 4th (5th?) time. After all that I've come to realize that I've left my blog pretty desserted. I've started a few posts on what I thought about GPEN, better beaconing techniques for Red Teams, Python List Comprehensions, but I decided it would be better for me to do a writeup on my own VM.
 
+
 I've been shocked by the number of people who are willing to spend their own time writing up how they got root on the machine. It's both very flattering, and humbling. In honor of that effort, I decided I should do a writeup on my thoughts about the machine, the decisions I made in making it, and hopefully provide others with a roadmap as to how they should make their own vulnerable VMs.
 
 To any reading this, yes the sequel is coming soonish. I've really tried to pull out all the stops with the next one and create something interesting. It will be much more challenging, but I hope it will be more rewarding for those who do manage to topple it.
