@@ -6,9 +6,9 @@
         <div class="col-md" *ngFor="let article of articles;" style="margin: 2em;min-width:200px;">
             <a href="/blog/{{ article.link }}">
             <p align="center"><img src="/images/thumbs/{{ article.link }}" class="img-responsive" style="width:200px;height:150px;"/></p>
-            <h4 style="text-align:center">{{ article.title }}</h4>
+            <h4 style="text-align:center">{{ article.title }}</h4></a>
             <p align="center">{{ article.published }}</p>
-            <p align="center">{{ article.synopsis }}</p></a>
+            <p align="center">{{ article.synopsis }}</p>
         </div>
       </div>
     </div>
