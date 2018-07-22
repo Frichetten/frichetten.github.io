@@ -26,6 +26,7 @@ export class BlogComponent implements OnInit {
     this.meta.updateTag({ name : 'twitter:description', content: 'My blog where I cover ' +
       'topics ranging from programming to security'});
     this.meta.updateTag({ name : 'twitter:image', content: 'https://frichetten.com/images/home/profile.jpg'});
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary'})
   }
 
   ngOnInit() {

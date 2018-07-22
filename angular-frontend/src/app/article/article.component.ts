@@ -29,6 +29,7 @@ export class ArticleComponent implements OnInit {
       this.meta.updateTag({ name : 'twitter:title', content: info.title});
       this.meta.updateTag({ name : 'twitter:description', content: info.synopsis});
       this.meta.updateTag({ name : 'twitter:image', content: 'https://frichetten.com/images/thumbs/'+info.link});
+      this.meta.updateTag({ name: 'twitter:card', content: 'summary'})
     });
   }
 

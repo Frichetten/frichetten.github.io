@@ -12,7 +12,7 @@ const ArticleSchema = mongoose.Schema({
 const Article = module.exports = mongoose.model('Article', ArticleSchema);
 
 module.exports.getAllArticleThumbs = function(callback) {
-  Article.find({}, {"title":1, "published":1, "synopsis":1, "link":1, "_id": false}, callback);
+  Article.find({}, {"title":1, "published":1, "synopsis":1, "link":1, "order":1, "_id": false}, callback).sort( {order: -1});
 }
 
 module.exports.getArticle = function(title, callback){
