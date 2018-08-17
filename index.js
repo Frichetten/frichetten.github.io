@@ -28,7 +28,7 @@ app.get('*', (req, res) => {
 
 app.post('/torbandwidth', (req, res) => {
   // Here we need to read the file
-  fs.readFile('/home/nodejs/bandwidth','utf8', function(err, contents) {
+  fs.readFile('/home/nick/bandwidth','utf8', function(err, contents) {
     res.send({"data" : contents});
   });
 });
