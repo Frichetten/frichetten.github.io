@@ -1,23 +1,21 @@
 const express   = require('express');
-const cors      = require('cors');
 const mongoose  = require('mongoose');
-const config    = require('./config/database');
+const config    = require('./config/secrets');
 const Article   = require('./models/article');
 const path      = require('path');
 const fs        = require('fs');
 
-mongoose.connect(config.database, {useMongoClient:true});
-mongoose.connection.on('connected', () => {
-  console.log("Connected to database " + config.database);
-});
+//mongoose.connect(config.database, {useMongoClient:true});
+//mongoose.connection.on('connected', () => {
+//  console.log("Connected to database " + config.database);
+//});
 
-mongoose.connection.on('error', (err) => {
-  console.log('Database error: ' + err);
-  process.exit();
-});
+//mongoose.connection.on('error', (err) => {
+//  console.log('Database error: ' + err);
+//  process.exit();
+//});
 
 const app = express();
-app.use(cors());
 app.use(express.static(path.join(__dirname, 'angular-frontend/dist')));
 
 const routes = require('./routes/routes');
