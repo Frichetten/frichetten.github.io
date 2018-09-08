@@ -14,7 +14,7 @@ WORKDIR ./angular-frontend
 
 RUN npm install
 RUN npm -g install @angular/cli
-RUN ng build
+RUN ng build --prod --aot --build-optimizer
 
 WORKDIR /usr/src/app
 
