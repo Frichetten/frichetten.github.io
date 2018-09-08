@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import 'rxjs/add/operator/map'
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class BlogService {
@@ -13,14 +13,14 @@ export class BlogService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('/blog', {headers: headers})
-      .map(res => res.json());
+      .pipe(map(res => res.json()));
   }
 
   getArticle(title){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('/blog/'+title, {headers: headers})
-      .map(res => res.json());
+      .pipe(map(res => res.json()));
   }
 
 }

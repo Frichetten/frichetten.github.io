@@ -1,10 +1,10 @@
 {
   "name": "frichetten.com",
-  "version": "0.0.1",
+  "version": "3.5.0",
   "description": "A personal website developed by Nick Frichette",
   "main": "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -12,19 +12,18 @@
   },
   "keywords": [
     "website",
-    "personal-website"
+    "personal-website",
+    "Angular",
+    "Node"
   ],
   "author": "Nick Frichette",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Frichetten/frichetten.github.io/issues"
   },
   "homepage": "https://github.com/Frichetten/frichetten.github.io#readme",
   "dependencies": {
-    "cors": "^2.8.4",
     "express": "^4.16.3",
-    "hawk": "^7.0.7",
-    "mongoose": "^4.13.12",
-    "prerender-node": "^3.1.1"
+    "mongoose": "^4.13.12"
   }
 }
