@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Meta } from '@angular/platform-browser';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -39,7 +40,7 @@ export class HomeComponent implements OnInit {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post('/torbandwidth', {headers: headers})
-      .map(res => res.json());
+      .pipe(map(res => res.json()));
   }
 
 }
