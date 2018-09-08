@@ -1,4 +1,4 @@
-config/database.js
+config/secrets.js
 .gitignore
 .eslintrc
 angular-frontend/dist
