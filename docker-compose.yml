@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  webapp:
+    build: .
+    tty: true
+ 
+  revproxy:
+    build: ./nginx
+    tty: true
+    links:
+      - webapp
+    ports:
+      - '80:80'
+    volumes:
+      - /home/nick/Documents/website-backup/files:/var/www/frichetten.com/files
+      - /home/nick/Documents/website-backup/images:/var/www/frichetten.com/images
