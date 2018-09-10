@@ -2,11 +2,11 @@ version: '3.2'
 services:
   webapp:
     build:
-      context: ../angular-frontend
+      context: ../
       dockerfile: './Dockerfile.development'
     tty: true
     volumes:
-      - /home/nick/Documents/frichetten.github.io/angular-frontend:/usr/src/app
+      - /home/nick/Documents/frichetten.github.io/angular-frontend:/usr/src/app/angular-frontend
 
   revproxy:
     build: ../nginx
