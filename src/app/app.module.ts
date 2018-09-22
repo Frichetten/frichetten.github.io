@@ -11,7 +11,7 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogService } from './services/blog.service';
 import { ArticleComponent } from './article/article.component';
 import { ContactmeComponent } from './contactme/contactme.component';
-import { SafeHtmlPipe } from './safe-html/safe-html.component';
+import { SafeHtmlComponent } from './safe-html/safe-html.component';
 
 import { BrowserTransferStateModule } from '@angular/platform-browser';
 
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
     BlogComponent,
     ArticleComponent,
     ContactmeComponent,
-    SafeHtmlPipe
+    SafeHtmlComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'frichetten-com' }),
