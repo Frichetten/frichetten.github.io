@@ -13,6 +13,8 @@ import { ArticleComponent } from './article/article.component';
 import { ContactmeComponent } from './contactme/contactme.component';
 import { SafeHtmlPipe } from './safe-html/safe-html.component';
 
+import { BrowserTransferStateModule } from '@angular/platform-browser';
+
 const appRoutes: Routes = [
     { path:'', component: HomeComponent },
     {
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     SafeHtmlPipe
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'frichetten-com' }),
+    BrowserTransferStateModule,
     RouterModule.forRoot(appRoutes),
     HttpModule
   ],
