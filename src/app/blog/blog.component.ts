@@ -12,7 +12,7 @@ export class BlogComponent implements OnInit {
 
   articles: any;
 
-  constructor(private blogService:BlogService, private meta:Meta) {
+  constructor(private router:Router, private blogService:BlogService, private meta:Meta) {
     this.meta.updateTag({ name : 'description', content: 'My blog where I cover ' +
       'topics ranging from programming to security'});
     this.meta.updateTag({ property : 'og:image', content: 'https://frichetten.com/images/home/profile.jpg'});

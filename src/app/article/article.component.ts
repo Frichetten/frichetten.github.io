@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogService } from '../services/blog.service';
 import { Meta } from '@angular/platform-browser';
-
+import { Http, Headers } from '@angular/http';
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -12,9 +12,7 @@ export class ArticleComponent implements OnInit {
 
   article : any;
 
-  constructor(private router:Router, private blogService:BlogService, private meta:Meta) { }
-
-  ngOnInit() {
+  constructor(private router:Router, private blogService:BlogService, private meta:Meta, private http: Http) {
     var title = this.router.url;
     title = title.substring(title.lastIndexOf("/")+1);
     this.blogService.getArticle(title).subscribe(info => {
@@ -31,6 +29,10 @@ export class ArticleComponent implements OnInit {
       this.meta.updateTag({ name : 'twitter:image', content: 'https://frichetten.com/images/thumbs/'+info.link});
       this.meta.updateTag({ name: 'twitter:card', content: 'summary'})
     });
+  }
+
+  ngOnInit() {
+
   }
 
 }
