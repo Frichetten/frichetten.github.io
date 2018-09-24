@@ -14,6 +14,7 @@ import { ContactmeComponent } from './contactme/contactme.component';
 import { SafeHtmlComponent } from './safe-html/safe-html.component';
 
 import { BrowserTransferStateModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
     { path:'', component: HomeComponent },
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     BrowserModule.withServerTransition({ appId: 'frichetten-com' }),
     BrowserTransferStateModule,
     RouterModule.forRoot(appRoutes),
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   providers: [BlogService],
   bootstrap: [AppComponent]
