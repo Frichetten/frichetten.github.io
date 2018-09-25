@@ -79,6 +79,6 @@ app.post('/blog/*', (req, res) => {
 });
 
 // Start Express Server
-app.listen(4200, () => {
-  console.log(`Node Express server listening on http://localhost:4200`);
+app.listen(8080, () => {
+  console.log(`Node Express server listening on http://localhost:8080`);
 });
