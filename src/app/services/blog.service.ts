@@ -1,36 +1,41 @@
-import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Injectable, Inject, Optional } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 
-interface Article {
-  link: string,
-  order: number,
-  published: string,
-  synopsis: string,
-  text: string,
-  title: string
+class Article {
+  link: ""
+  order: ""
+  published: ""
+  synopsis: ""
+  text: ""
+  title: ""
 }
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
 
 @Injectable()
 export class BlogService {
   articles: any;
   article: any;
+  private origin_url: string;
 
-  constructor(private http:Http) { }
+  constructor(
+    private http:HttpClient,
+    @Optional() @Inject(APP_BASE_HREF) origin: string
+  ) { 
+    this.origin_url = `${origin}`;
+  }
 
   listArticles(){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('/blog', {headers: headers})
-      .pipe(map(res => res.json()));
+    return this.http.post(`${this.origin_url}/blog`, "", httpOptions);
   }
 
   getArticle(title){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('/blog/'+title, {headers: headers})
-      .pipe(map(res => res.json()));
+    return this.http.post(`${this.origin_url}/blog/${title}`, "", httpOptions);
   }
 
 }
