@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend": {
+    "frichetten-com": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "frontend:build"
+            "browserTarget": "frichetten-com:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "frontend:build:production"
+              "browserTarget": "frichetten-com:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend:build"
+            "browserTarget": "frichetten-com:build"
           }
         },
         "test": {
@@ -92,10 +92,18 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/frichetten-com-server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          }
         }
       }
     },
-    "frontend-e2e": {
+    "frichetten-com-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "targets": {
@@ -103,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "frontend:serve"
+            "devServerTarget": "frichetten-com:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "frontend:serve:production"
+              "devServerTarget": "frichetten-com:serve:production"
             }
           }
         },
@@ -123,5 +131,5 @@
       }
     }
   },
-  "defaultProject": "frontend"
+  "defaultProject": "frichetten-com"
 }

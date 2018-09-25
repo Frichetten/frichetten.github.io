@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Meta } from '@angular/platform-browser';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   bandwidth : any;
 
-  constructor(private http:Http, private meta:Meta) {
+  constructor(private router:Router, private http:Http, private meta:Meta) {
     this.meta.updateTag({ name : 'description', content: 'The personal website of ' +
       'Nick Frichette, Software Developer and Security Researcher'});
     this.meta.updateTag({ property : 'og:url', content: 'https://frichetten.com'});
