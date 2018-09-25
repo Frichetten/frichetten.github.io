@@ -1,6 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
+interface Article {
+  link: string,
+  order: number,
+  published: string,
+  synopsis: string,
+  text: string,
+  title: string
+}
 
 @Injectable()
 export class BlogService {
