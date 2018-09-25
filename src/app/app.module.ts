@@ -15,6 +15,7 @@ import { SafeHtmlComponent } from './safe-html/safe-html.component';
 
 import { BrowserTransferStateModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 
 const appRoutes: Routes = [
     { path:'', component: HomeComponent },
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     HttpModule,
     HttpClientModule
   ],
-  providers: [BlogService],
+  providers: [BlogService, {provide: APP_BASE_HREF, useValue: 'http://127.0.0.1'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

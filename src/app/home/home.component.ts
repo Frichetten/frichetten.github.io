@@ -1,8 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
+
+class bandwidth {
+  data: ""
+};
 
 @Component({
   selector: 'app-home',
@@ -12,8 +22,11 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   bandwidth : any;
+  private origin_url: string;
 
-  constructor(private router:Router, private http:Http, private meta:Meta) {
+  constructor(private router:Router, private http:HttpClient, private meta:Meta, @Optional() @Inject(APP_BASE_HREF) origin: string) {
+    this.origin_url = origin;
+
     this.meta.updateTag({ name : 'description', content: 'The personal website of ' +
       'Nick Frichette, Software Developer and Security Researcher'});
     this.meta.updateTag({ property : 'og:url', content: 'https://frichetten.com'});
@@ -39,10 +52,7 @@ export class HomeComponent implements OnInit {
   }
 
   checkBandwidth(){
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('/torbandwidth', {headers: headers})
-      .pipe(map(res => res.json()));
+    return this.http.post<bandwidth>(`${this.origin_url}/torbandwidth`, "", httpOptions);
   }
 
 }
