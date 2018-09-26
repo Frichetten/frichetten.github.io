@@ -1,4 +1,4 @@
-# Frichetten.com
+# Frichetten.com [![Build Status](https://travis-ci.com/Frichetten/frichetten.github.io.svg?branch=master)](https://travis-ci.com/Frichetten/frichetten.github.io)
 
 <p align="center">
   <img src="https://frichetten.com/images/screen.png" alt="https://frichetten.com" /> 
