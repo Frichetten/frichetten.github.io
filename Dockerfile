@@ -9,8 +9,8 @@ RUN npm install @angular/cli
 
 COPY . .
 
-RUN npm run build:prod:ssr
+RUN npm run build:ssr
 
-EXPOSE 8080
+EXPOSE 4200
 
 CMD [ "npm", "run", "serve:ssr"]
