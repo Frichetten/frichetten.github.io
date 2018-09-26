@@ -13,6 +13,8 @@ import * as fs from 'fs';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
+const PORT = process.env.PORT || 4200;
+
 mongoose.connect(secrets.database, {useNewUrlParser:true});
 mongoose.connection.on('connected', () => {
   console.log("Connected to database " + secrets.database);
@@ -55,6 +57,7 @@ app.get('*', (req, res) => {
 app.post('/torbandwidth', (req, res) => {
   // Here we need to read the file
   fs.readFile('/home/nick/bandwidth','utf8', function(err, contents) {
+    res.set({'Cache-Control': 'max-age=600'});
     res.send({"data" : contents});
   });
 });
@@ -79,6 +82,6 @@ app.post('/blog/*', (req, res) => {
 });
 
 // Start Express Server
-app.listen(8080, () => {
-  console.log(`Node Express server listening on http://localhost:8080`);
+app.listen(PORT, () => {
+  console.log(`Node Express server listening on http://localhost:${PORT}`);
 });
