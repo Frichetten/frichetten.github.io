@@ -57,7 +57,7 @@ app.get('*', (req, res) => {
 app.post('/torbandwidth', (req, res) => {
   // Here we need to read the file
   fs.readFile('/home/nick/bandwidth','utf8', function(err, contents) {
-    res.set({'Cache-Control': 'max-age=600'});
+    res.set({'Cache-Control': 'public, max-age=1800'});
     res.send({"data" : contents});
   });
 });
