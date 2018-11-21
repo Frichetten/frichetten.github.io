@@ -4,7 +4,7 @@
   <img src="https://frichetten.com/images/screen.png" alt="https://frichetten.com" /> 
 </p>
 
-My personal website: Angular 6 Universal on top of Node, MongoDB, and Docker.  
+My personal website: Angular 7 Universal on top of Node, MongoDB, and Docker.  
 
 ## How to run
 
