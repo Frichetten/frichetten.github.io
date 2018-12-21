@@ -1,0 +1,24 @@
+version: '3'
+services:
+  frichetten:
+    build: .
+    ports:
+      - "4200:4200"
+    command: ["./wait-for-it.sh", "mongodb:27017", "--", "npm", "run", "serve:ssr"]
+
+  nginx:
+    image: "nginx:alpine"
+    ports: 
+      - "80:80"
+    volumes:
+      - "/home/nick/Documents/website-backup/nginx.conf:/etc/nginx/nginx.conf"
+      - "/home/nick/Documents/website-backup/frichetten.com:/etc/nginx/sites-available/frichetten.com"
+      - "/home/nick/Documents/website-backup/files/:/var/www/frichetten.com/files"
+      - "/home/nick/Documents/website-backup/images/:/var/www/frichetten.com/images"
+
+  mongodb:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+    volumes:
+      - "~/Documents/website-backup/database/data:/data/db"
