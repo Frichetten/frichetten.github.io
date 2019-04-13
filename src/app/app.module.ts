@@ -52,7 +52,7 @@ const appRoutes: Routes = [
     HttpModule,
     HttpClientModule
   ],
-  providers: [BlogService, {provide: APP_BASE_HREF, useValue: 'http://127.0.0.1'}],
+  providers: [BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
