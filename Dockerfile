@@ -11,6 +11,6 @@ COPY . .
 
 RUN npm run build:ssr
 
-EXPOSE 4200
+EXPOSE 8080
 
 CMD [ "npm", "run", "serve:ssr"]

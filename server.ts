@@ -13,7 +13,7 @@ import * as fs from 'fs';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
-const PORT = process.env.PORT || 4200;
+const PORT = process.env.PORT || 8080;
 
 mongoose.connect(secrets.database, {useNewUrlParser:true});
 mongoose.connection.on('connected', () => {
