@@ -1,6 +1,5 @@
 import { Injectable, Inject, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { APP_BASE_HREF } from '@angular/common';
 
 class Article {
   link: ""
@@ -23,19 +22,14 @@ export class BlogService {
   article: any;
   private origin_url: string;
 
-  constructor(
-    private http:HttpClient,
-    @Optional() @Inject(APP_BASE_HREF) origin: string
-  ) { 
-    this.origin_url = `${origin}`;
-  }
+  constructor(private http:HttpClient) { }
 
   listArticles(){
-    return this.http.post(`${this.origin_url}/blog`, "", httpOptions);
+    return this.http.post(`blog`, "", httpOptions);
   }
 
   getArticle(title){
-    return this.http.post(`${this.origin_url}/blog/${title}`, "", httpOptions);
+    return this.http.post(`blog/${title}`, "", httpOptions);
   }
 
 }
