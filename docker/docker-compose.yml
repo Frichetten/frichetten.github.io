@@ -1,0 +1,14 @@
+version: '3'
+services:
+  frichetten:
+    build: 
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "8080:8080"
+    command: ["./docker/wait-for-it.sh", "mongodb:27017", "--", "npm", "run", "serve:ssr"]  
+
+  mongodb:
+    image: "mongo"
+    ports:
+      - "27017:27017"
