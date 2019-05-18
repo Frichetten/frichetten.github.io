@@ -2,7 +2,6 @@ import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { APP_BASE_HREF } from '@angular/common';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,8 +23,7 @@ export class HomeComponent implements OnInit {
   bandwidth : any;
   private origin_url: string;
 
-  constructor(private router:Router, private http:HttpClient, private meta:Meta, @Optional() @Inject(APP_BASE_HREF) origin: string) {
-    this.origin_url = origin;
+  constructor(private router:Router, private http:HttpClient, private meta:Meta) {
 
     this.meta.updateTag({ name : 'description', content: 'The personal website of ' +
       'Nick Frichette, Software Developer and Security Researcher'});
@@ -52,7 +50,7 @@ export class HomeComponent implements OnInit {
   }
 
   checkBandwidth(){
-    return this.http.post<bandwidth>(`${this.origin_url}/torbandwidth`, "", httpOptions);
+    return this.http.post<bandwidth>(`torbandwidth`, "", httpOptions);
   }
 
 }
