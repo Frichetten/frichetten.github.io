@@ -5,7 +5,7 @@ services:
       context: ../
       dockerfile: ./docker/Dockerfile
     ports:
-      - "8080:8080"
+      - "127.0.0.1:8080:8080"
     command: ["./docker/wait-for-it.sh", "mongodb:27017", "--", "npm", "run", "serve:ssr"]  
     volumes:
       - "/home/nick/bandwidth:/home/nick/bandwidth"
@@ -13,7 +13,7 @@ services:
   mongodb:
     image: "mongo"
     ports:
-      - "27017:27017"
+      - "127.0.0.1:27017:27017"
     volumes:
       - "mongodata:/data/db"
 

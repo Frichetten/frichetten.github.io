@@ -23,7 +23,7 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
 
 // Connect to Database
 mongoose.connect(
-  "mongodb://172.17.0.1:27017/personal",
+  "mongodb://mongodb:27017/personal",
   { useNewUrlParser : true }
 );
 mongoose.connection.on("connected", () => {
