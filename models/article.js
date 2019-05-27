@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const config = require('../config/secrets');
 
 // Article Schema
 const ArticleSchema = mongoose.Schema({

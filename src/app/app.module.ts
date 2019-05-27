@@ -1,58 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { BlogComponent } from './blog/blog.component';
-
-import { BlogService } from './services/blog.service';
-import { ArticleComponent } from './article/article.component';
-import { ContactmeComponent } from './contactme/contactme.component';
-import { SafeHtmlComponent } from './safe-html/safe-html.component';
-
-import { BrowserTransferStateModule } from '@angular/platform-browser';
+import { NavbarComponent } from './navbar/navbar.component';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { HttpClientModule } from '@angular/common/http';
-import { APP_BASE_HREF } from '@angular/common';
-
-const appRoutes: Routes = [
-    { path:'', component: HomeComponent },
-    {
-      path:'blog',
-      children: [
-        {
-          path: '',
-          component: BlogComponent
-        },
-        {
-          path: ':name',
-          component: ArticleComponent
-        }
-      ]
-    },
-    { path:'contact', component: ContactmeComponent }
-]
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
-    BlogComponent,
-    ArticleComponent,
-    ContactmeComponent,
-    SafeHtmlComponent
+    NavbarComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'frichetten-com' }),
-    BrowserTransferStateModule,
-    RouterModule.forRoot(appRoutes),
-    HttpModule,
-    HttpClientModule
+    BrowserModule.withServerTransition({appId: 'my-app'}),
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent},
+      {
+        path: 'blog',
+        children: [
+          { path: '', loadChildren: './blog/blog.module#BlogModule' },
+          { path: ':name', loadChildren: './article/article.module#ArticleModule' }
+        ]
+      },
+      { path: 'contact', loadChildren: './contactme/contactme.module#ContactmeModule'}
+    ]),
+    TransferHttpCacheModule,
+    HttpClientModule,
   ],
-  providers: [BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
