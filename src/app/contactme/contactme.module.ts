@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, NgModule } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
@@ -7,7 +7,7 @@ import { Meta } from '@angular/platform-browser';
   templateUrl: './contactme.component.html',
   styleUrls: ['./contactme.component.css']
 })
-export class ContactmeComponent implements OnInit {
+export class ContactmeComponent {
 
   constructor(private router:Router, private meta:Meta) {
     this.meta.updateTag({ name : 'description', content: 'How to contact me'});
@@ -24,8 +24,14 @@ export class ContactmeComponent implements OnInit {
     this.meta.updateTag({ name : 'twitter:description', content: 'How to contact me'});
     this.meta.updateTag({ name : 'twitter:image', content: 'https://frichetten.com/images/home/profile.jpg'});
   }
-
-  ngOnInit() {
-  }
-
 }
+
+@NgModule({
+  declarations: [ContactmeComponent],
+  imports: [
+    RouterModule.forChild([
+      { path: '', component: ContactmeComponent }
+    ])
+  ]
+})
+export class ContactmeModule {}
