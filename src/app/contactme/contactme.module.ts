@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Meta } from '@angular/platform-browser';
 
 @Component({
@@ -9,7 +9,7 @@ import { Meta } from '@angular/platform-browser';
 })
 export class ContactmeComponent {
 
-  constructor(private router:Router, private meta:Meta) {
+  constructor(private meta:Meta) {
     this.meta.updateTag({ name : 'description', content: 'How to contact me'});
     this.meta.updateTag({ property : 'og:url', content: 'https://frichetten.com'});
     this.meta.updateTag({ property : 'og:type', content: 'website'});
