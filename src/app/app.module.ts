@@ -25,11 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
           { path: ':name', loadChildren: './article/article.module#ArticleModule' }
         ]
       },
-      { path: 'contact', loadChildren: './contactme/contactme.module#ContactmeModule'}
+      { path: 'contact', loadChildren: './contactme/contactme.module#ContactmeModule'},
+      { path: '**', loadChildren: './notfound/notfound.module#NotFoundModule' }
     ]),
     TransferHttpCacheModule,
     HttpClientModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
