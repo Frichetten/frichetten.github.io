@@ -1,6 +1,6 @@
 {
   "name": "frichetten",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -35,9 +35,9 @@
     "@nguniversal/common": "^6.0.0",
     "@nguniversal/express-engine": "^6.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
-    "core-js": "^2.4.1",
+    "core-js": "^2.6.9",
     "express": "^4.17.1",
-    "mongoose": "^5.5.11",
+    "mongoose": "^5.5.12",
     "reflect-metadata": "^0.1.10",
     "rxjs": "6.5.2",
     "zone.js": "^0.8.26"
@@ -47,12 +47,12 @@
     "@angular/cli": "7.3.9",
     "@angular/compiler-cli": "7.2.15",
     "@angular/language-service": "7.2.15",
-    "@types/node": "^8.0.30",
+    "@types/node": "^8.10.49",
     "codelyzer": "^4.0.2",
     "http-server": "^0.10.0",
     "pre-commit": "^1.2.2",
     "ts-loader": "^4.2.0",
-    "tslint": "^5.7.0",
+    "tslint": "^5.17.0",
     "typescript": "3.2.4"
   }
 }
