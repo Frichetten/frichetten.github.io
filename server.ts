@@ -71,6 +71,9 @@ app.get('/blogarticles/*', (req, res) => {
     if(success){
       res.send(success);
     }
+    else {
+      res.send(err);
+    }
   })
 });
 
