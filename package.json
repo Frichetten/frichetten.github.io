@@ -37,7 +37,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "core-js": "^2.6.9",
     "express": "^4.17.1",
-    "mongoose": "^5.5.12",
+    "mongoose": "^5.5.13",
     "reflect-metadata": "^0.1.10",
     "rxjs": "6.5.2",
     "zone.js": "^0.8.26"
