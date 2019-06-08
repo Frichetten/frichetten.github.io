@@ -21,12 +21,12 @@ import { HttpClientModule } from '@angular/common/http';
       {
         path: 'blog',
         children: [
-          { path: '', loadChildren: './blog/blog.module#BlogModule' },
-          { path: ':name', loadChildren: './article/article.module#ArticleModule' }
+          { path: '', loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
+          { path: ':name', loadChildren: () => import('./article/article.module').then(m => m.ArticleModule) }
         ]
       },
-      { path: 'contact', loadChildren: './contactme/contactme.module#ContactmeModule'},
-      { path: '**', loadChildren: './notfound/notfound.module#NotFoundModule' }
+      { path: 'contact', loadChildren: () => import('./contactme/contactme.module').then(m => m.ContactmeModule)},
+      { path: '**', loadChildren: () => import('./notfound/notfound.module').then(m => m.NotFoundModule) }
     ]),
     TransferHttpCacheModule,
     HttpClientModule,
