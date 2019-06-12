@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { HttpClientModule } from '@angular/common/http';
 
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ]),
     TransferHttpCacheModule,
     HttpClientModule,
+    LazyLoadImageModule,
   ],
   bootstrap: [AppComponent],
 })
