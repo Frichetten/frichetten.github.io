@@ -37,7 +37,7 @@
     "@trademe/ng-defer-load": "^3.0.1",
     "core-js": "^2.6.9",
     "express": "^4.17.1",
-    "mongoose": "^5.6.6",
+    "mongoose": "^5.6.11",
     "ng-lazyload-image": "^5.1.2",
     "reflect-metadata": "^0.1.10",
     "rxjs": "6.5.2",
@@ -45,15 +45,15 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.800.6",
-    "@angular/cli": "^8.1.2",
+    "@angular/cli": "^8.3.1",
     "@angular/compiler-cli": "8.0.0",
     "@angular/language-service": "8.0.0",
-    "@types/node": "^8.10.51",
+    "@types/node": "^8.10.52",
     "codelyzer": "^5.0.1",
     "http-server": "^0.10.0",
     "pre-commit": "^1.2.2",
     "ts-loader": "^4.2.0",
-    "tslint": "^5.18.0",
+    "tslint": "^5.19.0",
     "typescript": "3.4.5"
   }
 }
