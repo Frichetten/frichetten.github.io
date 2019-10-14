@@ -28,6 +28,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
         ]
       },
       { path: 'contact', loadChildren: () => import('./contactme/contactme.module').then(m => m.ContactmeModule)},
+      { path: 'health', loadChildren: () => import('./health/health.module').then(m => m.HealthModule) },
       { path: '**', loadChildren: () => import('./notfound/notfound.module').then(m => m.NotFoundModule) }
     ]),
     TransferHttpCacheModule,
