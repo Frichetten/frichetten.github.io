@@ -8,7 +8,6 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 import * as express from 'express';
 import * as mongoose from 'mongoose';
-import * as fs from 'fs';
 import * as Article from './models/article';
 import { join } from 'path';
 
@@ -46,14 +45,6 @@ app.engine('html', ngExpressEngine({
 
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
-
-// Handle tor request
-app.get('/torbandwidth', (req, res) => {
-  fs.readFile('/home/nick/bandwidth', 'utf8', function(err, contents) {
-    res.set({'Cache-Control': 'public, max-age=1800'});
-    res.send({"data": contents});
-  });
-});
 
 // The blog endpoints
 app.get('/blogarticles', (req, res) => {
