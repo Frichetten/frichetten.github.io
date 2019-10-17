@@ -7,8 +7,6 @@ services:
     ports:
       - "8080:8080"
     command: ["./docker/wait-for-it.sh", "mongodb:27017", "--", "npm", "run", "serve:ssr"]  
-    volumes:
-      - "/home/nick/Documents/website-backup/bandwidth:/home/nick/bandwidth"
 
   mongodb:
     image: "mongo"
