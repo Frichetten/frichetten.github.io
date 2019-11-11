@@ -15,8 +15,6 @@ export class HomeComponent {
   public bandwidth : any;
 
   constructor(private http:HttpClient, private meta:Meta) {
-      this.http.get<any>(`/torbandwidth`)
-        .subscribe(data => this.bandwidth = data.data);
 
       this.meta.updateTag({ name : 'description', content: 'The personal website of ' +
         'Nick Frichette, Software Developer and Security Researcher'});
