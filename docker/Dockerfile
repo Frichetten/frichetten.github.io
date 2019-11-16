@@ -11,6 +11,9 @@ COPY . .
 RUN npm run build:ssr
 RUN cp -r models dist/
 
+RUN useradd -r -u 100 www-data
+USER www-data
+
 EXPOSE 8080
 
 CMD [ "npm", "run", "serve:ssr"]
