@@ -23,7 +23,7 @@ services:
       - "/home/nick/Documents/website-backup/files:/var/www/frichetten.com/files"
       - "/home/nick/Documents/website-backup/images:/var/www/frichetten.com/images"
       - "/home/nick/Documents/website-backup/nginx.conf:/etc/nginx/nginx.conf"
-      - "/home/nick/Documents/website-backup/frichetten.com:/etc/nginx/sites-available/frichetten.com"
+      - "/home/nick/Documents/website-backup/frichetten.com:/etc/nginx/sites-enabled/frichetten.com"
 
 volumes:
   mongodata:
