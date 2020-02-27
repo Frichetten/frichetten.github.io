@@ -1,0 +1,6 @@
+baseURL = "http://frichetten.com/"
+languageCode = "en-us"
+title = "Nick Frichette"
+newContentEditor = "vim"
+theme = "nofancy"
+pygmentsStyle = "native"
