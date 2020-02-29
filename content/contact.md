@@ -1,7 +1,5 @@
 ---
 ---
-<br>
-<div class="container">
 <div class="card">
   <div class="card-block">
     <div class="text-canvas">
@@ -22,5 +20,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
