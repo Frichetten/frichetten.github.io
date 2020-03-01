@@ -1,0 +1,107 @@
+---
+---
+<div class="container">
+<br><br>
+  <img src="/images/home/profile.jpg" class="circle-avatar" alt="Picture of Nick">
+<br>
+<div class="card">
+  <div class="card-block">
+    <div class="text-canvas">
+      <h1 style="text-align: center">Nick Frichette</h1>
+      <h2 style="text-align: center" class="desc">Software Developer and Security Researcher</h2>
+      <p style="text-align: center" class="tor">This server is part of the <a href="https://torproject.org">Tor</a> network.
+        Onion Address: <a href="http://nickf43ab43xxf3yqgzy5uedsjij6h473rmbyzq6inohcnr3lohlu3yd.onion/">
+          nickf43ab43xxf3yqgzy5uedsjij6h473rmbyzq6inohcnr3lohlu3yd.onion
+        </a></p>
+    </div>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-block">
+    <div class="text-canvas">
+      <h2>Background</h2>
+      <p>Hi I'm Nick! I'm a tehnical lead for a Penetration Testing team at a Fortune 40. My primary areas of focus are in web 
+        applications, AWS, and containerization (Kubernetes, Docker, etc.).</p>
+      <p>In my off time write a lot of code, play CTFs, and do general vuln research. I also support the Tor project through my Tor nodes.</p>
+    </div>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-block">
+    <div class="text-canvas">
+      <h2>Education and Certifications</h2>
+      <div class="row">
+        <div class="col-md">
+          <p>
+            <img [lazyLoad]="'/images/home/oscp.png'" class="img-responsive" alt="OSCP logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            OSCP - Offensive Security Certified Professional<br>
+          </p>
+        </div>
+        <div class="col-md">
+          <p>
+            <img [lazyLoad]="'/images/home/gxpn.png'" class="img-responsive" alt="GXPN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            GXPN - GIAC Exploit Researcher and Advanced Penetration Tester<br>
+            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My Entry in the professionals list</a>
+          </p>
+        </div>
+        <div class="col-md">
+          <p>
+            <img [lazyLoad]="'/images/home/aws.png'" class="img-responsive" alt="AWS logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            AWS Certified Solutions Architect Associate<br>
+          </p>
+        </div>
+        <div class="col-md">
+          <p>
+            <img [lazyLoad]="'/images/home/gpen.png'" class="img-responsive" alt="GPEN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            GPEN - GIAC Penetration Tester<br>
+            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My Entry in the professionals list</a>
+          </p>
+        </div>
+        <div class="col-md">
+          <p>
+            <img [lazyLoad]="'/images/home/isu_seal.png'" class="img-responsive" alt="ISU logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            B.S. Computer Science<br>
+            Illinois State University
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="card">
+  <div class="card-block">
+    <div class="text-canvas">
+      <h2>Projects</h2>
+      <p>I always have a side project going on, here are some of my favorite. Check out my
+        <a href="https://github.com/Frichetten/">GitHub</a>
+         for a more exhaustive list.</p>
+      <div class="row">
+        <div class="col-md">
+            <h4 style="text-align:center"><a href="https://www.vulnhub.com/series/bulldog,138/">
+              Bulldog 1 & 2 Vulnhub VMs</a></h4>
+            <p>Intentionally insecure VMs designed to teach common web application
+               vulnerabilities. <a href="https://www.vulnhub.com/entry/bulldog-1,211/">Bulldog 1</a>
+               and <a href="https://www.vulnhub.com/entry/bulldog-2,246/">Bulldog 2</a> have been played
+               and reviewed extensively.</p>
+        </div>
+        <div class="col-md">
+            <h4 style="text-align:center"><a href="https://github.com/Frichetten/frichetten.github.io">
+              Personal Website</a></h4>
+            <p>The website you're looking at right now! Fully MEAN stack (MongoDB, Express, Angular,
+               and Node) and hosted on Digital Ocean using Nginx as the reverse proxy.</p>
+        </div>
+        <div class="col-md">
+            <h4 style="text-align:center"><a href="https://github.com/Frichetten/specter">
+              Specter</a></h4>
+            <p>Specter is a MIT licensed open source cryptocurrency I developed to learn more about
+               blockchain technology. Rather than trying to go for an ICO or getting listed on an
+               exchange, Specter is meant to be a testbed for new blockchain technologies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
