@@ -4,3 +4,33 @@ title = "Nick Frichette"
 newContentEditor = "vim"
 theme = "hacker"
 pygmentsStyle = "native"
+
+[menu]
+  [[menu.nav]]
+    name = "Home"
+    url = "/"
+    weight = "1"
+  [[menu.nav]]
+    name = "Blog"
+    url = "/blog"
+    weight = "2"
+  [[menu.nav]]
+    name = "Contact Me"
+    url = "/contact"
+    weight = "3"
+  [[menu.nav]]
+    name = "GitHub"
+    url = "https://github.com/frichetten"
+    weight = "4"
+  [[menu.nav]]
+    name = "Twitter"
+    url = "https://twitter.com/frichette_n"
+    weight = "5"
+  [[menu.nav]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/nick-frichette/"
+    weight = "6"
+  [[menu.nav]]
+    name = "Keybase"
+    url = "https://keybase.io/frichetten" 
+    weight = "7"

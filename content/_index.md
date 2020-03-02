@@ -76,32 +76,9 @@
   <div class="card-block">
     <div class="text-canvas">
       <h2>Projects</h2>
-      <p>I always have a side project going on, here are some of my favorite. Check out my
+      <p>I always have a side project going on. Check out my
         <a href="https://github.com/Frichetten/">GitHub</a>
-         for a more exhaustive list.</p>
-      <div class="row">
-        <div class="col-md">
-            <h4 style="text-align:center"><a href="https://www.vulnhub.com/series/bulldog,138/">
-              Bulldog 1 & 2 Vulnhub VMs</a></h4>
-            <p>Intentionally insecure VMs designed to teach common web application
-               vulnerabilities. <a href="https://www.vulnhub.com/entry/bulldog-1,211/">Bulldog 1</a>
-               and <a href="https://www.vulnhub.com/entry/bulldog-2,246/">Bulldog 2</a> have been played
-               and reviewed extensively.</p>
-        </div>
-        <div class="col-md">
-            <h4 style="text-align:center"><a href="https://github.com/Frichetten/frichetten.github.io">
-              Personal Website</a></h4>
-            <p>The website you're looking at right now! Fully MEAN stack (MongoDB, Express, Angular,
-               and Node) and hosted on Digital Ocean using Nginx as the reverse proxy.</p>
-        </div>
-        <div class="col-md">
-            <h4 style="text-align:center"><a href="https://github.com/Frichetten/specter">
-              Specter</a></h4>
-            <p>Specter is a MIT licensed open source cryptocurrency I developed to learn more about
-               blockchain technology. Rather than trying to go for an ICO or getting listed on an
-               exchange, Specter is meant to be a testbed for new blockchain technologies.</p>
-        </div>
-      </div>
+         for an exhaustive list.</p>
     </div>
   </div>
 </div>

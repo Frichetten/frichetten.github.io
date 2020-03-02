@@ -7,28 +7,13 @@
     Nick Frichette
   </a>
   <div class="collapse navbar-collapse" id="navbarNav">
+    {{ $currentPage := . }}
     <ul class="navbar-nav">
-      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-	      <a class="nav-link" href="{{ .Site.BaseURL }}/blog">Blog</a>
-      </li>
-      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-        <a class="nav-link" href="{{ .Site.BaseURL }}/contact">Contact Me</a>
-      </li>
+      {{ range .Site.Menus.nav }}
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/frichetten">GitHub</a>
+	      <a class="nav-link" href="{{ .URL }}" {{ if ($currentPage.IsMenuCurrent "nav" .) }}style="color:#0ea31b"{{ end }}>{{ .Name }}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://twitter.com/frichette_n">Twitter</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://www.linkedin.com/in/nick-frichette/">LinkedIn</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://keybase.io/frichetten">Keybase</a>
-      </li>
+      {{ end }}
     </ul>
   </div>
 </nav>
