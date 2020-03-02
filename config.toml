@@ -12,11 +12,11 @@ pygmentsStyle = "native"
     weight = "1"
   [[menu.nav]]
     name = "Blog"
-    url = "/blog"
+    url = "/blog/"
     weight = "2"
   [[menu.nav]]
     name = "Contact Me"
-    url = "/contact"
+    url = "/contact/"
     weight = "3"
   [[menu.nav]]
     name = "GitHub"
