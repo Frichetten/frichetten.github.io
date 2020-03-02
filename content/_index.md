@@ -1,5 +1,6 @@
 ---
 ---
+<link rel="stylesheet" href="/css/index.css">
 <div class="container">
 <br><br>
   <img src="/images/home/profile.jpg" class="circle-avatar" alt="Picture of Nick">
@@ -35,33 +36,33 @@
       <div class="row">
         <div class="col-md">
           <p>
-            <img [lazyLoad]="'/images/home/oscp.png'" class="img-responsive" alt="OSCP logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            <img src="/images/home/oscp.png" class="img-responsive" alt="OSCP logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             OSCP - Offensive Security Certified Professional<br>
           </p>
         </div>
         <div class="col-md">
           <p>
-            <img [lazyLoad]="'/images/home/gxpn.png'" class="img-responsive" alt="GXPN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            <img src="/images/home/gxpn.png" class="img-responsive" alt="GXPN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             GXPN - GIAC Exploit Researcher and Advanced Penetration Tester<br>
             <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My Entry in the professionals list</a>
           </p>
         </div>
         <div class="col-md">
           <p>
-            <img [lazyLoad]="'/images/home/aws.png'" class="img-responsive" alt="AWS logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            <img src="/images/home/aws.png" class="img-responsive" alt="AWS logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             AWS Certified Solutions Architect Associate<br>
           </p>
         </div>
         <div class="col-md">
           <p>
-            <img [lazyLoad]="'/images/home/gpen.png'" class="img-responsive" alt="GPEN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            <img src="/images/home/gpen.png" class="img-responsive" alt="GPEN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             GPEN - GIAC Penetration Tester<br>
             <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My Entry in the professionals list</a>
           </p>
         </div>
         <div class="col-md">
           <p>
-            <img [lazyLoad]="'/images/home/isu_seal.png'" class="img-responsive" alt="ISU logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            <img src="/images/home/isu_seal.png" class="img-responsive" alt="ISU logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             B.S. Computer Science<br>
             Illinois State University
           </p>
