@@ -2,15 +2,17 @@
 {{ partial "navbar.html" . }}
 
 
-<div class="pure-g">
-    <div class="pure-u-1-24 pure-u-md-5-24"></div>
-	<div class="pure-u-11-12 pure-u-md-5-8">
-	<div class="post-content">
+<br><br>
+<div class="container">
+  <div class="card">
+    <div class="card-block">
+      <div class="text-canvas">
+        <div class="row">
 	  <p class="posts-name">{{ .Title }}:</p>
 
 	  <ul class="posts">
 		{{ $baseurl := .Site.BaseURL }}
-		{{ range $name, $page := .Data.Pages }}
+		{{ range $name, $page := .Site.Pages }}
 		{{ if eq .Type "post" }}
 		<li>
 		  {{ if .Draft }}
@@ -42,9 +44,10 @@
 		{{ end }}
 		{{ end }}
 	  </ul>
-	</div>
-	</div>
-    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {{ partial "footer.html" . }}
