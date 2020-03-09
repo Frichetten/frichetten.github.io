@@ -1,0 +1,32 @@
+{{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
+
+
+<br><br>
+<div class="container">
+  <div class="card">
+    <div class="card-block">
+      <div class="text-canvas">
+        <div class="row">
+          {{ $baseurl := .Site.BaseURL }}
+	  {{ range $name, $page := .Site.Pages }}
+	  {{ if eq .Type "post" }}
+	    {{ if .Draft }}
+	      DRAFT: 
+	    {{ end }}
+	  <div class="col-md" style="margin: 2em;min-width:200px;">
+	    <a href="{{ .Permalink }}">
+	    <p align="center"><img src="/images/thumbs/" class="img-responsive" style="windth:200px;height:150px;"/></p>
+	    <h4 style="text-align:center">{{ $page.Title}}</h4></a>
+	    <p align="center">{{ .Date.Format "January 2, 2006" }}</p>
+	    <p align="center">{{ $page.Params.description }}</p>
+	  </div>
+	  {{ end }}
+	  {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ partial "footer.html" . }}
