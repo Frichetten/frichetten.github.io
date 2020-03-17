@@ -1,7 +1,6 @@
 {{ partial "header.html" . }}
 {{ partial "navbar.html" . }}
 
-
 <br><br>
 <div class="container">
   <div class="card">
@@ -10,7 +9,7 @@
         <div class="row">
           {{ $baseurl := .Site.BaseURL }}
 	  {{ range $name, $page := .Site.Pages }}
-	  {{ if eq .Type "post" }}
+	  {{ if and (eq .Type "blog") (ne .Title "Blogs") }}
 	    {{ if .Draft }}
 	      DRAFT: 
 	    {{ end }}
