@@ -3,6 +3,7 @@ title: "Escalating Deserialization Attacks (Python)"
 date: 2020-02-23T17:16:40-06:00
 description: Demonstrating how to exploit deserialization attacks in Python 2/3
 link: escalating-deserialization-attacks-python
+image: https://frichetten.com/images/thumbs/escalating-deserialization-attacks-python
 type: "blog"
 ---
 <p>Insecure Deserialization is a class of vulnerability that affects a wide range of software. Being included as the number 8 spot on the <a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A8-Insecure_Deserialization">OWASP Top 10 (2017)</a>, it’s a common issue to run into. In this article I’d like to cover the following topics:</p>

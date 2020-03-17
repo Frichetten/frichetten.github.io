@@ -1,4 +1,7 @@
 ---
+description: The personal website of Nick Frichette, Software Developer and Security Researcher
+title: Nick Frichette
+image: https://frichetten.com/images/home/profile.jpg
 ---
 <link rel="stylesheet" href="/css/index.css">
 <div class="container">

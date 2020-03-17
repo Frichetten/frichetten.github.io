@@ -28,7 +28,7 @@ pygmentsStyle = "native"
     weight = "5"
   [[menu.nav]]
     name = "LinkedIn"
-    url = "https://www.linkedin.com/in/nick-frichette/"
+    url = "https://www.urledin.com/in/nick-frichette/"
     weight = "6"
   [[menu.nav]]
     name = "Keybase"
