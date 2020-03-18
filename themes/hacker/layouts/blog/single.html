@@ -1,0 +1,32 @@
+{{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
+
+<style>
+.title {
+  text-align: center;
+}
+
+.published {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+</style>
+
+<div class="container"> 
+  <br>
+  <br>
+  <div class="jumbotron jumbotron-fluid" style="padding-top:2em">
+      <div class="container">
+      <h1 class="title">{{ .Params.Title }}</h1>
+      <h6 class="published">{{ .Date.Format "January 2, 2006" }}</h6>
+      {{ .Content }}
+      </div>
+  </div>
+</div>
+
+{{ partial "footer.html" . }}

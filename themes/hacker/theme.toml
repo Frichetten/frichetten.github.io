@@ -1,0 +1,12 @@
+name = "hacker"
+description = "Hack the Planet in style."
+license = "MIT"
+licenselink = "http://opensource.org/licenses/MIT"
+homepage = "https://github.com/frichetten/frichetten.github.io"
+tags = ["blog", "personal"]
+features = ["hacker","cybersecurity"]
+min_version=0.14
+
+[author]
+    name = "Nick Frichette"
+    homepage = "https://frichetten.com"

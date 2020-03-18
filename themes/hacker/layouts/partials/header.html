@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>{{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Title }}">
+  <meta name="author" content="{{ .Site.Author.name }}">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/fonts.css">
+  
+  <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/custom.min.css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/home.css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="{{ .Site.BaseURL }}js/particles.min.js"></script>
+  <script src="{{ .Site.BaseURL }}js/load_particles.js"></script>
+
+  <meta name="title" content="{{ .Params.title }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ .Params.title }}">
+  <meta name="twitter:description" content="{{ .Params.description }}">
+  <meta name="twitter:image" content="{{ .Params.image }}"> 
+
+</head>
+<body>
+  <div id="particles-js"></div>
