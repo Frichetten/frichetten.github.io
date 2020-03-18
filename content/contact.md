@@ -1,4 +1,7 @@
 ---
+description: How to contact me
+title: Contact Me
+image: https://frichetten.com/images/home/profile.jpg
 ---
 <div class="card">
   <div class="card-block">

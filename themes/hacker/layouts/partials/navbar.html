@@ -11,7 +11,10 @@
     <ul class="navbar-nav">
       {{ range .Site.Menus.nav }}
       <li class="nav-item">
-        <a href="{{ .URL }}" class="nav-link {{ if or (eq $.URL .URL) (or ($currentPage.HasMenuCurrent "nav" .) ($currentPage.IsMenuCurrent "nav" .)) }}active{{ end }}">{{ .Name }}</a>
+        {{ $active := or ($currentPage.IsMenuCurrent "nav" . ) ($currentPage.HasMenuCurrent "nav" . ) }}
+	{{ $active = or $active (eq $.URL .URL) }}
+	{{ $active = or $active (and (in $currentPage.URL "blog") (eq .Name "Blog")) }}
+        <a href="{{ .URL }}" class="nav-link {{ if $active }}active{{ end }}">{{ .Name }}</a>
       </li>
       {{ end }}
     </ul>
