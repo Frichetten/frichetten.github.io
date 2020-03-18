@@ -85,4 +85,5 @@ image: https://frichetten.com/images/home/profile.jpg
     </div>
   </div>
 </div>
+<br>
 </div>

@@ -5,6 +5,9 @@ newContentEditor = "vim"
 theme = "hacker"
 pygmentsStyle = "native"
 
+[markup.goldmark.renderer]
+  unsafe = true
+
 [menu]
   [[menu.nav]]
     name = "Home"
