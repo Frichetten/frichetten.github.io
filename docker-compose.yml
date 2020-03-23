@@ -9,6 +9,8 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - certbot-check:/usr/share/nginx/html/cert/
+      - /home/nick/images/:/usr/share/nginx/html/images/
+      - /home/nick/files/:/usr/share/nginx/html/files/
     ports:
       - "80:80"
       - "443:443"
