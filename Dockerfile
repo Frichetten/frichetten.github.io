@@ -19,6 +19,7 @@ FROM nginx:alpine
 COPY --from=hugo-compile public/ /usr/share/nginx/html/
 COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/nginx/frichetten.com /etc/nginx/sites-enabled/frichetten.com
+COPY ./docker/nginx/tor /etc/nginx/sites-enabled/tor
 
 EXPOSE 80
 
