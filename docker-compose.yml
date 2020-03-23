@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  frichetten:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - certbot-check:/usr/share/nginx/html/cert/
+    ports:
+      - "80:80"
+      - "443:443"
+
+  certbot:
+    image: certbot/certbot
+    volumes: 
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - certbot-check:/var/www/html/cert
+    depends_on:
+      - frichetten
+    command: certonly --webroot --webroot-path=/var/www/html/cert --agree-tos --no-eff-email -d frichetten.com
+
+volumes:
+  certbot-check:
+  certbot-etc:
+  certbot-var:
