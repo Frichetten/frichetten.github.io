@@ -5,7 +5,7 @@ image: https://frichetten.com/images/home/profile.jpg
 ---
 <link rel="stylesheet" href="/css/index.css">
 <div class="container">
-<br><br>
+<br><br><br>
   <img src="/images/home/profile.jpg" class="circle-avatar" alt="Picture of Nick">
 <br>
 <div class="card">

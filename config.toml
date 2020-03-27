@@ -1,4 +1,4 @@
-baseURL = "http://frichetten.com/"
+baseURL = "https://frichetten.com/"
 languageCode = "en-us"
 title = "Nick Frichette"
 newContentEditor = "vim"
