@@ -4,6 +4,7 @@
 
   <!-- Basic Page Needs –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
+  <title>{{ .Params.title }}</title>
   <meta name="author" content="{{ .Site.Author.name }}">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
@@ -21,6 +22,7 @@
   <script src="{{ .Site.BaseURL }}js/matomo.js"></script>
 
   <meta name="title" content="{{ .Params.title }}">
+  <meta name="description" content="{{ .Params.description }}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ .Params.title }}">
   <meta name="twitter:description" content="{{ .Params.description }}">
