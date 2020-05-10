@@ -25,7 +25,7 @@ image: https://frichetten.com/images/home/profile.jpg
   <div class="card-block">
     <div class="text-canvas">
       <h2>Background</h2>
-      <p>Hi I'm Nick! I'm a tehnical lead for a Penetration Testing team at a Fortune 40. My primary areas of focus are in web 
+      <p>Hi I'm Nick! I'm the team lead for a Penetration Testing team at a Fortune 40. My primary areas of focus are in web 
         applications, AWS, and containerization (Kubernetes, Docker, etc.).</p>
       <p>In my off time write a lot of code, play CTFs, and do general vuln research. I also support the Tor project through my Tor nodes.</p>
     </div>
@@ -47,7 +47,7 @@ image: https://frichetten.com/images/home/profile.jpg
           <p>
             <img src="/images/home/gxpn.png" class="img-responsive" alt="GXPN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             GXPN - GIAC Exploit Researcher and Advanced Penetration Tester<br>
-            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My Entry in the professionals list</a>
+            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My entry in the professionals list</a>
           </p>
         </div>
         <div class="col-md">
@@ -60,7 +60,7 @@ image: https://frichetten.com/images/home/profile.jpg
           <p>
             <img src="/images/home/gpen.png" class="img-responsive" alt="GPEN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             GPEN - GIAC Penetration Tester<br>
-            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My Entry in the professionals list</a>
+            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My entry in the professionals list</a>
           </p>
         </div>
         <div class="col-md">
