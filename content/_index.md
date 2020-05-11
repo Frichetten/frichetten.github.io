@@ -27,7 +27,7 @@ image: https://frichetten.com/images/home/profile.jpg
       <h2>Background</h2>
       <p>Hi I'm Nick! I'm the team lead for a Penetration Testing team at a Fortune 40. My primary areas of focus are in web 
         applications, AWS, and containerization (Kubernetes, Docker, etc.).</p>
-      <p>In my off time write a lot of code, play CTFs, and do general vuln research. I also support the Tor project through my Tor nodes.</p>
+      <p>In my off time I write a lot of code, play CTFs, and do general vuln research. I also support the Tor project through my <a href="https://metrics.torproject.org/rs.html#search/FriendlyExitNode%20country:us">Tor nodes</a>.</p>
     </div>
   </div>
 </div>
