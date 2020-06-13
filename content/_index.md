@@ -47,7 +47,7 @@ image: https://frichetten.com/images/home/profile.jpg
           <p>
             <img src="/images/home/gxpn.png" class="img-responsive" alt="GXPN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             GXPN - GIAC Exploit Researcher and Advanced Penetration Tester<br>
-            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My entry in the professionals list</a>
+            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My entry</a>
           </p>
         </div>
         <div class="col-md">
@@ -60,7 +60,7 @@ image: https://frichetten.com/images/home/profile.jpg
           <p>
             <img src="/images/home/gpen.png" class="img-responsive" alt="GPEN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             GPEN - GIAC Penetration Tester<br>
-            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My entry in the professionals list</a>
+            <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My entry</a>
           </p>
         </div>
         <div class="col-md">
