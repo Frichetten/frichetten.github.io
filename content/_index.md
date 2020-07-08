@@ -53,7 +53,12 @@ image: https://frichetten.com/images/home/profile.jpg
         <div class="col-md">
           <p>
             <img src="/images/home/aws.png" class="img-responsive" alt="AWS logo" style="width: 150px; height: 145px; padding: 10px"/><br>
-            AWS Certified Solutions Architect Associate<br>
+            AWS Certified Security - Specialty<br>
+          </p>
+        </div><div class="col-md">
+          <p>
+            <img src="/images/home/aws.png" class="img-responsive" alt="AWS logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            AWS Certified Solutions Architect - Associate<br>
           </p>
         </div>
         <div class="col-md">
