@@ -16,7 +16,7 @@
 	  <div class="col-md" style="margin: 2em;min-width:200px;">
 	    <a href="/blog/{{ $page.Params.link }}">
 	    {{ if lt $index 6 }}
-	      <p align="center"><img src="/images/thumbs/{{ $page.Params.link }}" class="img-responsive" style="width:200px;height:150px;"/></p>
+	      <p align="center"><img src="/images/thumbs/{{ $page.Params.link }}" loading="lazy" class="img-responsive" style="width:200px;height:150px;"/></p>
 	    {{ end }}
 	    <h4 style="text-align:center">{{ $page.Title}}</h4></a>
 	    <p align="center">{{ .Date.Format "January 2, 2006" }}</p>
