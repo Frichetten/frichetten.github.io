@@ -8,6 +8,12 @@ pygmentsStyle = "native"
 [markup.goldmark.renderer]
   unsafe = true
 
+disableKinds = ["taxonomy"]
+
+[taxonomies]
+    category = "categories"
+    tag = "tags"
+
 [menu]
   [[menu.nav]]
     name = "Home"
