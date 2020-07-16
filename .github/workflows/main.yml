@@ -1,0 +1,18 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux, X64]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: hugo --minify --disableKinds=taxonomy
+
+    - name: Copy Output
+      run: cp -r public/* /var/www/frichetten.com/
