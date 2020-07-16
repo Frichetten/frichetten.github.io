@@ -8,6 +8,8 @@ type: "blog"
 ---
 <p>As technologists, both professional and hobbyist, we are spoiled for options for the technologies we deploy and use. One such area is that of Continuous Integration and Continuous Delivery (<a href="https://en.wikipedia.org/wiki/CI/CD">CI/CD</a>). While evaluating options for a small project at home I started looking into <a href="https://docs.gitlab.com/runner/">GitLab Runners</a> to compliment my existing private GitLab instance. In this article I’d like to explain what Runners are, roughly how they work, and how you can abuse them on your next penetration test or red team engagement.</p>
 
+<p>While not an 'exploit' per se, I did want to demonstrate how you can leverage runner tokens if you find them as I had not seen anyone demonstrate this previously online. Hopefully I've saved you some time.</p>
+
 <h3>Setting up a GitLab Runner</h3>
 <p>Let’s say you have a simple project in Go and as a part of your CI/CD pipeline you’d like to ensure your project can be compiled.</p>
 
