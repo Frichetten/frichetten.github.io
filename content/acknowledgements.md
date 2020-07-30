@@ -10,6 +10,7 @@ image: https://frichetten.com/images/home/profile.jpg
       <div class="row">
         <div class="col-md">
           <p>The following are a list of links to acknowledgements and CVE's I've received.</p>
+          <div><p><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-15511">CVE-2020-15511</a> - I discovered a vulnerability in HashiCorp Terraform Enterprise that in unique scenarios allowed for account takeover by abusing the functionality with SAML authentication.</p></div>
 	  <div><p><a href="https://tldrsec.com/blog/tldr-sec-043/#red-team">tl;dr sec</a>,<a href="https://blog.intigriti.com/2020/07/22/bug-bytes-80-ci-dc-kung-fu-path-traversal-via-email-pro-devtool-tips/">Bug Bytes Newsletter</a> - My article <a href="https://frichetten.com/blog/abusing-gitlab-runners/?pk_campaign=acknowledgements">Abusing GitLab Runners</a> was featured in the tl;dr sec and Bug Bytes newsletter.
 	  <div><p><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11108">CVE-2020-11108</a> - I discovered multiple ways to gain remote code execution and elevate privileges to root in the popular open source application Pi-hole.</p></div>
 	  <div><p><a href="https://portal.msrc.microsoft.com/en-us/security-guidance/researcher-acknowledgments-online-services">Microsoft (MSRC)</a> - Acknowledgement for security research from the Microsoft Security Response Center. February 2020.</p></div>
