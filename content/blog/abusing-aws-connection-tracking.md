@@ -20,7 +20,7 @@ Based on that last sentence you're either very confused, or you think that's com
 
 Due to connection tracking, so long as you have established an outbound connection before the security group change your connection will persist. This is because of the difference of untracked vs tracked connections. Untracked connections are immediately stopped when the security group is changed, whereas tracked connections are not interrupted. 
 
-Taking SSH for example; if you SSH into an EC2 instance, and then change to a restrictive security group, your connection will either persist or be dropped depending on the original inbound rule.
+Connection tracking also applies in inbound rules as well. Taking SSH for example; if you SSH into an EC2 instance, and then change to a restrictive security group, your connection will either persist or be dropped depending on the original inbound rule.
 
 | Original Inbound Rule | Changed Rule To | Dropped/Not Dropped |
 | --------------------- | --------------- | ------------------- |
