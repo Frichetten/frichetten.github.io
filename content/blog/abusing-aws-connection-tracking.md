@@ -29,7 +29,7 @@ Connection tracking also applies to inbound rules as well. Taking SSH for exampl
 
 <br>
 
-On the flip side, outbound behavior seems to be different. After much testing, regardless of whether the outbound rules were 0.0.0.0/0 or something more specific outbound traffic was still persisted.
+It is due to this behavior that an existing outbound connection will be maintained, even when the security group is changed to allow nothing outbound.
 
 <center><img src="/images/blog/abusing-aws-connection-tracking/restrictive-rule.png" loading="lazy" alt="Showing the restrictive rule" /></center><br>
 
