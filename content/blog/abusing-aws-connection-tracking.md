@@ -16,7 +16,7 @@ Lets take a real world scenario. You, as a bad actor, gain code execution on an 
 
 <center><img src="/images/blog/abusing-aws-connection-tracking/scenario.png" loading="lazy" alt="Showing a topology of the scenario" /></center><br>
 
-While the intention of changing the security group is to isolate the EC2 instance not all traffic is blocked. In fact, if this example scenario played out in real life your reverse shell would be allowed through the new security group. Changing the security group did not drop your session.
+While the intention of changing the security group is to isolate the EC2 instance, not all traffic is blocked. In fact, if this example scenario played out in real life your reverse shell would be allowed through the new security group. Changing the security group did not drop your session.
 
 Based on that last sentence you may be confused. Let's talk about it.
 
