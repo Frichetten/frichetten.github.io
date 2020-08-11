@@ -39,7 +39,7 @@ It is due to this behavior that an existing outbound connection will be maintain
 
 <center><img src="/images/blog/abusing-aws-connection-tracking/still-here.png" loading="lazy" alt="Still here!" /></center><br>
 
-Something to keep in mind is that this is dealing with TCP connections. If you're using a beaconing C2, your traffic won't make it off the system and you will be locked out. While that may or may not be a deal breaker for you depending on the tooling and techniques you are employing, I do think it's worth keeping in your tool belt. By maintaining access via this method that gives you additional opportunities to seek out privilege escalation, steal the IAM keys, or potentially engage in hijinks such as sending messages to the forensics analyst's terminal when they log in. Or you could always just disable/uninstall the SSM agent and SSH after the priv esc. :)
+Something to keep in mind is that this is dealing with TCP connections. If you're using a beaconing C2, your traffic won't make it off the system and you will be locked out. While that may or may not be a deal breaker for you depending on the tooling and techniques you are employing, I do think it's worth keeping in your tool belt. By maintaining access via this method that gives you additional opportunities to seek out privilege escalation, steal the IAM keys, or potentially engage in hijinks such as sending messages to the forensics analyst's terminal when they log in. Or you could always just disable/uninstall the SSM agent after the priv esc. :)
 
 ## How Do We Prevent This?
 
