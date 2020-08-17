@@ -15,4 +15,9 @@ jobs:
       run: hugo --minify
 
     - name: Copy Output
-      run: cp -r public/* /var/www/frichetten.com/
+      run: |
+        cp -r public/* /var/www/frichetten.com/
+        sed -i 's|<url><loc>https://frichetten.com/categories/</loc></url>||g' /var/www/frichetten.com/sitemap.xml
+        sed -i 's|<url><loc>https://frichetten.com/health/</loc></url>||g' /var/www/frichetten.com/sitemap.xml
+        sed -i 's|<url><loc>https://frichetten.com/tags/</loc></url>||g' /var/www/frichetten.com/sitemap.xml
+        sed -i 's|<url><loc>https://frichetten.com/acknowledgments/</loc></url>||g' /var/www/frichetten.com/sitemap.xml
