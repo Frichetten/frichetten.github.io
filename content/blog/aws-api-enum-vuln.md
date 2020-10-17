@@ -3,7 +3,7 @@ title: "Enumerate AWS API Permissions Without Logging to CloudTrail"
 date: 2020-09-11T00:00:40-06:00
 description: Writeup for a bug I discovered in the AWS API that would allow you to enumerate certain permissions for a role without logging to CloudTrail.
 link: aws-api-enum-vuln
-image: https://frichetten.com/images/thumbs/abusing-aws-connection-tracking
+image: https://frichetten.com/images/thumbs/aws-api-enum-vuln
 type: "blog"
 ---
 The following is a technical writeup for a bug I found in the AWS API that allows you to enumerate certain permissions for a role without logging to CloudTrail. It affects 645 different API actions across 40 different AWS services. This would be beneficial for a Penetration Tester or a Red Teamer to enumerate what permissions the role or user they've compromised has access to without alerting the blue team as no logs are generated in CloudTrail.
@@ -75,12 +75,12 @@ Dang, I was really hoping it would provide the content. Finding a way to make an
 
 I drew a little chart on some scratch paper and stared at it.
 
-| IAM Permissions | Content-Header | Response Code | CloudTrail Log |
+| IAM Perm | Header | Response | Logged? |
 | --------------- | -------------- | ------------- | -------------- |
-| Has Permission | 1.0 | 404 | No CloudTrail |
-| Has Permission | 1.1 | 200 | Yes CloudTrail |
-| No Permission | 1.0 | 403 | No CloudTrail |
-| No Permission | 1.1 | 400 | Yes CloudTrail |
+| Yes | 1.0 | 404 | No |
+| Yes | 1.1 | 200 | Yes |
+| No | 1.0 | 403 | No |
+| No | 1.1 | 400 | Yes |
 
 <br>
 
