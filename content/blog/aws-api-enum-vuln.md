@@ -135,7 +135,7 @@ As a result of this work I created a proof of concept which would test all of th
 
 And did any of that show up in CloudTrail?
 
-<center><img src="/images/blog/aws-api-enum-vuln/cloudtrail_output.png" loading="lazy" alt="Output of CloudTrail" /></center><br>
+<center><img src="/images/blog/aws-api-enum-vuln/cloudtrail_out.png" loading="lazy" alt="Output of CloudTrail" /></center><br>
 
 As you can see from the screenshot, after waiting 30 minutes none of our detected permissions were logged to CloudTrail (look at the timestamps).
 
