@@ -6,7 +6,7 @@ link: aws-api-enum-vuln
 image: https://frichetten.com/images/thumbs/abusing-aws-connection-tracking
 type: "blog"
 ---
-The following is a technical writeup for a bug I found in the AWS API that would allow you to enumerate certain permissions for a role without logging to CloudTrail. It affects 645 different API actions across 40 different AWS services. This would be beneficial for a Penetration Tester or a Red Teamer to enumerate what permissions the role or user they've compromised has access to without alerting the blue team as no logs are generated in CloudTrail.
+The following is a technical writeup for a bug I found in the AWS API that allows you to enumerate certain permissions for a role without logging to CloudTrail. It affects 645 different API actions across 40 different AWS services. This would be beneficial for a Penetration Tester or a Red Teamer to enumerate what permissions the role or user they've compromised has access to without alerting the blue team as no logs are generated in CloudTrail.
 
 This article is split into two parts. The first being a quick summary as to how the vulnerability could be exploited. The second being an explanation of the discovery and technical analysis.
 
@@ -97,7 +97,7 @@ So, how does one go about testing every single AWS API call for a specific vulne
 ## Scaling Up
 The method for doing this came from an unexpected place. The enumerate-iam tool I mentioned above has a feature where it can update itself by reading in the AWS API definition from an AWS GitHub repo. I took a page from that book, and created a [script](https://github.com/Frichetten/aws_stealth_perm_enum/blob/master/enum_all_api_calls/enumerate_vuln_apis.py) that would programmatically call every AWS API that used the JSON 1.1 protocol. I then ran this script twice, once with a role that had NO permissions, and once with a role that had \*:\*. The script would capture the response code, the service name, action, and a hash of the response body.
 
-I then compared these two outputs and checked for situations in which the response codes were different. Additionally, I later discovered a handful of services that would return the same error code regardless of the permissions but would have a different response body (thus I used the hash to compare them).
+I then compared these two outputs and checked for situations in which the response codes were different. Additionally, I later discovered a handful of services that would return the same response code regardless of the permissions but would have a different response body (thus I used the hash to compare them).
 
 After comparing my output to CloudTrail to ensure none were showing up, I had a full list of APIs that did not get logged to CloudTrail. That list was composed of 645 unique API calls across 40 different AWS services which were:
 
