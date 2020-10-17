@@ -19,6 +19,8 @@ The vulnerability allows you to enumerate if a given role has permission to call
 2. The API action returns a unique error code depending on the permission set.
 3. The resource associated with that action is set to "*".
 
+A full list of every susceptible API I've identified can be found [here](https://github.com/Frichetten/aws_stealth_perm_enum/blob/master/list_vuln_apis.json).
+
 ## Manual Steps to Exploit
 The vulnerability affects certain AWS services that use POST requests and the X-Amz-Target header (Each AWS API uses different protocol types. Some use GET requests, some POST to an API endpoint, etc.). The majority of these services require the Content-Type header to be 'application/x-amz-json-1.1'. In the majority of instances, sending 'application/x-amz-json-1.0' will provide you with an error; typically 404 - 'UnknownOperationException' or 500 - 'InternalFailure'.
 
