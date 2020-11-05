@@ -1,6 +1,7 @@
 baseURL = "https://frichetten.com/"
 languageCode = "en-us"
 title = "Nick Frichette"
+author = "Nick Frichette"
 newContentEditor = "vim"
 theme = "hacker"
 pygmentsStyle = "native"
