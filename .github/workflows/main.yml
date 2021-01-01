@@ -21,3 +21,4 @@ jobs:
         sed -i 's|<url><loc>https://frichetten.com/health/</loc><priority>0</priority></url>||g' /var/www/frichetten.com/sitemap.xml
         sed -i 's|<url><loc>https://frichetten.com/tags/</loc></url>||g' /var/www/frichetten.com/sitemap.xml
         sed -i 's|<url><loc>https://frichetten.com/acknowledgments/</loc></url>||g' /var/www/frichetten.com/sitemap.xml
+        sed -i 's|<url><loc>https://frichetten.com/shellcon-2020-slides/</loc></url>||g' /var/www/frichetten.com/sitemap.xml
