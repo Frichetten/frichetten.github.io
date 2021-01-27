@@ -1,6 +1,6 @@
 ---
 title: "Intercept SSM Agent Communications"
-date: 2021-01-23T00:00:40-06:00
+date: 2021-01-27T00:00:40-06:00
 description: Research on post-exploitation techniques against SSM Agent abusing send-command and start-session.
 link: ssm-agent-tomfoolery
 image: https://frichetten.com/images/thumbs/ssm-agent-tomfoolery
