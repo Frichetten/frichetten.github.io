@@ -14,7 +14,7 @@ image: https://frichetten.com/images/home/profile.jpg
       <h1 style="text-align: center">Nick Frichette</h1>
       <h2 style="text-align: center" class="desc">Software Developer and Security Researcher</h2>
       <p style="text-align: center" class="tor">This server is part of the <a href="https://torproject.org">Tor</a> network.
-        Onion Address: <a href="http://nickf43ab43xxf3yqgzy5uedsjij6h473rmbyzq6inohcnr3lohlu3yd.onion/">
+        Onion Address: <a href="https://nickf43ab43xxf3yqgzy5uedsjij6h473rmbyzq6inohcnr3lohlu3yd.onion/">
           nickf43ab43xxf3yqgzy5uedsjij6h473rmbyzq6inohcnr3lohlu3yd.onion
         </a></p>
     </div>
