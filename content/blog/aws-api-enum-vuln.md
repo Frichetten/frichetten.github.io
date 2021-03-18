@@ -6,6 +6,10 @@ link: aws-api-enum-vuln
 image: https://frichetten.com/images/thumbs/aws-api-enum-vuln
 type: "blog"
 ---
+Update: If you're from AWS reading this and recognize E307681810 or E311964171, don't be a stranger. Happy to provide additional info or examples.
+
+Update 3/18/21: With all the new attention this has received lately I should mention that I'm currently working on expanding this and looking for additional services it effects. In addition, I've found some additional ways of making it work (such as not using the 1.0 header). I'll blog more about it when I'm done :)
+
 The following is a technical writeup for a bug I found in the AWS API that allows you to enumerate certain permissions for a role without logging to CloudTrail. It affects 645 different API actions across 40 different AWS services. This would be beneficial for a Penetration Tester or a Red Teamer to enumerate what permissions the role or user they've compromised has access to without alerting the blue team as no logs are generated in CloudTrail.
 
 This article is split into two parts. The first being a quick summary as to how the vulnerability could be exploited. The second being an explanation of the discovery and technical analysis.
