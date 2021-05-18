@@ -4,7 +4,7 @@ date: 2020-10-17T00:00:40-06:00
 description: Writeup for a bug I discovered in the AWS API that would allow you to enumerate certain permissions for a role without logging to CloudTrail.
 link: aws-api-enum-vuln
 image: https://frichetten.com/images/thumbs/aws-api-enum-vuln
-type: "blog"
+type: blog
 ---
 <b>Update 5/18/21: As of today the majority of services affected by this are no longer vulnerable. AWS appears to have remediated it in its current form. This blog post has been kept for historical clarity.</b>
 
