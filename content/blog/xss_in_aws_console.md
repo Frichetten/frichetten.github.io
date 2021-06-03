@@ -1,6 +1,6 @@
 ---
 title: "XSS in the AWS Console"
-date: 2021-04-24T00:00:40-06:00
+date: 2021-06-03T00:00:40-06:00
 description: Writeup for a cross-site scripting bug I found in the AWS Console.
 link: xss_in_aws_console
 image: https://frichetten.com/images/thumbs/xss_in_aws_console
