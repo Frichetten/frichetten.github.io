@@ -77,7 +77,7 @@ The Content Security Policy allowed you to load iframes from an S3 bucket in the
 Indeed you can load the iframe from an S3 bucket!
 
 ## Submitting to AWS
-Not seeing an obvious way to get past the CSP I settled with HTML/iframe injection. Was it cool? Sure, I mean any vuln in the AWS Console is neat, but HMTL injection is fluff for a pentest report. Either way, I sent an email over to the AWS Vulnerability Disclosure program along with some screenshots, and a proof of concept (Python script to stick an HTML payload in the user-agent for the update-environment API call).
+Not seeing an obvious way to get past the CSP I settled with HTML/iframe injection. Was it cool? Sure, I mean any vuln in the AWS Console is neat, but HTML injection is fluff for a pentest report. Either way, I sent an email over to the AWS Vulnerability Disclosure program along with some screenshots, and a proof of concept (Python script to stick an HTML payload in the user-agent for the update-environment API call).
 
 The AWS Security Team responded promptly and said they forwarded the information on to the service team. From here, I waited about two weeks and noticed that I no longer had any events in the Change History page. "Weird", I thought, "maybe they were just old and dropped off"? So I created some new CloudTrail events and they still didn't show up. 
 
