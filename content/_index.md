@@ -45,6 +45,12 @@ image: https://frichetten.com/images/home/profile.jpg
         </div>
         <div class="col-md">
           <p>
+            <img src="/images/home/oswe.png" loading="lazy" class="img-responsive" alt="OSCP logo" style="width: 150px; height: 145px; padding: 10px"/><br>
+            OSWE - Offensive Security Web Expert<br>
+          </p>
+        </div>
+        <div class="col-md">
+          <p>
             <img src="/images/home/gxpn.png" loading="lazy" class="img-responsive" alt="GXPN logo" style="width: 150px; height: 145px; padding: 10px"/><br>
             GXPN - GIAC Exploit Researcher and Advanced Penetration Tester<br>
             <a href="https://www.giac.org/certified-professional/nicholas-frichette/163907">My entry</a>
