@@ -29,18 +29,22 @@ disableKinds = ["taxonomy"]
     url = "/contact/"
     weight = "3"
   [[menu.nav]]
+    name = "RSS"
+    url = "/rss/"
+    weight = "4"
+  [[menu.nav]]
     name = "GitHub"
     url = "https://github.com/frichetten"
-    weight = "4"
+    weight = "5"
   [[menu.nav]]
     name = "Twitter"
     url = "https://twitter.com/frichette_n"
-    weight = "5"
+    weight = "6"
   [[menu.nav]]
     name = "LinkedIn"
     url = "https://www.linkedin.com/in/nick-frichette/"
-    weight = "6"
+    weight = "7"
   [[menu.nav]]
     name = "Keybase"
     url = "https://keybase.io/frichetten" 
-    weight = "7"
+    weight = "8"
