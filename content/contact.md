@@ -16,8 +16,7 @@ image: https://frichetten.com/images/home/profile.jpg
           <p>Want to communicate more privately? Here's my public PGP key.
             (Click on it to download)</p>
           <p><a href="/files/pub.asc">PGP Key</a></p>
-          <p>If you'd like to buy me a soda or video game (or you just really liked my VMs) these are for you :)</p>
-          <p>BTC: 3BHZPj4Pmeu5wouXmeM8QU8CT4PRbkBwfk</p>
+          <p>If you'd like to buy me a soda or video game (or you just really like some of my blog posts) this is for you :)</p>
           <p style="word-break: break-all">XMR: 48ZCQ7zRkmUEedXoiLcM2xaBNjk2zCZmWbNcB39b1GK55bA5arHWnrsCrGhqGBdG1yfU3MkK42kJf9R96czgqxjF8rETEXq</p>
         </div>
       </div>
